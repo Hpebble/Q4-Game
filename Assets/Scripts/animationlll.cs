@@ -6,10 +6,14 @@ public class animationlll : MonoBehaviour
 {
     public GameObject windowsButtonOb;
     public bool Pressed;
+    public GameObject pictureFile;
+    public GameObject RecycleBin;
     // Start is called before the first frame update
     void Start()
     {
         windowsButtonOb.SetActive(false);
+        pictureFile.SetActive(false);
+        RecycleBin.SetActive(false);
     }
 
     // Update is called once per frame
@@ -31,8 +35,15 @@ public class animationlll : MonoBehaviour
             windowsButtonOb.SetActive(false);
             Pressed = true;
         }
+    }
 
+    public void pictureFileButton()
+    {
+        pictureFile.SetActive(true);
+    }
 
-
+    public void RecycleBinButton()
+    {
+        RecycleBin.SetActive(true);
     }
 }
