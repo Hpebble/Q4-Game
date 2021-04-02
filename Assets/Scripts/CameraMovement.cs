@@ -14,6 +14,11 @@ public class CameraMovement : MonoBehaviour
     public Quaternion offsetRotate;
     public Transform CameraOrigin;
     public Quaternion offsetRotate2;
+    public Vector3 mousePos;
+    public Vector3 MouseOffset;
+    public GameObject mouseOffsetVis;
+    public Canvas OSCanvas;
+    public Camera cam;
    
     // Start is called before the first frame update
     void Start()
@@ -46,8 +51,15 @@ public class CameraMovement : MonoBehaviour
             Quaternion MonitorRota = Quaternion.Slerp(transform.rotation, MonitorRotationXYZ, moveSpeed);
             
             transform.position = MonitorPos;
-            transform.rotation = MonitorRota; 
+            transform.rotation = MonitorRota;
+
+
+            
+
         }
+
+       
+        
     }
     public void onMonitorButton()
     {

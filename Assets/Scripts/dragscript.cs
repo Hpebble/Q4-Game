@@ -12,6 +12,7 @@ public class dragscript : MonoBehaviour, IDragHandler, IPointerDownHandler
     public void OnDrag(PointerEventData eventData)
     {
         DraggingController.isDragging = true;
+        
         dragTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
         
     }
@@ -19,7 +20,10 @@ public class dragscript : MonoBehaviour, IDragHandler, IPointerDownHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         DraggingController.isDragging = false;
-        dragTransform.SetAsLastSibling();
+        if (gameObject.tag != ("Icon"))
+        {
+            dragTransform.SetAsLastSibling();
+        }
 
     }
 }
