@@ -172,41 +172,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8468593095133074609, guid: e5cbd269f9397be4f89c9909c64e9eb6, type: 3}
   m_PrefabInstance: {fileID: 7692612090447123093}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1538019093 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5797024392090748408, guid: e5cbd269f9397be4f89c9909c64e9eb6, type: 3}
-  m_PrefabInstance: {fileID: 7692612090447123093}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1538019094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1538019093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8d2fcd704f6c3549a333c1641689a87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpStrength: 22
-  groundSpeed: 430
-  groundDampening: 0.95
-  airSpeed: 145
-  airDampening: 0.5
-  jumpFallMultiplier: 5
-  lowJumpFallMultiplier: 5
-  maxFallSpeed: -22
-  playerHealth: 100
-  playerSprite: {fileID: 1538019097}
-  aimDir: 1
-  cannotTurn: 0
-  RuneAnimator: {fileID: 0}
---- !u!212 &1538019097 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 2015287918255185132, guid: e5cbd269f9397be4f89c9909c64e9eb6, type: 3}
-  m_PrefabInstance: {fileID: 7692612090447123093}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1643040199
 GameObject:
   m_ObjectHideFlags: 0
@@ -1617,7 +1582,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 317845a0b8843a442a9a91b6e0136478, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FollowSpeed: 2
+  FollowSpeed: 8
   FollowTarget: {fileID: 804985053}
 --- !u!1 &2046136497
 GameObject:
