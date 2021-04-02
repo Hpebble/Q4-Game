@@ -8,12 +8,14 @@ public class animationlll : MonoBehaviour
     public bool Pressed;
     public GameObject pictureFile;
     public GameObject RecycleBin;
+    public GameObject GameFolder;
     // Start is called before the first frame update
     void Start()
     {
         windowsButtonOb.SetActive(false);
         pictureFile.SetActive(false);
         RecycleBin.SetActive(false);
+        GameFolder.SetActive(false);
     }
 
     // Update is called once per frame
@@ -39,11 +41,43 @@ public class animationlll : MonoBehaviour
 
     public void pictureFileButton()
     {
-        pictureFile.SetActive(true);
+        if (DraggingController.isDragging == false)
+        {
+            pictureFile.SetActive(true);
+        } 
+        
     }
 
     public void RecycleBinButton()
     {
-        RecycleBin.SetActive(true);
+        if (DraggingController.isDragging == false) 
+        {
+            RecycleBin.SetActive(true);
+        }
+        
+    }
+
+    public void pictureFileButtonExit()
+    {
+        pictureFile.SetActive(false);
+    }
+
+    public void RecycleBinButtonExit()
+    {
+        RecycleBin.SetActive(false);
+    }
+
+    public void gameFolderOpen()
+    {
+        if(DraggingController.isDragging == false) 
+        {
+            GameFolder.SetActive(true);
+        }
+        
+    }
+
+    public void gameFolderClosed()
+    {
+        GameFolder.SetActive(false);
     }
 }

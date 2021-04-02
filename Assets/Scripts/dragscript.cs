@@ -7,14 +7,19 @@ public class dragscript : MonoBehaviour, IDragHandler, IPointerDownHandler
 {
     [SerializeField] public RectTransform dragTransform;
     [SerializeField] public Canvas canvas;
+    public GameObject folderPicture, folderBin;
+    
     public void OnDrag(PointerEventData eventData)
     {
+        DraggingController.isDragging = true;
         dragTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
-        Debug.Log("Dragging");
+        
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        DraggingController.isDragging = false;
         dragTransform.SetAsLastSibling();
+
     }
 }
