@@ -8,7 +8,7 @@ public class DraggingController : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(isDragging);
+        
     }
 
 }

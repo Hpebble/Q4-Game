@@ -28,7 +28,7 @@ public class MoveScript : MonoBehaviour
 
         dlxx += rotateSpeed;
         DirectionalLight.rotation = Quaternion.Euler(dlxx, DirectionalLight.rotation.y, DirectionalLight.rotation.x);
-        Debug.Log(DirectionalLight.rotation);
+       
         
         
         if (x > 0)

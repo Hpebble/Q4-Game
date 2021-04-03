@@ -19,6 +19,7 @@ public class CameraMovement : MonoBehaviour
     public GameObject mouseOffsetVis;
     public Canvas OSCanvas;
     public Camera cam;
+    public GameObject newCursor;
    
     // Start is called before the first frame update
     void Start()
@@ -33,6 +34,8 @@ public class CameraMovement : MonoBehaviour
 
         if (!onMonitor)
         {
+            newCursor.SetActive(false);
+            Cursor.visible = true;
             Vector3 DesiredPosition = new Vector3(player.position.x, player.position.y, 0) + offset;
             Vector3 SmoothedPos = Vector3.Lerp(transform.position, DesiredPosition, cameraSpeed);
 
@@ -40,10 +43,14 @@ public class CameraMovement : MonoBehaviour
 
             transform.position = SmoothedPos;
             transform.rotation = orignalRotation;
+            
+            
         }
 
         if (onMonitor)
         {
+            newCursor.SetActive(true);
+            Cursor.visible = false;
             Vector3 MonitorPosXYZ = new Vector3(monitorPos.position.x, monitorPos.position.y, 0) + offset2;
             Vector3 MonitorPos = Vector3.Lerp(transform.position, MonitorPosXYZ, moveSpeed);
             
