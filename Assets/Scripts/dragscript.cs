@@ -25,6 +25,7 @@ public class dragscript : MonoBehaviour, IDragHandler, IPointerDownHandler, IEnd
     {
         DraggingController.isDragging = false;
         Debug.Log("Stopped Dragging");
+        MouseCursor.transform.position = dragTransform.position - MouseCursor.transform.position;
     }
 
     public void OnPointerDown(PointerEventData eventData)

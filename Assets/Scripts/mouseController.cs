@@ -6,6 +6,7 @@ public class mouseController : MonoBehaviour
 {
     public static GameObject mouseCursor;
     public Camera cam;
+    public static RectTransform dragTransform;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,12 @@ public class mouseController : MonoBehaviour
         if(Physics.Raycast(ray, out RaycastHit hit))
         {
             transform.position = hit.point;
+
+            
         }
+
+      
+            
+       
     }
 }
