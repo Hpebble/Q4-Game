@@ -2,36 +2,51 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using System.Runtime.InteropServices;
 
-public class dragscript : MonoBehaviour, IDragHandler, IPointerDownHandler, IEndDragHandler
+
+public class dragscript : MonoBehaviour, IDragHandler, IPointerDownHandler, IEndDragHandler, IBeginDragHandler
 {
     [SerializeField] public RectTransform dragTransform;
+  
     [SerializeField] public Canvas canvas;
     public GameObject MouseCursor;
+    public float timeLeft;
 
-    
+
+
+
+
+    public void Start()
+    {
+    }
+        
 
     public void OnDrag(PointerEventData eventData)
     {
-        DraggingController.isDragging = true;
         
-        MouseCursor.SetActive(false);
+        
+     
         
         dragTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
         
     }
+    
 
     public void OnEndDrag(PointerEventData eventData)
     {
+
         DraggingController.isDragging = false;
         Debug.Log("Stopped Dragging");
-        MouseCursor.transform.position = dragTransform.position - MouseCursor.transform.position;
+       
+       
+
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
         
-        
+
         if (gameObject.tag != ("Icon"))
         {
             dragTransform.SetAsLastSibling();
@@ -40,17 +55,39 @@ public class dragscript : MonoBehaviour, IDragHandler, IPointerDownHandler, IEnd
     }
     public void Update()
     {
-        if (DraggingController.isDragging == false)
+        if (DraggingController.isDragging == true)
         {
-            MouseCursor.SetActive(true) ;
+           
+            if (timeLeft <= 3)
+            {
+                MouseCursor.SetActive(false);
+                timeLeft = 0;
+            }
+            timeLeft -= Time.deltaTime;
+            
         }
-        else if (DraggingController.isDragging == true)
+        else if (DraggingController.isDragging == false)
         {
-            MouseCursor.SetActive(false);
+            MouseCursor.SetActive(true);
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            
+            Debug.Log("Pressed E");
+            
+            
+            ;
+
         }
 
         
         
         
+    }
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        DraggingController.isDragging = true;
     }
 }

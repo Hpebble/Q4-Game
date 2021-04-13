@@ -12,7 +12,8 @@ public class MoveScript : MonoBehaviour
     public float rotateSpeed;
     public float goingRight;
     public float goingLeft;
-    public float dlxx;
+    public float dlx;
+    public bool isCollide;
 
     // Start is called before the first frame update
     void Start()
@@ -26,22 +27,57 @@ public class MoveScript : MonoBehaviour
         x = Input.GetAxisRaw("Horizontal");
         z = Input.GetAxisRaw("Vertical");
 
-        dlxx += rotateSpeed;
-        DirectionalLight.rotation = Quaternion.Euler(dlxx, DirectionalLight.rotation.y, DirectionalLight.rotation.x);
-       
+
         
-        
-        if (x > 0)
+
+
+
+        if (x > 0 && !isCollide) 
         {
-           
-          
+            dlx += rotateSpeed;
+
+
+            DirectionalLight.rotation = Quaternion.Euler(-1038, dlx, DirectionalLight.rotation.z);
+
+            Debug.Log(dlx += rotateSpeed);
+
         }
 
-        if (x == -1)
-        { 
-                       
+        if (x == -1 && !isCollide) 
+        {
+            dlx -= rotateSpeed;
+
+
+            DirectionalLight.rotation = Quaternion.Euler(-1038, dlx, DirectionalLight.rotation.z);
+            Debug.Log(dlx -= rotateSpeed);
         }
+
 
         rb.velocity = new Vector3(x * speed, rb.velocity.y, z * speed);
     }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.tag.Equals("wall"))
+        {
+            isCollide = true;
+        }
+        else if (collision.gameObject.tag.Equals("floor") || collision.gameObject.tag != ("wall"))
+        {
+            isCollide = false;
+        }
+    }
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag.Equals("desk"))
+        {
+            Debug.Log("Went to Desk");
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        Debug.Log("Left Desk");
+    }
 }
+
