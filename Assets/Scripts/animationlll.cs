@@ -9,6 +9,7 @@ public class animationlll : MonoBehaviour
     public GameObject pictureFile;
     public GameObject RecycleBin;
     public GameObject GameFolder;
+
     // Start is called before the first frame update
     void Start()
     {

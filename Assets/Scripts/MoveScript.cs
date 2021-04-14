@@ -67,17 +67,6 @@ public class MoveScript : MonoBehaviour
             isCollide = false;
         }
     }
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag.Equals("desk"))
-        {
-            Debug.Log("Went to Desk");
-        }
-    }
-
-    public void OnTriggerExit(Collider other)
-    {
-        Debug.Log("Left Desk");
-    }
+  
 }
 

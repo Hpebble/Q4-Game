@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UICollision : MonoBehaviour
+public class eLoaded : MonoBehaviour
 {
+    public static bool eLoad;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +16,4 @@ public class UICollision : MonoBehaviour
     {
         
     }
-
-  
 }

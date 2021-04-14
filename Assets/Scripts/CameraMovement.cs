@@ -31,6 +31,16 @@ public class CameraMovement : MonoBehaviour
     void Update()
     {
        
+        if (eLoaded.eLoad == true && Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log("You can use Monitor");
+            onMonitor = true;
+        }
+        else if (eLoaded.eLoad == false && Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log("You can not use Monitor");
+        }
+
 
         if (!onMonitor)
         {
@@ -52,13 +62,18 @@ public class CameraMovement : MonoBehaviour
             newCursor.SetActive(true);
             Cursor.visible = false;
             Vector3 MonitorPosXYZ = new Vector3(monitorPos.position.x, monitorPos.position.y, 0) + offset2;
-            Vector3 MonitorPos = Vector3.Lerp(transform.position, MonitorPosXYZ, moveSpeed);
+            Vector3 MonitorPos = Vector3.Lerp(transform.position, MonitorPosXYZ, moveSpeed); 
             
             Quaternion MonitorRotationXYZ = Quaternion.Euler(monitorPos.rotation.x + offsetRotate.x, monitorPos.rotation.y + offsetRotate.y, monitorPos.rotation.z + offsetRotate.z);
             Quaternion MonitorRota = Quaternion.Slerp(transform.rotation, MonitorRotationXYZ, moveSpeed);
             
             transform.position = MonitorPos;
             transform.rotation = MonitorRota;
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                onMonitor = false;
+            }
 
 
             
