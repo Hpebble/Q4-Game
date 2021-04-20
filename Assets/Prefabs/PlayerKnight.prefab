@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 7904416912403521548}
   - component: {fileID: 5357650689625595057}
   - component: {fileID: 1538019094}
+  - component: {fileID: 8298000450119561132}
   m_Layer: 6
   m_Name: PlayerKnight
   m_TagString: Untagged
@@ -228,6 +229,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8d2fcd704f6c3549a333c1641689a87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 0
+  maxHealth: 0
   jumpStrength: 22
   groundSpeed: 430
   groundDampening: 0.95
@@ -236,11 +239,29 @@ MonoBehaviour:
   jumpFallMultiplier: 5
   lowJumpFallMultiplier: 5
   maxFallSpeed: -22
-  playerHealth: 100
   playerSprite: {fileID: 2015287918255185132}
   aimDir: 1
   cannotTurn: 0
   RuneAnimator: {fileID: 0}
+--- !u!95 &8298000450119561132
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5797024392090748408}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8468593095133074609
 GameObject:
   m_ObjectHideFlags: 0

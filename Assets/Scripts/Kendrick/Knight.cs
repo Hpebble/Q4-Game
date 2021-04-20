@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class Knight : MonoBehaviour
 {
+    [Header("Player Stats")]
+    public float health;
+    public float maxHealth;
+
     [Header("Movement")]//Player Variables
     public float jumpStrength = 10;
     public float groundSpeed;
@@ -26,9 +30,6 @@ public class Knight : MonoBehaviour
 
     [Header("Other Stuff")]
     private float dashCD = 0.4f;
-
-    //Additional Damage and Health Variables (Julien)
-    public int playerHealth = 5;
 
     //Additional Direction Variables (Julien)
     public SpriteRenderer playerSprite;
@@ -55,11 +56,10 @@ public class Knight : MonoBehaviour
     void Update()
     {
         checkGround();
-        //Grapple Stuff
         //Dashing
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetMouseButtonDown(0))
         {
-
+            CombatManager.instance.Attack();
         }
     }
     void FixedUpdate()
@@ -117,7 +117,7 @@ public class Knight : MonoBehaviour
         //Boxcast under player to detect ground
         float boxHeight = 0.1f;
 
-        grounded = Physics2D.BoxCast(new Vector2(boxCol.bounds.center.x, boxCol.bounds.center.y - boxCol.bounds.extents.y), new Vector2(boxCol.bounds.extents.x, 0.01f), 0f, Vector2.down, boxHeight, platformLayermask);
+        grounded = Physics2D.BoxCast(new Vector2(boxCol.bounds.center.x, boxCol.bounds.center.y - boxCol.bounds.extents.y), new Vector2(boxCol.bounds.extents.x, 0.02f), 0f, Vector2.down, boxHeight, platformLayermask);
         bool downPressed;
         if (Input.GetAxisRaw("Vertical") < 0)
         {
@@ -141,5 +141,9 @@ public class Knight : MonoBehaviour
         jumpFallMultiplier = defaultJumpFallMultiplier;
         lowJumpFallMultiplier = defaultLowJumpFallMultiplier;
         maxFallSpeed = defaultMaxFallSpeed;
+    }
+    private void SetCanRecieveCombatInput()
+    {
+        CombatManager.instance.canReceiveInput = true;
     }
 }
