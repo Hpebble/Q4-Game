@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Knight : MonoBehaviour
 {
+    public static Knight instance;
     [Header("Player Stats")]
     public float health;
     public float maxHealth;
@@ -28,17 +29,19 @@ public class Knight : MonoBehaviour
     private float defaultLowJumpFallMultiplier = 5f;
     private float defaultMaxFallSpeed = -22f;
 
-    [Header("Other Stuff")]
-    private float dashCD = 0.4f;
+    public float dashDist;
+    public float dashTime;
+    public bool isDashing;
 
-    //Additional Direction Variables (Julien)
-    public SpriteRenderer playerSprite;
-    public float aimDir = 1;
-    public bool cannotTurn = false;
+    [Header("Other Stuff")]
+    public bool disableMovement;
+    public bool attacking;
+    public int directionFacing;
 
     //Reference Variables
+    Animator anim;
     SpriteRenderer sr;
-    Rigidbody2D rb;
+    public Rigidbody2D rb;
     BoxCollider2D boxCol;
     LayerMask platformLayermask = (1 << 8) + 1;
 
@@ -48,15 +51,32 @@ public class Knight : MonoBehaviour
     //Define Reference Variables
     private void OnEnable()
     {
+        anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         boxCol = GetComponent<BoxCollider2D>();
     }
-
+    private void Awake()
+    {
+        instance = this;
+    }
     void Update()
     {
         checkGround();
         //Dashing
+        if (Input.GetKeyDown(KeyCode.LeftShift) && !CheckIfActionCurrentlyTaken())
+        {
+            isDashing = true;
+            float direction;
+            if (Input.GetAxisRaw("Horizontal") < 0.1f && Input.GetAxisRaw("Horizontal") > -0.1f)
+            {
+                direction = directionFacing;
+            }
+            else { direction = directionFacing; }
+
+            StartCoroutine(Dash(direction));
+            Debug.Log("aaaa");
+        }
         if (Input.GetMouseButtonDown(0))
         {
             CombatManager.instance.Attack();
@@ -64,50 +84,16 @@ public class Knight : MonoBehaviour
     }
     void FixedUpdate()
     {
+        //Animator Stuff
+        anim.SetFloat("xVelo", rb.velocity.x);
+        anim.SetBool("Attacking",attacking);
+        anim.SetBool("IsDashing",isDashing);
         //Moving
-        float fXVelo = rb.velocity.x;
-        if (grounded)
+        if (!disableMovement || !CheckIfActionCurrentlyTaken())
         {
-
-            fXVelo += Input.GetAxisRaw("Horizontal") * Time.fixedDeltaTime * groundSpeed;
-            fXVelo *= Mathf.Pow(1f - groundDampening, Time.fixedDeltaTime * 10f);//Movement dampening when on ground
-
-            //Set Player Direction
-            if (Input.GetAxisRaw("Horizontal") != 0 && !cannotTurn)
-            {
-                aimDir = Mathf.Sign(Input.GetAxisRaw("Horizontal"));
-            }
-        }
-        else if (!grounded)
-        {
-            fXVelo += Input.GetAxisRaw("Horizontal") * Time.fixedDeltaTime * airSpeed;
-            fXVelo *= Mathf.Pow(1f - airDampening, Time.fixedDeltaTime * 10f);//movement dampening when on air/air resistance
+            CalcMovement();
         }
 
-        rb.velocity = new Vector2(fXVelo, rb.velocity.y);
-
-        //Makes the jump feel better by making fall faster
-        if (rb.velocity.y < 0)
-        {
-            rb.velocity += Vector2.up * Physics2D.gravity.y * (jumpFallMultiplier - 1) * Time.fixedDeltaTime;
-        }
-
-        //Allows you to jump different heights
-        else if (rb.velocity.y > 0 && !Input.GetButton("Jump"))
-        {
-            rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpFallMultiplier - 1) * Time.fixedDeltaTime;
-        }
-        if (rb.velocity.y < maxFallSpeed) //Cap fall speed
-        {
-            rb.velocity = new Vector2(rb.velocity.x, maxFallSpeed);
-        }
-
-        //Set Player Sprite Direction
-        if (aimDir == 1)
-        {
-            playerSprite.flipX = false;
-        }
-        else playerSprite.flipX = true;
     }
 
 
@@ -131,6 +117,50 @@ public class Knight : MonoBehaviour
             grounded = false;
         }
     }
+    void CalcMovement()
+    {
+        float fXVelo = rb.velocity.x;
+        if (grounded && !CheckIfActionCurrentlyTaken())
+        {
+
+            fXVelo += Input.GetAxisRaw("Horizontal") * Time.fixedDeltaTime * groundSpeed;
+            fXVelo *= Mathf.Pow(1f - groundDampening, Time.fixedDeltaTime * 10f);//Movement dampening when on ground
+        }
+        else if (!grounded && !CheckIfActionCurrentlyTaken())
+        {
+            fXVelo += Input.GetAxisRaw("Horizontal") * Time.fixedDeltaTime * airSpeed;
+            fXVelo *= Mathf.Pow(1f - airDampening, Time.fixedDeltaTime * 10f);//movement dampening when on air/air resistance
+        }
+
+        rb.velocity = new Vector2(fXVelo, rb.velocity.y);
+        //Makes the jump feel better by making fall faster
+        if (rb.velocity.y < 0)
+        {
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (jumpFallMultiplier - 1) * Time.fixedDeltaTime;
+        }
+
+        //Allows you to jump different heights
+        else if (rb.velocity.y > 0 && !Input.GetButton("Jump"))
+        {
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpFallMultiplier - 1) * Time.fixedDeltaTime;
+        }
+        if (rb.velocity.y < maxFallSpeed) //Cap fall speed
+        {
+            rb.velocity = new Vector2(rb.velocity.x, maxFallSpeed);
+        }
+    }
+
+    IEnumerator Dash(float direction)
+    {
+        //rb.velocity = new Vector2(rb.velocity.x, 0f);
+        //rb.AddForce(new Vector2(dashDist * (Mathf.Clamp(direction,-1,1)), 0f), ForceMode2D.Impulse);
+        float gravity = rb.gravityScale;
+        rb.gravityScale = 0;
+        rb.velocity = new Vector2(dashDist * (Mathf.Clamp(direction,-1,1)), 0f);
+        yield return new WaitForSeconds(dashTime);
+        isDashing = false;
+        rb.gravityScale = gravity;
+    }
     private void SetDefaultMoveVals()
     {
         jumpStrength = defaultJumpStrength;
@@ -145,5 +175,21 @@ public class Knight : MonoBehaviour
     private void SetCanRecieveCombatInput()
     {
         CombatManager.instance.canReceiveInput = true;
+    }
+    private bool CheckIfActionCurrentlyTaken()
+    {
+        if(isDashing || attacking)
+        {
+            return true;
+        }
+        else { return false; }
+    }
+    public void FaceLeft()
+    {
+        directionFacing = -1;
+    }
+    public void FaceRight()
+    {
+        directionFacing = 1;
     }
 }

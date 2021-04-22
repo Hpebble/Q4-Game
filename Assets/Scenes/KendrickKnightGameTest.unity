@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 1643040205}
   - component: {fileID: 1643040204}
   - component: {fileID: 1643040203}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1480,7 +1480,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.9
+  orthographic size: 6.9
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1522,7 +1522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 317845a0b8843a442a9a91b6e0136478, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FollowSpeed: 8
+  FollowSpeed: 15
   FollowTarget: {fileID: 804985053}
 --- !u!1 &2046136497
 GameObject:
@@ -1623,6 +1623,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 569811627, guid: e5cbd269f9397be4f89c9909c64e9eb6, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 569811628, guid: e5cbd269f9397be4f89c9909c64e9eb6, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3820249
@@ -1648,6 +1652,30 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -6293149386070147867, guid: 13a1409bb05766d42a1ab349de57b78c,
         type: 3}
+    - target: {fileID: 569811629, guid: e5cbd269f9397be4f89c9909c64e9eb6, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 569811629, guid: e5cbd269f9397be4f89c9909c64e9eb6, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1538019094, guid: e5cbd269f9397be4f89c9909c64e9eb6, type: 3}
+      propertyPath: dashDist
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1538019094, guid: e5cbd269f9397be4f89c9909c64e9eb6, type: 3}
+      propertyPath: dashTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1538019094, guid: e5cbd269f9397be4f89c9909c64e9eb6, type: 3}
+      propertyPath: groundSpeed
+      value: 380
+      objectReference: {fileID: 0}
+    - target: {fileID: 1538019094, guid: e5cbd269f9397be4f89c9909c64e9eb6, type: 3}
+      propertyPath: airSpeed
+      value: 70
+      objectReference: {fileID: 0}
     - target: {fileID: 534140188211440110, guid: e5cbd269f9397be4f89c9909c64e9eb6,
         type: 3}
       propertyPath: m_RootOrder
@@ -1713,15 +1741,30 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3885831246090542070, guid: e5cbd269f9397be4f89c9909c64e9eb6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.12
+      objectReference: {fileID: 0}
     - target: {fileID: 5797024392090748408, guid: e5cbd269f9397be4f89c9909c64e9eb6,
         type: 3}
       propertyPath: m_Name
       value: PlayerKnight
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797024392090748408, guid: e5cbd269f9397be4f89c9909c64e9eb6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8298000450119561132, guid: e5cbd269f9397be4f89c9909c64e9eb6,
         type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 874892774bb071e4dab01bad01ded804, type: 2}
+    - target: {fileID: 8468593095133074609, guid: e5cbd269f9397be4f89c9909c64e9eb6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5cbd269f9397be4f89c9909c64e9eb6, type: 3}
