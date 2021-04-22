@@ -17,7 +17,6 @@ public class AttackBehaviour : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         Knight.instance.disableMovement = true;
-        Knight.instance.rb.velocity = Vector2.zero;
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
