@@ -111,7 +111,7 @@ public class Knight : MonoBehaviour
         }
         else downPressed = false;
 
-        if (Input.GetButtonDown("Jump") && grounded)// && !downPressed)
+        if (Input.GetButtonDown("Jump") && grounded && !CheckIfActionCurrentlyTaken())// && !downPressed)
         {
             rb.velocity = new Vector3(rb.velocity.x, jumpStrength);
             grounded = false;
@@ -149,7 +149,10 @@ public class Knight : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, maxFallSpeed);
         }
     }
+    public void TakeDamage(Vector2 knockbackDirection, float knockbackStrength, float damage)
+    {
 
+    }
     IEnumerator Dash(float direction)
     {
         //rb.velocity = new Vector2(rb.velocity.x, 0f);
