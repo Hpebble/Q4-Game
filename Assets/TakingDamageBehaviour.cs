@@ -1,33 +1,25 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.Animations;
 
-public class TransitionOneBehaviour : StateMachineBehaviour
+public class TakingDamageBehaviour : StateMachineBehaviour
 {
-    public string TriggerName;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
-    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        CombatManager.instance.canReceiveInput = true;
-        animator.SetBool("InTransition", true);
-    }
+    //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    //{
+    //    
+    //}
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        if (CombatManager.instance.inputReceived)
-        {
-            animator.SetTrigger(TriggerName);
-            CombatManager.instance.InputManager();
-            CombatManager.instance.inputReceived = false;
-        }
-    }
+    //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    //{
+    //    
+    //}
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.SetBool("InTransition", false);
+        Knight.instance.takingDamage = false;
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

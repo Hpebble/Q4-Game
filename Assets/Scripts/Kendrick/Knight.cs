@@ -36,6 +36,8 @@ public class Knight : MonoBehaviour
     [Header("Other Stuff")]
     public bool disableMovement;
     public bool attacking;
+    public bool takingDamage;
+    public bool inTransition;
     public int directionFacing;
 
     //Reference Variables
@@ -73,13 +75,22 @@ public class Knight : MonoBehaviour
                 direction = directionFacing;
             }
             else { direction = directionFacing; }
-
             StartCoroutine(Dash(direction));
-            Debug.Log("aaaa");
         }
         if (Input.GetMouseButtonDown(0))
         {
             CombatManager.instance.Attack();
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Hurtbox hurtbox = collision.GetComponent<Hurtbox>();
+        if (collision.tag == "Hurtbox")
+        {
+            anim.SetFloat("xVelo", 0f);
+            anim.SetTrigger("TakeDamage");
+            takingDamage = true;
+            TakeDamage(collision.gameObject, hurtbox);
         }
     }
     void FixedUpdate()
@@ -93,13 +104,11 @@ public class Knight : MonoBehaviour
         {
             CalcMovement();
         }
-
     }
 
 
     void checkGround()
     {
-
         //Boxcast under player to detect ground
         float boxHeight = 0.1f;
 
@@ -122,7 +131,6 @@ public class Knight : MonoBehaviour
         float fXVelo = rb.velocity.x;
         if (grounded && !CheckIfActionCurrentlyTaken())
         {
-
             fXVelo += Input.GetAxisRaw("Horizontal") * Time.fixedDeltaTime * groundSpeed;
             fXVelo *= Mathf.Pow(1f - groundDampening, Time.fixedDeltaTime * 10f);//Movement dampening when on ground
         }
@@ -149,9 +157,17 @@ public class Knight : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, maxFallSpeed);
         }
     }
-    public void TakeDamage(Vector2 knockbackDirection, float knockbackStrength, float damage)
+    public void TakeDamage(GameObject kbSource, Hurtbox hurtbox)
     {
-
+        health -= hurtbox.damage;
+        ApplyKnockback(kbSource, hurtbox.kbStrength, hurtbox.upForce);
+    }
+    public void ApplyKnockback(GameObject knockbackSource, float knockbackStrength, float upforce)
+    {
+        Vector2 kbDir;
+        kbDir = (this.gameObject.transform.position - knockbackSource.transform.position).normalized;
+        rb.velocity = Vector2.zero;
+        rb.AddForce(new Vector2((kbDir.x * knockbackStrength), (kbDir.y * upforce)), ForceMode2D.Impulse);
     }
     IEnumerator Dash(float direction)
     {
@@ -181,7 +197,7 @@ public class Knight : MonoBehaviour
     }
     private bool CheckIfActionCurrentlyTaken()
     {
-        if(isDashing || attacking)
+        if(isDashing || attacking || takingDamage)
         {
             return true;
         }

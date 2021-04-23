@@ -8,6 +8,7 @@ TagManager:
   - Platformtwo
   - Platform1
   - desk
+  - Hurtbox
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - 
   - Ground
   - Player
-  - 
+  - Hurtbox
   - 
   - 
   - 
