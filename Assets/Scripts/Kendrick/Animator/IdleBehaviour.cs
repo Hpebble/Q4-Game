@@ -9,12 +9,13 @@ public class IdleBehaviour : StateMachineBehaviour
     {
         CombatManager.instance.canReceiveInput = true;
         animator.SetBool("InDefaultState",true);
+        animator.ResetTrigger("ExitTransition");
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (CombatManager.instance.inputReceived)
+        if (CombatManager.instance.inputReceived && !CooldownManager.instance.CheckOnCooldown("BasicAttack"))
         {
             animator.SetTrigger("Attack 1");
             CombatManager.instance.InputManager();
@@ -25,8 +26,8 @@ public class IdleBehaviour : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.SetBool("InDefaultState", true);
         CombatManager.instance.canReceiveInput = false;
+        animator.SetBool("InDefaultState", false);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

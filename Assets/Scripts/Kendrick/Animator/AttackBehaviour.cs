@@ -9,11 +9,12 @@ public class AttackBehaviour : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        animator.ResetTrigger("ExitTransition");
         Knight.instance.rb.velocity = Vector2.zero;
         Knight.instance.disableMovement = true;
         Knight.instance.attacking = true;
         Knight.instance.rb.gravityScale = 0;
-        Knight.instance.StartCoroutine(ForcePush());
+        Knight.instance.StartCoroutine(ForcePush(animator));
         
     }
 
@@ -42,10 +43,13 @@ public class AttackBehaviour : StateMachineBehaviour
     //{
     //    // Implement code that sets up animation IK (inverse kinematics)
     //}
-    IEnumerator ForcePush()
+    IEnumerator ForcePush(Animator animator)
     {
         Knight.instance.rb.AddForce(new Vector2((Knight.instance.directionFacing * forceForward), 0));
         yield return new WaitForSeconds(forceLength);
-        Knight.instance.rb.velocity = Vector2.zero;
+        if (animator.GetBool("Attacking"))
+        {
+            Knight.instance.rb.velocity = Vector2.zero;
+        }
     }
 }

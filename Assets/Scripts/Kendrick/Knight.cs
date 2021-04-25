@@ -76,7 +76,7 @@ public class Knight : MonoBehaviour
     {
         checkGround();
         //Dashing
-        if (Input.GetKeyDown(KeyCode.LeftShift) && !CheckIfActionCurrentlyTaken())
+        if (Input.GetKeyDown(KeyCode.LeftShift) && !CheckIfActionCurrentlyTaken() && !CooldownManager.instance.CheckOnCooldown("Dash"))
         {
             isDashing = true;
             float direction;
@@ -84,10 +84,10 @@ public class Knight : MonoBehaviour
             {
                 direction = directionFacing;
             }
-            else { direction = directionFacing; }
+            else { direction = Mathf.Clamp(Input.GetAxisRaw("Horizontal"), -1, 1); }
             StartCoroutine(Dash(direction));
         }
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !CooldownManager.instance.CheckOnCooldown("BasicAttack"))
         {
             CombatManager.instance.Attack();
         }

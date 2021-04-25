@@ -6,6 +6,7 @@ using UnityEditor.Animations;
 public class TransitionOneBehaviour : StateMachineBehaviour
 {
     public string TriggerName;
+    public bool BasicAttack;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -16,7 +17,7 @@ public class TransitionOneBehaviour : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (CombatManager.instance.inputReceived)
+        if (CombatManager.instance.inputReceived && TriggerName != "none")
         {
             animator.SetTrigger(TriggerName);
             CombatManager.instance.InputManager();
@@ -28,6 +29,11 @@ public class TransitionOneBehaviour : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.SetBool("InTransition", false);
+        animator.SetTrigger("ExitTransition");
+        if (BasicAttack)
+        {
+            CooldownManager.instance.StartCooldown("BasicAttack");
+        }
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
