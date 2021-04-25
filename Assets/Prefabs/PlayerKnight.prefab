@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 569811628}
   - component: {fileID: 569811629}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,8 +25,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 569811627}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.373, z: 0}
-  m_LocalScale: {x: 1, y: 1.745964, z: 1}
+  m_LocalPosition: {x: 0.04, y: 0.549, z: 0}
+  m_LocalScale: {x: 0.32049218, y: 0.32049218, z: 0.32049218}
   m_Children: []
   m_Father: {fileID: 534140188211440110}
   m_RootOrder: 1
@@ -46,7 +46,6 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -71,7 +70,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ee42c9922b8a4fb4ca0a1035be5caf5f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5fc01249445651f469b7a8279cb53898, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -94,9 +93,10 @@ GameObject:
   - component: {fileID: 2015287918255185132}
   - component: {fileID: 7904416912403521548}
   - component: {fileID: 5357650689625595057}
+  - component: {fileID: 5581584103589526330}
   - component: {fileID: 1538019094}
   - component: {fileID: 8298000450119561132}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: PlayerKnight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,7 +134,6 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -217,6 +216,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &5581584103589526330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5797024392090748408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aed1fe241a4b6f545a8569a4ab6c9f1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 0
+  maxHealth:
+    baseValue: 100
+  Defence:
+    baseValue: 1
+  damage:
+    baseValue: 5
 --- !u!114 &1538019094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,19 +247,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8d2fcd704f6c3549a333c1641689a87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  maxHealth: 0
+  stats: {fileID: 5581584103589526330}
   jumpStrength: 22
-  groundSpeed: 430
+  groundSpeed: 380
   groundDampening: 0.95
-  airSpeed: 80
+  airSpeed: 70
   airDampening: 0.5
   jumpFallMultiplier: 5
   lowJumpFallMultiplier: 5
   maxFallSpeed: -22
-  playerSprite: {fileID: 2015287918255185132}
-  aimDir: 1
-  cannotTurn: 0
+  dashDist: 25
+  dashTime: 0.2
+  isDashing: 0
+  attacking: 0
+  takingDamage: 0
+  disableMovement: 0
+  isInvulnerable: 0
+  inTransition: 0
+  directionFacing: 0
+  noFric: {fileID: 6200000, guid: a53f69d14827fc74495a3aaff304c57e, type: 2}
+  defaultFric: {fileID: 6200000, guid: 679170e01b10e0a4784f37e76f628454, type: 2}
+  rb: {fileID: 0}
   RuneAnimator: {fileID: 0}
 --- !u!95 &8298000450119561132
 Animator:
@@ -253,7 +279,7 @@ Animator:
   m_GameObject: {fileID: 5797024392090748408}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 874892774bb071e4dab01bad01ded804, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -271,7 +297,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3885831246090542070}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: CamFollow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -286,7 +312,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8468593095133074609}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.5, z: 0}
+  m_LocalPosition: {x: 0, y: 1.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 534140188211440110}

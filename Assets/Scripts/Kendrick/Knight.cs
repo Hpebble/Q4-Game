@@ -6,9 +6,8 @@ using UnityEngine.SceneManagement;
 public class Knight : MonoBehaviour
 {
     public static Knight instance;
-    [Header("Player Stats")]
-    public float health;
-    public float maxHealth;
+    public KnightStats stats;
+    public Vector2 respawnPoint;
 
     [Header("Movement")]//Player Variables
     public float jumpStrength = 10;
@@ -20,6 +19,7 @@ public class Knight : MonoBehaviour
     public float lowJumpFallMultiplier = 5f;
     public float maxFallSpeed = -29f;
     private bool grounded;
+    #region defaultvals
     private float defaultJumpStrength = 22;
     private float defaultGroundSpeed = 430;
     private float defaultGroundDampening = 0.95f;
@@ -28,20 +28,23 @@ public class Knight : MonoBehaviour
     private float defaultJumpFallMultiplier = 5;
     private float defaultLowJumpFallMultiplier = 5f;
     private float defaultMaxFallSpeed = -22f;
-
+    #endregion
     public float dashDist;
     public float dashTime;
     public bool isDashing;
-
-    [Header("Other Stuff")]
-    public bool disableMovement;
     public bool attacking;
     public bool takingDamage;
+    public bool disableMovement;
+    public bool isInvulnerable;
+
+    [Header("Other Stuff")]
     public bool inTransition;
     public int directionFacing;
 
     //Reference Variables
-    Animator anim;
+    public PhysicsMaterial2D noFric;
+    public PhysicsMaterial2D defaultFric;
+    public Animator anim;
     SpriteRenderer sr;
     public Rigidbody2D rb;
     BoxCollider2D boxCol;
@@ -51,16 +54,23 @@ public class Knight : MonoBehaviour
     public Animator RuneAnimator;
 
     //Define Reference Variables
-    private void OnEnable()
+    private void Awake()
     {
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         boxCol = GetComponent<BoxCollider2D>();
-    }
-    private void Awake()
-    {
         instance = this;
+    }
+    private void Start()
+    {
+        GameObject gm = GameObject.Find("GameManager");
+        if (gm == null)
+        {
+            SceneManager.LoadScene("Managers", LoadSceneMode.Additive);
+            SceneManager.SetActiveScene(SceneManager.GetSceneAt(0));
+        }
+        this.gameObject.transform.position = respawnPoint;
     }
     void Update()
     {
@@ -82,31 +92,43 @@ public class Knight : MonoBehaviour
             CombatManager.instance.Attack();
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Hurtbox hurtbox = collision.GetComponent<Hurtbox>();
-        if (collision.tag == "Hurtbox")
-        {
-            anim.SetFloat("xVelo", 0f);
-            anim.SetTrigger("TakeDamage");
-            takingDamage = true;
-            TakeDamage(collision.gameObject, hurtbox);
-        }
-    }
     void FixedUpdate()
     {
         //Animator Stuff
-        anim.SetFloat("xVelo", rb.velocity.x);
+        anim.SetFloat("xVelo", Input.GetAxisRaw("Horizontal"));
         anim.SetBool("Attacking",attacking);
         anim.SetBool("IsDashing",isDashing);
         //Moving
-        if (!disableMovement || !CheckIfActionCurrentlyTaken())
+        if (!disableMovement || !disableMovement && !CheckIfActionCurrentlyTaken())
         {
             CalcMovement();
+            if (takingDamage == true)
+            {
+                rb.sharedMaterial = defaultFric;
+            }
+            else
+            {
+                rb.sharedMaterial = noFric;
+            }
+        } 
+        else
+        {
+            rb.sharedMaterial = defaultFric;
         }
     }
-
-
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        //If you touch hurtbox take damage
+        Hurtbox hurtbox = collision.GetComponent<Hurtbox>();
+        if (collision.tag == "Hurtbox" && !isInvulnerable && !stats.dead)
+        {
+            isInvulnerable = true;
+            anim.SetFloat("xVelo", 0f);
+            anim.SetTrigger("TakeDamage");
+            takingDamage = true;
+            stats.TakeDamage(collision.gameObject, hurtbox);
+        }
+    }
     void checkGround()
     {
         //Boxcast under player to detect ground
@@ -157,17 +179,16 @@ public class Knight : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, maxFallSpeed);
         }
     }
-    public void TakeDamage(GameObject kbSource, Hurtbox hurtbox)
-    {
-        health -= hurtbox.damage;
-        ApplyKnockback(kbSource, hurtbox.kbStrength, hurtbox.upForce);
-    }
     public void ApplyKnockback(GameObject knockbackSource, float knockbackStrength, float upforce)
     {
         Vector2 kbDir;
         kbDir = (this.gameObject.transform.position - knockbackSource.transform.position).normalized;
+        if (kbDir.x > 0)
+        {
+            kbDir.x = 1;
+        } else { kbDir.x = -1; }
         rb.velocity = Vector2.zero;
-        rb.AddForce(new Vector2((kbDir.x * knockbackStrength), (kbDir.y * upforce)), ForceMode2D.Impulse);
+        rb.AddForce(new Vector2((kbDir.x * knockbackStrength), (upforce)), ForceMode2D.Impulse);
     }
     IEnumerator Dash(float direction)
     {

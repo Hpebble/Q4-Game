@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TakingDamageBehaviour : StateMachineBehaviour
+public class InvulnerableBehaviour : StateMachineBehaviour
 {
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -19,7 +19,8 @@ public class TakingDamageBehaviour : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Knight.instance.takingDamage = false;
+        animator.SetBool("Invulnerable", false);
+        Knight.instance.isInvulnerable = false;
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
