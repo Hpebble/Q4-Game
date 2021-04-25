@@ -98,6 +98,7 @@ public class Knight : MonoBehaviour
         anim.SetFloat("xVelo", Input.GetAxisRaw("Horizontal"));
         anim.SetBool("Attacking",attacking);
         anim.SetBool("IsDashing",isDashing);
+        anim.SetBool("Grounded", grounded);
         //Moving
         if (!disableMovement || !disableMovement && !CheckIfActionCurrentlyTaken())
         {
@@ -192,8 +193,6 @@ public class Knight : MonoBehaviour
     }
     IEnumerator Dash(float direction)
     {
-        //rb.velocity = new Vector2(rb.velocity.x, 0f);
-        //rb.AddForce(new Vector2(dashDist * (Mathf.Clamp(direction,-1,1)), 0f), ForceMode2D.Impulse);
         float gravity = rb.gravityScale;
         rb.gravityScale = 0;
         rb.velocity = new Vector2(dashDist * (Mathf.Clamp(direction,-1,1)), 0f);
@@ -216,7 +215,7 @@ public class Knight : MonoBehaviour
     {
         CombatManager.instance.canReceiveInput = true;
     }
-    private bool CheckIfActionCurrentlyTaken()
+    public bool CheckIfActionCurrentlyTaken()
     {
         if(isDashing || attacking || takingDamage)
         {
