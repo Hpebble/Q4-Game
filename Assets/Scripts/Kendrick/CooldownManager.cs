@@ -21,7 +21,7 @@ public class CooldownManager : MonoBehaviour
     private void Start()
     {
         abilityOnCooldown.Add(new Cooldown("Dash", 0.5f));
-        abilityOnCooldown.Add(new Cooldown("BasicAttack", 0.1f));
+        abilityOnCooldown.Add(new Cooldown("BasicAttack", 0.02f));
     }
     private void Update()
     {

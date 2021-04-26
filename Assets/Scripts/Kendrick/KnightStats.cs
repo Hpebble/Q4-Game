@@ -54,7 +54,6 @@ public class KnightStats : MonoBehaviour
                 StartCoroutine(Die());
             }
         }
-
     }
     private void LimitStats()
     {

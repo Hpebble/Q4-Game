@@ -11,18 +11,29 @@ public class TransitionOneBehaviour : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         CombatManager.instance.canReceiveInput = true;
-        animator.SetBool("InTransition", true);
-    }
-
-    // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
         if (CombatManager.instance.inputReceived && TriggerName != "none")
         {
             animator.SetTrigger(TriggerName);
             CombatManager.instance.InputManager();
             CombatManager.instance.inputReceived = false;
         }
+        else
+        {
+            animator.SetBool("InTransition", true);
+        }
+    }
+
+    // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
+    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        /*
+        if (CombatManager.instance.inputReceived && TriggerName != "none")
+        {
+            animator.SetTrigger(TriggerName);
+            CombatManager.instance.InputManager();
+            CombatManager.instance.inputReceived = false;
+        }
+        */
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

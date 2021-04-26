@@ -87,7 +87,7 @@ public class Knight : MonoBehaviour
             else { direction = Mathf.Clamp(Input.GetAxisRaw("Horizontal"), -1, 1); }
             StartCoroutine(Dash(direction));
         }
-        if (Input.GetMouseButtonDown(0) && !CooldownManager.instance.CheckOnCooldown("BasicAttack"))
+        if (Input.GetButtonDown("Fire1") && !CooldownManager.instance.CheckOnCooldown("BasicAttack"))
         {
             CombatManager.instance.Attack();
         }
@@ -217,7 +217,7 @@ public class Knight : MonoBehaviour
     }
     public bool CheckIfActionCurrentlyTaken()
     {
-        if(isDashing || attacking || takingDamage)
+        if(isDashing || attacking || takingDamage || stats.dead)
         {
             return true;
         }
