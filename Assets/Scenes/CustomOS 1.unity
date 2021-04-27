@@ -3443,11 +3443,15 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
+  m_Camera: {fileID: 1552933108}
   clearColorMode: 1
-  backgroundColorHDR: {r: 0.9433962, g: 0.9433962, b: 0.9433962, a: 0}
+  backgroundColorHDR:
+    r: 0.9433962
+    g: 0.9433962
+    b: 0.9433962
+    a: 0
   clearDepth: 1
   volumeLayerMask:
-    serializedVersion: 2
     m_Bits: 0
   volumeAnchorOverride: {fileID: 0}
   antialiasing: 0
@@ -3469,13 +3473,11 @@ MonoBehaviour:
   customRenderingSettings: 0
   invertFaceCulling: 0
   probeLayerMask:
-    serializedVersion: 2
     m_Bits: 4294967295
   hasPersistentHistory: 0
+  probeCustomFixedExposure: 1
   m_RenderingPathCustomFrameSettings:
-    bitDatas:
-      data1: 70297877217101
-      data2: 4539628425463136256
+    bitDatas: {}
     lodBias: 1
     lodBiasMode: 0
     lodBiasQualityLevel: 0
@@ -3484,10 +3486,11 @@ MonoBehaviour:
     maximumLODLevelQualityLevel: 0
     materialQuality: 0
   renderingPathCustomFrameSettingsOverrideMask:
-    mask:
-      data1: 0
-      data2: 0
+    mask: {}
   defaultFrameSettings: 0
+  m_IsDebugRegistered: 0
+  m_CameraRegisterName: Camera
+  <isEditorCameraPreview>k__BackingField: 0
 --- !u!1 &1572042119
 GameObject:
   m_ObjectHideFlags: 0
