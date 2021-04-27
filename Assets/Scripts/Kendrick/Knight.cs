@@ -78,18 +78,11 @@ public class Knight : MonoBehaviour
         //Dashing
         if (Input.GetKeyDown(KeyCode.LeftShift) && !CheckIfActionCurrentlyTaken() && !CooldownManager.instance.CheckOnCooldown("Dash"))
         {
-            isDashing = true;
-            float direction;
-            if (Input.GetAxisRaw("Horizontal") < 0.1f && Input.GetAxisRaw("Horizontal") > -0.1f)
-            {
-                direction = directionFacing;
-            }
-            else { direction = Mathf.Clamp(Input.GetAxisRaw("Horizontal"), -1, 1); }
-            StartCoroutine(Dash(direction));
+            CombatManager.instance.InputDash();
         }
         if (Input.GetButtonDown("Fire1") && !CooldownManager.instance.CheckOnCooldown("BasicAttack"))
         {
-            CombatManager.instance.Attack();
+            CombatManager.instance.InputAttack();
         }
     }
     void FixedUpdate()
@@ -191,15 +184,7 @@ public class Knight : MonoBehaviour
         rb.velocity = Vector2.zero;
         rb.AddForce(new Vector2((kbDir.x * knockbackStrength), (upforce)), ForceMode2D.Impulse);
     }
-    IEnumerator Dash(float direction)
-    {
-        float gravity = rb.gravityScale;
-        rb.gravityScale = 0;
-        rb.velocity = new Vector2(dashDist * (Mathf.Clamp(direction,-1,1)), 0f);
-        yield return new WaitForSeconds(dashTime);
-        isDashing = false;
-        rb.gravityScale = gravity;
-    }
+
     private void SetDefaultMoveVals()
     {
         jumpStrength = defaultJumpStrength;

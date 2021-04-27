@@ -10,6 +10,7 @@ public class AttackBehaviour : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.ResetTrigger("ExitTransition");
+        CombatManager.instance.inputReceived = false;
         Knight.instance.rb.velocity = Vector2.zero;
         Knight.instance.disableMovement = true;
         Knight.instance.attacking = true;
@@ -27,6 +28,7 @@ public class AttackBehaviour : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        //CombatManager.instance.inputReceived = false;
         Knight.instance.disableMovement = false;
         Knight.instance.attacking = false;
         Knight.instance.rb.gravityScale = 5;
@@ -47,7 +49,7 @@ public class AttackBehaviour : StateMachineBehaviour
     {
         Knight.instance.rb.AddForce(new Vector2((Knight.instance.directionFacing * forceForward), 0));
         yield return new WaitForSeconds(forceLength);
-        if (animator.GetBool("Attacking"))
+        if (animator.GetBool("Attacking") && !animator.GetBool("TakingDamage"))
         {
             Knight.instance.rb.velocity = Vector2.zero;
         }

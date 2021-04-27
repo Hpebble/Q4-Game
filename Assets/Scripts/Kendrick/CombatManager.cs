@@ -19,12 +19,13 @@ public class CombatManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Knight.instance.anim.SetBool("InputRecieved",inputReceived);
+        Knight.instance.anim.SetBool("InputRecieved",inputReceived);
     }
-    public void Attack()
+    public void InputAttack()
     {
         if (canReceiveInput)
         {
+            Knight.instance.anim.SetTrigger("BasicAttack");
             inputReceived = true;
             canReceiveInput = false;
         }
@@ -32,6 +33,37 @@ public class CombatManager : MonoBehaviour
         {
             return;
         }
+    }
+    public void InputDash()
+    {
+        if (canReceiveInput)
+        {
+            Knight.instance.anim.SetBool("IsDashing", true);
+            inputReceived = true;
+            canReceiveInput = false;
+            StartCoroutine(Dash());
+        }
+        else
+        {
+            return;
+        }
+    }
+    public IEnumerator Dash()
+    {
+        Knight.instance.isDashing = true;
+        float direction;
+        if (Input.GetAxisRaw("Horizontal") < 0.1f && Input.GetAxisRaw("Horizontal") > -0.1f)
+        {
+            direction = Knight.instance.directionFacing;
+        }
+        else { direction = Mathf.Clamp(Input.GetAxisRaw("Horizontal"), -1, 1); }
+        //
+        float gravity = Knight.instance.rb.gravityScale;
+        Knight.instance.rb.gravityScale = 0;
+        Knight.instance.rb.velocity = new Vector2(Knight.instance.dashDist * (Mathf.Clamp(direction, -1, 1)), 0f);
+        yield return new WaitForSeconds(Knight.instance.dashTime);
+        Knight.instance.isDashing = false;
+        Knight.instance.rb.gravityScale = gravity;
     }
 
     public void InputManager()
