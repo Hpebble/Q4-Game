@@ -13,7 +13,7 @@ public class KnightStats : MonoBehaviour
     public Slider healthSlider;
     public Image DeathFade;
     public bool dead;
-    float t = 0;
+    //float t = 0;
     private bool startDeathFade;
     public Animator UIanim;
     private void Awake()

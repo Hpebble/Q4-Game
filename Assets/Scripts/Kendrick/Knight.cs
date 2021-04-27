@@ -129,13 +129,13 @@ public class Knight : MonoBehaviour
         float boxHeight = 0.1f;
 
         grounded = Physics2D.BoxCast(new Vector2(boxCol.bounds.center.x, boxCol.bounds.center.y - boxCol.bounds.extents.y), new Vector2(boxCol.bounds.extents.x, 0.02f), 0f, Vector2.down, boxHeight, platformLayermask);
-        bool downPressed;
+        /*bool downPressed;
         if (Input.GetAxisRaw("Vertical") < 0)
         {
             downPressed = true;
         }
         else downPressed = false;
-
+        */
         if (Input.GetButtonDown("Jump") && grounded && !CheckIfActionCurrentlyTaken())// && !downPressed)
         {
             rb.velocity = new Vector3(rb.velocity.x, jumpStrength);
