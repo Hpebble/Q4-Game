@@ -208,6 +208,10 @@ public class Knight : MonoBehaviour
         }
         else { return false; }
     }
+    public bool GetGrounded()
+    {
+        return grounded;
+    }
     public void FaceLeft()
     {
         directionFacing = -1;
