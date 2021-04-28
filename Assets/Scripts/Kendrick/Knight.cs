@@ -212,6 +212,10 @@ public class Knight : MonoBehaviour
     {
         return grounded;
     }
+    public Vector3 GetCenter()
+    {
+        return boxCol.bounds.center;
+    }
     public void FaceLeft()
     {
         directionFacing = -1;
