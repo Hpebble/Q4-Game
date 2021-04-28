@@ -6,14 +6,17 @@ using UnityEngine.UI;
 public class KnightStats : MonoBehaviour
 {
     public float currentHealth;
+    public float bitCount;
     public Stat maxHealth;
     public Stat Defence;
     public Stat damage;
 
+
     public Slider healthSlider;
     public Image DeathFade;
+    public Text bitAmountText;
     public bool dead;
-    float t = 0;
+    //float t = 0;
     private bool startDeathFade;
     public Animator UIanim;
     private void Awake()
@@ -63,5 +66,6 @@ public class KnightStats : MonoBehaviour
     {
         float curHealthPercent = currentHealth / maxHealth.GetValue();
         healthSlider.value = Mathf.Lerp(healthSlider.value, curHealthPercent, 10 * Time.deltaTime);
+        bitAmountText.text = bitCount.ToString();
     }
 }

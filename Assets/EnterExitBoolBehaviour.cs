@@ -1,48 +1,30 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TransitionOneBehaviour : StateMachineBehaviour
+public class EnterExitBoolBehaviour : StateMachineBehaviour
 {
-    public string TriggerName;
-    public bool BasicAttack;
+    public string enterBoolName;
+    public bool enterBoolState;
+
+    public string exitBoolName;
+    public bool exitBoolState;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        //CombatManager.instance.canReceiveInput = true;
-        if (CombatManager.instance.inputReceived) //&& TriggerName != "none")
-        {
-            CombatManager.instance.canReceiveInput = true;
-            CombatManager.instance.inputReceived = false; 
-        }
-        else
-        {
-            animator.SetBool("InTransition", true);
-        }
+         animator.SetBool(enterBoolName,enterBoolState);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        /*
-        if (CombatManager.instance.inputReceived && TriggerName != "none")
-        {
-            animator.SetTrigger(TriggerName);
-            CombatManager.instance.InputManager();
-            CombatManager.instance.inputReceived = false;
-        }
-        */
-    }
+    //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    //{
+    //    
+    //}
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.SetBool("InTransition", false);
-        animator.SetTrigger("ExitTransition");
-        if (BasicAttack)
-        {
-            CooldownManager.instance.StartCooldown("BasicAttack");
-        }
+        animator.SetBool(exitBoolName, exitBoolState);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

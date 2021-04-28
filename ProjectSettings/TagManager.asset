@@ -23,8 +23,8 @@ TagManager:
   - Player
   - Hurtbox
   - Enemy
-  - 
-  - 
+  - PostProcessingVolume
+  - EnemyCollision
   - 
   - 
   - 
