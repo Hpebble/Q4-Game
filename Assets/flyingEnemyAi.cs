@@ -10,7 +10,11 @@ public class flyingEnemyAi : MonoBehaviour
     public bool attackState;
     private float playPosX ;
     private float enemPosX;
-    
+    public Vector2 SwipePosition1;
+    public Vector2 SwipePosition2;
+    public float AttackSpeed;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,42 +26,66 @@ public class flyingEnemyAi : MonoBehaviour
     {
         float playPosX = player.transform.localPosition.x;
         float enemPosX = transform.localPosition.x;
-        if (player.transform.position.x != transform.localPosition.x && attackState == false) 
+
         {
 
+            
             Vector2 playerPos = new Vector2(player.transform.position.x, player.transform.position.y) + offset;
             Vector2 smoothMove = Vector2.Lerp(transform.position, playerPos, batSpeed);
-            Debug.Log("tracking player");
+            //Debug.Log("tracking player");
 
-            
-            
 
-            Debug.Log("Player's x = " + Mathf.Round(playPosX));
-            Debug.Log("Enemy's x = " +  Mathf.Round(enemPosX));
+
+
+            // Debug.Log("Player's x = " + Mathf.Round(playPosX));
+            // Debug.Log("Enemy's x = " +  Mathf.Round(enemPosX));
 
             transform.position = smoothMove;
 
 
+
+
+            if (attackState == true) 
+            {
+                SwipePosition1 = transform.position;
+                SwipePosition2 = Knight.instance.transform.position;
+
+                Vector2 BatPos = new Vector2(transform.position.x, transform.position.y);
+                Vector2 BatPosLerp = Vector2.Lerp(BatPos, SwipePosition2, AttackSpeed);
+
+                transform.position = BatPosLerp;
+
+
+
+                Debug.Log("Enemy Attacking");
+            }
+
         }
 
-        if (Mathf.Round(playPosX) == Mathf.Round(enemPosX))
-        {
-            attackState = true;
-        }
-        else
-        {
-            attackState = false;
-        }
-
-        if(attackState == true)
-        {
-            Debug.Log("Enemy Attacking");
-        }
-
+        
        
 
         
         
 
     }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag.Equals("Player"))
+        {
+            attackState = true;
+            Debug.Log("In radius");
+        }
+    }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag.Equals("Player"))
+        {
+            attackState = false;
+            Debug.Log("Not in radius");
+        }
+    }
+
 }

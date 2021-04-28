@@ -3878,6 +3878,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 569811627, guid: e5cbd269f9397be4f89c9909c64e9eb6, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 569811628, guid: e5cbd269f9397be4f89c9909c64e9eb6, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
@@ -4043,6 +4047,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Offset.y
       value: 0.875
+      objectReference: {fileID: 0}
+    - target: {fileID: 7904416912403521548, guid: e5cbd269f9397be4f89c9909c64e9eb6,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5cbd269f9397be4f89c9909c64e9eb6, type: 3}
@@ -4262,6 +4271,8 @@ GameObject:
   - component: {fileID: 1098554761}
   - component: {fileID: 1098554763}
   - component: {fileID: 1098554762}
+  - component: {fileID: 1098554764}
+  - component: {fileID: 1098554765}
   m_Layer: 11
   m_Name: EnemyFlying
   m_TagString: Untagged
@@ -4299,6 +4310,9 @@ MonoBehaviour:
   batSpeed: 0.01
   offset: {x: 0, y: 5.66}
   attackState: 0
+  SwipePosition1: {x: 0, y: 0}
+  SwipePosition2: {x: 0, y: 0}
+  AttackSpeed: 2
 --- !u!212 &1098554763
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4349,6 +4363,43 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &1098554764
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098554760}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.26051208, y: 0}
+  serializedVersion: 2
+  m_Radius: 6.3818707
+--- !u!50 &1098554765
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098554760}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1145492301
 GameObject:
   m_ObjectHideFlags: 0
@@ -4394,6 +4445,22 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1000435717}
   m_PrefabAsset: {fileID: 0}
+--- !u!58 &1210148518
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210148510}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.9075947}
+  serializedVersion: 2
+  m_Radius: 1.4075947
 --- !u!1 &1232323133
 GameObject:
   m_ObjectHideFlags: 0
@@ -8829,7 +8896,7 @@ Camera:
   m_GameObject: {fileID: 1995821834}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
