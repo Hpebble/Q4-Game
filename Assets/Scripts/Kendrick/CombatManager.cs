@@ -48,6 +48,10 @@ public class CombatManager : MonoBehaviour
             return;
         }
     }
+    public void InputUpSlash()
+    {
+
+    }
     public IEnumerator Dash()
     {
         Knight.instance.isDashing = true;

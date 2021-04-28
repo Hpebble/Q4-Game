@@ -1221,14 +1221,15 @@ MonoBehaviour:
   currentState: 0
   staggerCD: 0
   inturruptWhendamaged: 0
-  wanderSpeed: 2.5
+  wanderSpeed: 2
   chaseSpeed: 3
   playerAttackRange: 2.28
   playerDetectRange: 7
   attackCooldown: {x: 1, y: 3}
-  idleTime: {x: 0, y: 0}
-  randomWaitTime: {x: 0, y: 0}
-  walkingTime: {x: 0, y: 0}
+  idleTime: {x: 0.7, y: 2}
+  wanderTime: {x: 1.5, y: 4.5}
+  initChaseTime: {x: 0, y: 0}
+  wanderDirection: 0
   playerLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -1670,14 +1671,15 @@ MonoBehaviour:
   currentState: 0
   staggerCD: 0
   inturruptWhendamaged: 0
-  wanderSpeed: 2.5
+  wanderSpeed: 2
   chaseSpeed: 3
   playerAttackRange: 0.96
   playerDetectRange: 9.03
   attackCooldown: {x: 1, y: 3}
-  idleTime: {x: 0, y: 0}
-  randomWaitTime: {x: 0, y: 0}
-  walkingTime: {x: 0, y: 0}
+  idleTime: {x: 0.7, y: 2}
+  wanderTime: {x: 1.5, y: 4.5}
+  initChaseTime: {x: 0.5, y: 1.5}
+  wanderDirection: 0
   playerLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -2898,14 +2900,15 @@ MonoBehaviour:
   currentState: 0
   staggerCD: 0
   inturruptWhendamaged: 0
-  wanderSpeed: 2.5
+  wanderSpeed: 2
   chaseSpeed: 3
   playerAttackRange: 0.96
   playerDetectRange: 9.03
   attackCooldown: {x: 1, y: 3}
-  idleTime: {x: 0, y: 0}
-  randomWaitTime: {x: 0, y: 0}
-  walkingTime: {x: 0, y: 0}
+  idleTime: {x: 0.7, y: 2}
+  wanderTime: {x: 1.5, y: 4.5}
+  initChaseTime: {x: 0.5, y: 1.5}
+  wanderDirection: 0
   playerLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -3318,14 +3321,15 @@ MonoBehaviour:
   currentState: 0
   staggerCD: 0
   inturruptWhendamaged: 0
-  wanderSpeed: 2.5
+  wanderSpeed: 2
   chaseSpeed: 3
   playerAttackRange: 0.96
   playerDetectRange: 9.03
   attackCooldown: {x: 1, y: 3}
-  idleTime: {x: 0, y: 0}
-  randomWaitTime: {x: 0, y: 0}
-  walkingTime: {x: 0, y: 0}
+  idleTime: {x: 0.7, y: 2}
+  wanderTime: {x: 1.5, y: 4.5}
+  initChaseTime: {x: 0.5, y: 1.5}
+  wanderDirection: 0
   playerLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -4819,14 +4823,15 @@ MonoBehaviour:
   currentState: 0
   staggerCD: 0
   inturruptWhendamaged: 0
-  wanderSpeed: 2.5
+  wanderSpeed: 2
   chaseSpeed: 3
   playerAttackRange: 0.96
   playerDetectRange: 9.03
   attackCooldown: {x: 1, y: 3}
-  idleTime: {x: 0, y: 0}
-  randomWaitTime: {x: 0, y: 0}
-  walkingTime: {x: 0, y: 0}
+  idleTime: {x: 0.7, y: 2}
+  wanderTime: {x: 1.5, y: 4.5}
+  initChaseTime: {x: 0.5, y: 1.5}
+  wanderDirection: 0
   playerLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -5274,14 +5279,15 @@ MonoBehaviour:
   currentState: 0
   staggerCD: 0
   inturruptWhendamaged: 0
-  wanderSpeed: 2.5
+  wanderSpeed: 2
   chaseSpeed: 3
   playerAttackRange: 0.96
   playerDetectRange: 9.03
   attackCooldown: {x: 1, y: 3}
-  idleTime: {x: 0, y: 0}
-  randomWaitTime: {x: 0, y: 0}
-  walkingTime: {x: 0, y: 0}
+  idleTime: {x: 0.7, y: 2}
+  wanderTime: {x: 1.5, y: 4.5}
+  initChaseTime: {x: 0.5, y: 1.5}
+  wanderDirection: 0
   playerLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -10270,14 +10276,15 @@ MonoBehaviour:
   currentState: 0
   staggerCD: 0
   inturruptWhendamaged: 0
-  wanderSpeed: 2.5
+  wanderSpeed: 2
   chaseSpeed: 3
   playerAttackRange: 0.96
   playerDetectRange: 9.03
   attackCooldown: {x: 1, y: 3}
-  idleTime: {x: 0, y: 0}
-  randomWaitTime: {x: 0, y: 0}
-  walkingTime: {x: 0, y: 0}
+  idleTime: {x: 0.7, y: 2}
+  wanderTime: {x: 1.5, y: 4.5}
+  initChaseTime: {x: 0.5, y: 1.5}
+  wanderDirection: 0
   playerLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -11191,14 +11198,15 @@ MonoBehaviour:
   currentState: 0
   staggerCD: 0
   inturruptWhendamaged: 0
-  wanderSpeed: 2.5
+  wanderSpeed: 2
   chaseSpeed: 3
   playerAttackRange: 0.96
   playerDetectRange: 9.03
   attackCooldown: {x: 1, y: 3}
-  idleTime: {x: 0, y: 0}
-  randomWaitTime: {x: 0, y: 0}
-  walkingTime: {x: 0, y: 0}
+  idleTime: {x: 0.7, y: 2}
+  wanderTime: {x: 1.5, y: 4.5}
+  initChaseTime: {x: 0.5, y: 1.5}
+  wanderDirection: 0
   playerLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -12019,14 +12027,15 @@ MonoBehaviour:
   currentState: 0
   staggerCD: 0
   inturruptWhendamaged: 0
-  wanderSpeed: 2.5
+  wanderSpeed: 2
   chaseSpeed: 3
   playerAttackRange: 0.96
   playerDetectRange: 9.03
   attackCooldown: {x: 1, y: 3}
-  idleTime: {x: 0, y: 0}
-  randomWaitTime: {x: 0, y: 0}
-  walkingTime: {x: 0, y: 0}
+  idleTime: {x: 0.7, y: 2}
+  wanderTime: {x: 1.5, y: 4.5}
+  initChaseTime: {x: 0.5, y: 1.5}
+  wanderDirection: 0
   playerLayer:
     serializedVersion: 2
     m_Bits: 512

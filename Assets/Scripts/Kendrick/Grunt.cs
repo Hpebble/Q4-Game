@@ -17,12 +17,14 @@ public class Grunt : Enemy
 
     public Vector2 attackCooldown;
     public Vector2 idleTime; 
-    public Vector2 randomWaitTime;
-    public Vector2 walkingTime;
+    public Vector2 wanderTime;
+    public Vector2 initChaseTime;
     private float attackCD;
     private float idleTimeCD;
-    private float randomWaitTimeCD;
     private float walkingTimeCD;
+    private float initiateChaseCD;
+    private bool initiatingChase;
+    public float wanderDirection;
 
     public LayerMask playerLayer;
     public LayerMask WorldLayer;
@@ -35,6 +37,12 @@ public class Grunt : Enemy
         base.Start();
         col = this.GetComponent<Collider2D>();
         cCol = this.GetComponentInChildren<CircleCollider2D>();
+        wanderDirection = Random.Range(-1f,1f);
+        if (wanderDirection < 0)
+        {
+            wanderDirection = -1;
+        }
+        else if (wanderDirection >= 0) wanderDirection = 1;
     }
     protected override void Update()
     {
@@ -47,7 +55,27 @@ public class Grunt : Enemy
                 break;
 
             case EnemyState.Wander:
-                
+                CheckPlayerInRange();
+                //If not idling and walking, then Reset walking and idle timers
+                if (walkingTimeCD <= 0 && idleTimeCD <= 0)
+                {
+                    wanderDirection = Random.Range(-1, 1);
+                    if (wanderDirection < 0) { wanderDirection = -1; } else wanderDirection = 1;
+                    walkingTimeCD = Random.Range(wanderTime.x, wanderTime.y);
+                    idleTimeCD = Random.Range(idleTime.x, idleTime.y);
+                }
+
+                //if walking, then count down walkingtimeCD and move
+                if(walkingTimeCD > 0)
+                {
+                    walkingTimeCD -= Time.deltaTime;
+                    rb.velocity = new Vector2(wanderSpeed * wanderDirection, 0);
+                    CheckIfRunningIntoWall();
+                }
+                else if(idleTimeCD > 0) //if idling, then lower idle time
+                {
+                    idleTimeCD -= Time.deltaTime;
+                }
                 break;
 
             case EnemyState.ChasePlayer:
@@ -90,14 +118,15 @@ public class Grunt : Enemy
         RaycastHit2D ray = Physics2D.Raycast(this.transform.position, Knight.instance.transform.position - this.transform.position, playerDetectRange, WorldLayer + playerLayer);
         if (ray.transform != null && ray.transform.tag == "Player")
         {
-            if(Physics2D.CircleCast(this.transform.position, playerAttackRange, Vector2.zero, 999, playerLayer) && currentState != EnemyState.Attack && attackCD <= 0 )
+            //Isplayer In attack range + in state attate + attaCD <= 0
+            if (Physics2D.CircleCast(this.transform.position, playerAttackRange, Vector2.zero, 999, playerLayer) && currentState != EnemyState.Attack && attackCD <= 0)
             {
                 attackCD = Random.Range(attackCooldown.x, attackCooldown.y);
                 anim.SetTrigger("Attack");
                 currentState = EnemyState.Attack;
                 return;
             }
-            else 
+            else
             {
                 if (attackCD <= 0 && Physics2D.CircleCast(this.transform.position, playerAttackRange, Vector2.zero, 999, playerLayer))
                 {
@@ -110,14 +139,24 @@ public class Grunt : Enemy
                 }
                 currentState = EnemyState.Attack;
             }
+            //Is player in Chase Range;
             if (Physics2D.CircleCast(this.transform.position, playerDetectRange, Vector2.zero, 999, playerLayer) && !Physics2D.CircleCast(this.transform.position, playerAttackRange, Vector2.zero, 999, playerLayer) && !anim.GetBool("Attacking"))
             {
-                //anim.ResetTrigger("Attack");
-                currentState = EnemyState.ChasePlayer;
+                {
+                    currentState = EnemyState.ChasePlayer;
+                }
+                //currentState = EnemyState.ChasePlayer;
                 return;
             }
         }
-        else { currentState = EnemyState.Idle; }
+        else
+        {
+            if (currentState != EnemyState.Wander)
+            {
+                idleTimeCD = Random.Range(idleTime.x, idleTime.y);
+            }
+            currentState = EnemyState.Wander;
+        }
     }
     void ChasePlayer()
     {
@@ -141,6 +180,19 @@ public class Grunt : Enemy
             cCol.enabled = true;
         }
         else cCol.enabled = false;
+    }
+    void CheckIfRunningIntoWall()
+    {
+        Vector2 startingPos;
+        if (wanderDirection == -1)
+        {
+            startingPos = new Vector2(-col.bounds.extents.x, 0);
+        }
+        else { startingPos = new Vector2(col.bounds.extents.x, 0); }
+        if (Physics2D.Raycast(startingPos + new Vector2(col.bounds.center.x, col.bounds.center.y), new Vector2(wanderDirection, 0), 0.5f, WorldLayer))
+        {
+            walkingTimeCD = 0;
+        }
     }
     public override void Attack()
     {
