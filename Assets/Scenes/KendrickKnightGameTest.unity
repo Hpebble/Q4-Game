@@ -1253,7 +1253,7 @@ MonoBehaviour:
   wanderSpeed: 2.5
   chaseSpeed: 3
   playerAttackRange: 0.96
-  playerDetectRange: 7
+  playerDetectRange: 9.03
   attackCooldown: {x: 1, y: 3}
   idleTime: {x: 0, y: 0}
   randomWaitTime: {x: 0, y: 0}
@@ -1977,7 +1977,7 @@ MonoBehaviour:
   wanderSpeed: 2.5
   chaseSpeed: 3
   playerAttackRange: 0.96
-  playerDetectRange: 7
+  playerDetectRange: 9.03
   attackCooldown: {x: 1, y: 3}
   idleTime: {x: 0, y: 0}
   randomWaitTime: {x: 0, y: 0}
@@ -2323,7 +2323,7 @@ MonoBehaviour:
   wanderSpeed: 2.5
   chaseSpeed: 3
   playerAttackRange: 0.96
-  playerDetectRange: 7
+  playerDetectRange: 9.03
   attackCooldown: {x: 1, y: 3}
   idleTime: {x: 0, y: 0}
   randomWaitTime: {x: 0, y: 0}
@@ -3238,7 +3238,7 @@ MonoBehaviour:
   wanderSpeed: 2.5
   chaseSpeed: 3
   playerAttackRange: 0.96
-  playerDetectRange: 7
+  playerDetectRange: 9.03
   attackCooldown: {x: 1, y: 3}
   idleTime: {x: 0, y: 0}
   randomWaitTime: {x: 0, y: 0}
@@ -3537,7 +3537,7 @@ MonoBehaviour:
   wanderSpeed: 2.5
   chaseSpeed: 3
   playerAttackRange: 0.96
-  playerDetectRange: 7
+  playerDetectRange: 9.03
   attackCooldown: {x: 1, y: 3}
   idleTime: {x: 0, y: 0}
   randomWaitTime: {x: 0, y: 0}
@@ -6894,7 +6894,7 @@ MonoBehaviour:
   wanderSpeed: 2.5
   chaseSpeed: 3
   playerAttackRange: 0.96
-  playerDetectRange: 7
+  playerDetectRange: 9.03
   attackCooldown: {x: 1, y: 3}
   idleTime: {x: 0, y: 0}
   randomWaitTime: {x: 0, y: 0}
@@ -7563,7 +7563,7 @@ MonoBehaviour:
   wanderSpeed: 2.5
   chaseSpeed: 3
   playerAttackRange: 0.96
-  playerDetectRange: 7
+  playerDetectRange: 9.03
   attackCooldown: {x: 1, y: 3}
   idleTime: {x: 0, y: 0}
   randomWaitTime: {x: 0, y: 0}
@@ -8054,7 +8054,7 @@ MonoBehaviour:
   wanderSpeed: 2.5
   chaseSpeed: 3
   playerAttackRange: 0.96
-  playerDetectRange: 7
+  playerDetectRange: 9.03
   attackCooldown: {x: 1, y: 3}
   idleTime: {x: 0, y: 0}
   randomWaitTime: {x: 0, y: 0}
