@@ -24,7 +24,7 @@ TagManager:
   - Hurtbox
   - Enemy
   - PostProcessingVolume
-  - 
+  - EnemyCollision
   - 
   - 
   - 

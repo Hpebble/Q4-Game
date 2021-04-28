@@ -15,7 +15,7 @@ public class Grunt : Enemy
     public float playerAttackRange;
     public float playerDetectRange;
 
-    public float attackCooldown;
+    public Vector2 attackCooldown;
     public Vector2 idleTime; 
     public Vector2 randomWaitTime;
     public Vector2 walkingTime;
@@ -26,12 +26,15 @@ public class Grunt : Enemy
 
     public LayerMask playerLayer;
     public LayerMask WorldLayer;
+    public LayerMask enemyLayer;
+    private CircleCollider2D cCol;
     private Collider2D col;
 
     protected override void Start()
     {
         base.Start();
         col = this.GetComponent<Collider2D>();
+        cCol = this.GetComponentInChildren<CircleCollider2D>();
     }
     protected override void Update()
     {
@@ -50,6 +53,7 @@ public class Grunt : Enemy
             case EnemyState.ChasePlayer:
                 CheckPlayerInRange();
                 ChasePlayer();
+                AvoidOtherEnemies();
                 break;
 
             case EnemyState.Attack:
@@ -88,7 +92,7 @@ public class Grunt : Enemy
         {
             if(Physics2D.CircleCast(this.transform.position, playerAttackRange, Vector2.zero, 999, playerLayer) && currentState != EnemyState.Attack && attackCD <= 0 )
             {
-                attackCD = attackCooldown;
+                attackCD = Random.Range(attackCooldown.x, attackCooldown.y);
                 anim.SetTrigger("Attack");
                 currentState = EnemyState.Attack;
                 return;
@@ -98,7 +102,7 @@ public class Grunt : Enemy
                 if (attackCD <= 0 && Physics2D.CircleCast(this.transform.position, playerAttackRange, Vector2.zero, 999, playerLayer))
                 {
                     anim.SetTrigger("Attack");
-                    attackCD = attackCooldown;
+                    attackCD = Random.Range(attackCooldown.x, attackCooldown.y);
                 }
                 else
                 {
@@ -129,6 +133,14 @@ public class Grunt : Enemy
             }
             rb.velocity = new Vector2(chaseSpeed * playerDirection, 0);
         }
+    }
+    void AvoidOtherEnemies()
+    {
+        if (currentState == EnemyState.ChasePlayer)
+        {
+            cCol.enabled = true;
+        }
+        else cCol.enabled = false;
     }
     public override void Attack()
     {
