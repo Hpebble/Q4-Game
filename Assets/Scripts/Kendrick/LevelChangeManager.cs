@@ -21,5 +21,6 @@ public class LevelChangeManager : MonoBehaviour
     public void LoadNewLevel()
     {
         SceneManager.LoadSceneAsync("KendrickKnightGameTest");
+
     }
 }
