@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
         rb = this.GetComponent<Rigidbody2D>();
         anim = this.GetComponent<Animator>();
         col = this.GetComponent<Collider2D>();
+        health = maxHealth;
     }
     protected virtual void Update()
     {
@@ -64,18 +65,6 @@ public class Enemy : MonoBehaviour
         float boxHeight = 0.1f;
 
         grounded = Physics2D.BoxCast(new Vector2(col.bounds.center.x, col.bounds.center.y - col.bounds.extents.y), new Vector2(col.bounds.extents.x * 2, 0.02f), 0f, Vector2.down, boxHeight, groundLayer);
-        /*bool downPressed;
-        if (Input.GetAxisRaw("Vertical") < 0)
-        {
-            downPressed = true;
-        }
-        else downPressed = false;
-        
-        if (Input.GetButtonDown("Jump") && grounded && !CheckIfActionCurrentlyTaken())// && !downPressed)
-        {
-            rb.velocity = new Vector3(rb.velocity.x, jumpStrength);
-            grounded = false;
-        }
-        */
     }
+
 }

@@ -9,11 +9,16 @@ public class KnightStats : MonoBehaviour
     public float currentMana;
     public float bitCount;
     public float naturalManaRegenSpeed;
+    public float UpSlashCost;
+    public float DashBarReplenishCooldown;
+    private float DashBarCD;
+    public Image[] dashBarImage;
+    public int DashBars;
     public Stat maxHealth;
     public Stat maxMana;
     public Stat Defence;
     public Stat damage;
-
+    public float DashLerp;
 
     public Slider healthSlider;
     public Slider manaSlider;
@@ -84,6 +89,49 @@ public class KnightStats : MonoBehaviour
     {
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth.GetValue());
         currentMana = Mathf.Clamp(currentMana, 0, maxMana.GetValue());
+        DashBars = Mathf.Clamp(DashBars, 0, 3);
+    }
+    private void UpdateDashbar()
+    {
+        if(DashBars == 3)
+        {
+            DashBarCD = DashBarReplenishCooldown;
+        }
+        else
+        {
+            DashBarCD -= Time.deltaTime;
+            if(DashBarCD <= 0)
+            {
+                DashBarCD = DashBarReplenishCooldown;
+                DashBars++;
+            }
+        }
+        switch (DashBars)
+        {
+            case 0:
+                dashBarImage[0].color = Color.Lerp(dashBarImage[0].color, new Color(dashBarImage[0].color.r, dashBarImage[0].color.g, dashBarImage[0].color.b, 16f / 255f), DashLerp * Time.deltaTime) ;
+                dashBarImage[1].color = Color.Lerp(dashBarImage[1].color, new Color(dashBarImage[1].color.r, dashBarImage[1].color.g, dashBarImage[1].color.b, 16f / 255f), DashLerp * Time.deltaTime);
+                dashBarImage[2].color = Color.Lerp(dashBarImage[2].color, new Color(dashBarImage[2].color.r, dashBarImage[2].color.g, dashBarImage[2].color.b, 16f / 255f), DashLerp * Time.deltaTime);
+                break;
+
+            case 1:
+                dashBarImage[0].color = Color.Lerp(dashBarImage[0].color, new Color(dashBarImage[0].color.r, dashBarImage[0].color.g, dashBarImage[0].color.b, 255f), 24.5f * Time.deltaTime);
+                dashBarImage[1].color = Color.Lerp(dashBarImage[1].color, new Color(dashBarImage[1].color.r, dashBarImage[1].color.g, dashBarImage[1].color.b, 16f / 255f), DashLerp * Time.deltaTime);
+                dashBarImage[2].color = Color.Lerp(dashBarImage[2].color, new Color(dashBarImage[2].color.r, dashBarImage[2].color.g, dashBarImage[2].color.b, 16f / 255f), DashLerp * Time.deltaTime);
+                break;
+
+            case 2:
+                dashBarImage[0].color = Color.Lerp(dashBarImage[0].color, new Color(dashBarImage[0].color.r, dashBarImage[0].color.g, dashBarImage[0].color.b, 255f), DashLerp * Time.deltaTime);
+                dashBarImage[1].color = Color.Lerp(dashBarImage[1].color, new Color(dashBarImage[1].color.r, dashBarImage[1].color.g, dashBarImage[1].color.b, 255f), DashLerp * Time.deltaTime);
+                dashBarImage[2].color = Color.Lerp(dashBarImage[2].color, new Color(dashBarImage[2].color.r, dashBarImage[2].color.g, dashBarImage[2].color.b, 16f / 255f), DashLerp * Time.deltaTime);
+                break;
+
+            case 3:
+                dashBarImage[0].color = Color.Lerp(dashBarImage[0].color, new Color(dashBarImage[0].color.r, dashBarImage[0].color.g, dashBarImage[0].color.b, 255f), DashLerp * Time.deltaTime);
+                dashBarImage[1].color = Color.Lerp(dashBarImage[1].color, new Color(dashBarImage[1].color.r, dashBarImage[1].color.g, dashBarImage[1].color.b, 255f), DashLerp * Time.deltaTime);
+                dashBarImage[2].color = Color.Lerp(dashBarImage[2].color, new Color(dashBarImage[2].color.r, dashBarImage[2].color.g, dashBarImage[2].color.b, 255f), DashLerp * Time.deltaTime);
+                break;
+        }
     }
     private void UpdateUI()
     {
@@ -92,5 +140,6 @@ public class KnightStats : MonoBehaviour
         healthSlider.value = Mathf.Lerp(healthSlider.value, curHealthPercent, 10 * Time.deltaTime);
         manaSlider.value = Mathf.Lerp(manaSlider.value, curManaPercent, 10 * Time.deltaTime);
         bitAmountText.text = bitCount.ToString();
+        UpdateDashbar();
     }
 }

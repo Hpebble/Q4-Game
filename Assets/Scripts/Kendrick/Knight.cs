@@ -76,18 +76,19 @@ public class Knight : MonoBehaviour
     {
         checkGround();
         //Dashing
-        if (Input.GetKeyDown(KeyCode.LeftShift) && !CheckIfActionCurrentlyTaken() && !CooldownManager.instance.CheckOnCooldown("Dash"))
+        if (Input.GetKeyDown(KeyCode.LeftShift) && !CheckIfActionCurrentlyTaken() && !CooldownManager.instance.CheckOnCooldown("Dash") && stats.DashBars > 0)
         {
+            stats.DashBars--;
             CombatManager.instance.InputDash();
         }
-        if (Input.GetButtonDown("Fire1") && !CooldownManager.instance.CheckOnCooldown("BasicAttack"))
+        if (Input.GetButtonDown("Fire1") && !CooldownManager.instance.CheckOnCooldown("BasicAttack") && !GameManager.instance.paused)
         {
             CombatManager.instance.InputAttack();
         }
-        if (Input.GetKeyDown(KeyCode.C) && stats.CheckEnoughMana(40) && !CooldownManager.instance.CheckOnCooldown("UpSlash"))
+        if (Input.GetKeyDown(KeyCode.C) && stats.CheckEnoughMana(stats.UpSlashCost) && !CooldownManager.instance.CheckOnCooldown("UpSlash") && !GameManager.instance.paused)
         {
             CombatManager.instance.InputUpSlash();
-            stats.UseMana(40);
+            stats.UseMana(stats.UpSlashCost);
         }
     }
     void FixedUpdate()
