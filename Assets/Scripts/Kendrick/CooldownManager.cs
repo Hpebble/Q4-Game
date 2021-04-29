@@ -21,7 +21,8 @@ public class CooldownManager : MonoBehaviour
     private void Start()
     {
         abilityOnCooldown.Add(new Cooldown("Dash", 0.5f));
-        abilityOnCooldown.Add(new Cooldown("BasicAttack", 0.02f));
+        abilityOnCooldown.Add(new Cooldown("BasicAttack", 0.16f));
+        abilityOnCooldown.Add(new Cooldown("UpSlash", 3f));
     }
     private void Update()
     {
@@ -62,5 +63,10 @@ public class CooldownManager : MonoBehaviour
     {
         int i = abilityOnCooldown.FindIndex(d => d.cooldownName == cooldownName);
         abilityOnCooldown[i].timer = abilityOnCooldown[i].length;
+    }
+    public void ResetCooldown(string cooldownName)
+    {
+        int i = abilityOnCooldown.FindIndex(d => d.cooldownName == cooldownName);
+        abilityOnCooldown[i].timer = 0;
     }
 }

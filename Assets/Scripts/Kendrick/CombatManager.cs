@@ -50,7 +50,16 @@ public class CombatManager : MonoBehaviour
     }
     public void InputUpSlash()
     {
-
+        if (canReceiveInput)
+        {
+            Knight.instance.anim.SetTrigger("UpSlash");
+            inputReceived = true;
+            canReceiveInput = false;
+        }
+        else
+        {
+            return;
+        }
     }
     public IEnumerator Dash()
     {

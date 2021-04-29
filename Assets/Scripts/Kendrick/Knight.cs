@@ -84,6 +84,11 @@ public class Knight : MonoBehaviour
         {
             CombatManager.instance.InputAttack();
         }
+        if (Input.GetKeyDown(KeyCode.C) && stats.CheckEnoughMana(40) && !CooldownManager.instance.CheckOnCooldown("UpSlash"))
+        {
+            CombatManager.instance.InputUpSlash();
+            stats.UseMana(40);
+        }
     }
     void FixedUpdate()
     {

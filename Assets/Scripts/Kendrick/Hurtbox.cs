@@ -7,4 +7,5 @@ public class Hurtbox : MonoBehaviour
     public float damage;
     public float kbStrength;
     public float upForce;
+    public bool disableGravityOnHit;
 }

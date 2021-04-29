@@ -10,6 +10,7 @@ public class AttackBehaviour : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.ResetTrigger("ExitTransition");
+        CooldownManager.instance.ResetCooldown("BasicAttack");
         CombatManager.instance.inputReceived = false;
         Knight.instance.rb.velocity = Vector2.zero;
         Knight.instance.disableMovement = true;

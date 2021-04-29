@@ -6,6 +6,7 @@ public class TransitionOneBehaviour : StateMachineBehaviour
 {
     public string TriggerName;
     public bool BasicAttack;
+    public bool ResetAttackOnExit;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -42,6 +43,10 @@ public class TransitionOneBehaviour : StateMachineBehaviour
         if (BasicAttack)
         {
             CooldownManager.instance.StartCooldown("BasicAttack");
+        }
+        if (ResetAttackOnExit)
+        {
+            animator.ResetTrigger("BasicAttack");
         }
     }
 

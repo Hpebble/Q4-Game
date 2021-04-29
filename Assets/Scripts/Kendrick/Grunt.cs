@@ -30,7 +30,10 @@ public class Grunt : Enemy
     public LayerMask WorldLayer;
     public LayerMask enemyLayer;
     private CircleCollider2D cCol;
-    private Collider2D col;
+    private float forceForward = 800;
+    private float forceLength = 0.04f;
+    private float disableYTime = 0.5f;
+    private float disableYTimeCD;
 
     protected override void Start()
     {
@@ -57,7 +60,7 @@ public class Grunt : Enemy
             case EnemyState.Wander:
                 CheckPlayerInRange();
                 //If not idling and walking, then Reset walking and idle timers
-                if (walkingTimeCD <= 0 && idleTimeCD <= 0)
+                if (walkingTimeCD <= 0 && idleTimeCD <= 0 && grounded)
                 {
                     wanderDirection = Random.Range(-1, 1);
                     if (wanderDirection < 0) { wanderDirection = -1; } else wanderDirection = 1;
@@ -66,7 +69,7 @@ public class Grunt : Enemy
                 }
 
                 //if walking, then count down walkingtimeCD and move
-                if(walkingTimeCD > 0)
+                if(walkingTimeCD > 0 && grounded)
                 {
                     walkingTimeCD -= Time.deltaTime;
                     rb.velocity = new Vector2(wanderSpeed * wanderDirection, 0);
@@ -95,9 +98,11 @@ public class Grunt : Enemy
                 }
                 break;
         }
-        //SWITCH CASES//
-        /*
-        */
+        if (!grounded)
+        {
+            anim.SetTrigger("CancelAttack");
+        }
+        DisableYVelocity();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -105,12 +110,18 @@ public class Grunt : Enemy
         Hurtbox hurtbox = collision.GetComponent<Hurtbox>();
         if (collision.tag == "PlayerHurtbox" && !dead)
         {
-            TakeDamage(collision.gameObject, hurtbox);
+            if (hurtbox.disableGravityOnHit && !grounded)
+            {
+                disableYTimeCD = disableYTime;
+                TakeDamage(collision.gameObject, hurtbox, false);
+                StartCoroutine(ForcePush(anim));
+                currentState = EnemyState.TakingDamage;
+                anim.SetTrigger("TakeDamage");
+                return;
+            }
+            TakeDamage(collision.gameObject, hurtbox,true);
             currentState = EnemyState.TakingDamage;
             anim.SetTrigger("TakeDamage");
-            if (currentState == EnemyState.Attack && inturruptWhendamaged)
-            {
-            }
         }
     }
     void CheckPlayerInRange()
@@ -164,7 +175,7 @@ public class Grunt : Enemy
         float yDiff = Knight.instance.transform.position.y - (this.gameObject.transform.position.y - col.bounds.extents.y);
         if (playerDirection <= 0) { playerDirection = -1; } else if (playerDirection > 0) { playerDirection = 1; }
         //Debug.Log(playerDirection);
-        if (!anim.GetBool("Attacking") && !anim.GetBool("TakingDamage") && !dead)
+        if (!anim.GetBool("Attacking") && !anim.GetBool("TakingDamage") && !dead && grounded)
         {
             if (yDiff > 1.9 && Knight.instance.GetGrounded())
             {
@@ -194,8 +205,23 @@ public class Grunt : Enemy
             walkingTimeCD = 0;
         }
     }
-    public override void Attack()
+    IEnumerator ForcePush(Animator animator)
     {
+        rb.AddForce(new Vector2((Knight.instance.directionFacing * forceForward), 0));
+        DisableYVelocity();
+        yield return new WaitForSeconds(forceLength);
+        //if (animator.GetBool("Attacking") && !animator.GetBool("TakingDamage"))
+        {
+            rb.velocity = Vector2.zero;
+        }
+    }
+    void DisableYVelocity()
+    {
+        if (disableYTimeCD > 0)
+        {
+            disableYTimeCD -= Time.deltaTime;
+            rb.velocity = new Vector2(rb.velocity.x, 0);
+        }
     }
     private void OnDrawGizmosSelected()
     {
