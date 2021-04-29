@@ -421,6 +421,9 @@ MonoBehaviour:
   maxHealth: 100
   playerDamage: 2
   bitsToDrop: 10
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
   currentState: 0
   staggerCD: 0
   inturruptWhendamaged: 0
@@ -430,8 +433,9 @@ MonoBehaviour:
   playerDetectRange: 9.03
   attackCooldown: {x: 1, y: 3}
   idleTime: {x: 0, y: 0}
-  randomWaitTime: {x: 0, y: 0}
-  walkingTime: {x: 0, y: 0}
+  wanderTime: {x: 0, y: 0}
+  initChaseTime: {x: 0, y: 0}
+  wanderDirection: 0
   playerLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -1422,6 +1426,7 @@ MonoBehaviour:
   damage: 10
   kbStrength: 5
   upForce: 1
+  disableGravityOnHit: 0
 --- !u!212 &271190175
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3321,6 +3326,7 @@ MonoBehaviour:
   damage: 13
   kbStrength: 5
   upForce: 1
+  disableGravityOnHit: 0
 --- !u!212 &836189668
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3616,6 +3622,7 @@ MonoBehaviour:
   damage: 15
   kbStrength: 10
   upForce: 13
+  disableGravityOnHit: 0
 --- !u!212 &888741500
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3714,6 +3721,7 @@ MonoBehaviour:
   damage: 30
   kbStrength: 10
   upForce: 13
+  disableGravityOnHit: 0
 --- !u!61 &900154288
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3938,6 +3946,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 99
       objectReference: {fileID: 0}
+    - target: {fileID: 1343405758, guid: e5cbd269f9397be4f89c9909c64e9eb6, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1538019094, guid: e5cbd269f9397be4f89c9909c64e9eb6, type: 3}
       propertyPath: respawnPoint
       value: 
@@ -3957,6 +3969,10 @@ PrefabInstance:
     - target: {fileID: 1538019094, guid: e5cbd269f9397be4f89c9909c64e9eb6, type: 3}
       propertyPath: dashDist
       value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 1955649806, guid: e5cbd269f9397be4f89c9909c64e9eb6, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 534140188211440110, guid: e5cbd269f9397be4f89c9909c64e9eb6,
         type: 3}
@@ -4288,7 +4304,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1098554760}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.720001, y: 2.5099983, z: 0}
+  m_LocalPosition: {x: -8.7, y: 2.28, z: 0}
   m_LocalScale: {x: 0.49750662, y: 0.62011063, z: 1.2747}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4307,12 +4323,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1210148510}
-  batSpeed: 0.01
+  batSpeed: 0.7
   offset: {x: 0, y: 5.66}
   attackState: 0
   SwipePosition1: {x: 0, y: 0}
   SwipePosition2: {x: 0, y: 0}
-  AttackSpeed: 0.06
+  AttackSpeed: 0.57
+  isCoolDown: 0
+  Attackcooldown: 0
+  AttackSpeed2: 1
+  attackGoback: 0
+  isAttacking: 0
+  waitTime: 0.5
 --- !u!212 &1098554763
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8355,6 +8377,7 @@ MonoBehaviour:
   damage: 18
   kbStrength: 5
   upForce: 1
+  disableGravityOnHit: 0
 --- !u!212 &1857889054
 SpriteRenderer:
   m_ObjectHideFlags: 0
