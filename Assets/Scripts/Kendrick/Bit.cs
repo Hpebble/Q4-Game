@@ -9,6 +9,7 @@ public class Bit : MonoBehaviour
     public float deleteDistance;
     private bool delete;
     private TrailRenderer tr;
+    private Animation anim;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player")
@@ -19,6 +20,7 @@ public class Bit : MonoBehaviour
     private void Start()
     {
         tr = this.GetComponentInChildren<TrailRenderer>();
+        anim = this.GetComponentInChildren<Animation>();
     }
     void Update()
     {
@@ -29,6 +31,7 @@ public class Bit : MonoBehaviour
                 delete = true;
                 if (delete == true)
                 {
+                    anim.Play();
                     StartCoroutine(DestroyThis());
                 }
                 //Destroy(this.gameObject);

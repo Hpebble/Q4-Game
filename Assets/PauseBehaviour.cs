@@ -23,12 +23,12 @@ public class PauseBehaviour : StateMachineBehaviour
     {
         if (pause)
         {
-            Time.timeScale = 0f;
+           // Time.timeScale = 0f;
             GameManager.instance.paused = true;
         }
         else
         {
-            Time.timeScale = 1f;
+           // Time.timeScale = 1f;
             GameManager.instance.paused = false;
         }
     }

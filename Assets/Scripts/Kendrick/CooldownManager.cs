@@ -8,6 +8,7 @@ public class CooldownManager : MonoBehaviour
     public static CooldownManager instance;
     public List<Cooldown> abilityOnCooldown = new List<Cooldown>();
     public Image UpSlashRadial;
+    public Image UpSlashManaWarn;
     private void Awake()
     {
         if (instance == null)
@@ -74,6 +75,11 @@ public class CooldownManager : MonoBehaviour
     }
     void UpdateCooldownUI()
     {
+        if (!Knight.instance.stats.CheckEnoughMana(Knight.instance.stats.UpSlashCost,false))
+        {
+            UpSlashManaWarn.enabled = true;
+        }
+        else UpSlashManaWarn.enabled = false;
         UpSlashRadial.fillAmount = abilityOnCooldown[2].timer / Knight.instance.stats.UpSlashCooldown;
         Debug.Log(abilityOnCooldown[2].timer / Knight.instance.stats.UpSlashCooldown);
     }

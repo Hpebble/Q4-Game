@@ -54,7 +54,7 @@ public class KnightStats : MonoBehaviour
     {
         currentMana -= mana;
     }
-    public bool CheckEnoughMana(float mana)
+    public bool CheckEnoughMana(float mana,bool showWarning)
     {
         if (currentMana >= mana)
         {
@@ -62,7 +62,10 @@ public class KnightStats : MonoBehaviour
         }
         else
         {
-            UIanim.SetTrigger("ManaNotif");
+            if (showWarning)
+            {
+                UIanim.SetTrigger("ManaNotif");
+            }
             return false;
         }
     }
