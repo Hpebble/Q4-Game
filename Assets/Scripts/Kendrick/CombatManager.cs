@@ -65,6 +65,7 @@ public class CombatManager : MonoBehaviour
     public IEnumerator Dash()
     {
         yield return new WaitUntil(() => Knight.instance.isDashing);
+        Knight.instance.stats.DashBars--;
         float direction;
         if (Input.GetAxisRaw("Horizontal") < 0.1f && Input.GetAxisRaw("Horizontal") > -0.1f)
         {
@@ -78,6 +79,7 @@ public class CombatManager : MonoBehaviour
         yield return new WaitForSeconds(Knight.instance.dashTime);
         Knight.instance.isDashing = false;
         Knight.instance.rb.gravityScale = gravity;
+        CooldownManager.instance.ResetCooldown("BasicAttack");
     }
 
     public void InputManager()

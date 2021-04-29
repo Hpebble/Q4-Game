@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CooldownManager : MonoBehaviour
 {
     public static CooldownManager instance;
     public List<Cooldown> abilityOnCooldown = new List<Cooldown>();
+    public Image UpSlashRadial;
     private void Awake()
     {
         if (instance == null)
@@ -22,10 +24,11 @@ public class CooldownManager : MonoBehaviour
     {
         abilityOnCooldown.Add(new Cooldown("Dash", 0.5f));
         abilityOnCooldown.Add(new Cooldown("BasicAttack", 0.16f));
-        abilityOnCooldown.Add(new Cooldown("UpSlash", 3f));
+        abilityOnCooldown.Add(new Cooldown("UpSlash", Knight.instance.stats.UpSlashCooldown));
     }
     private void Update()
     {
+        UpdateCooldownUI();
         for (int i = 0; i < abilityOnCooldown.Count; i++)
         {
             abilityOnCooldown[i].timer -= Time.deltaTime;
@@ -68,5 +71,10 @@ public class CooldownManager : MonoBehaviour
     {
         int i = abilityOnCooldown.FindIndex(d => d.cooldownName == cooldownName);
         abilityOnCooldown[i].timer = 0;
+    }
+    void UpdateCooldownUI()
+    {
+        UpSlashRadial.fillAmount = abilityOnCooldown[2].timer / Knight.instance.stats.UpSlashCooldown;
+        Debug.Log(abilityOnCooldown[2].timer / Knight.instance.stats.UpSlashCooldown);
     }
 }

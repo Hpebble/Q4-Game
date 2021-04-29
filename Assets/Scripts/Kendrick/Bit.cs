@@ -24,7 +24,7 @@ public class Bit : MonoBehaviour
     {
         if (collected)
         {
-            if (Vector3.Distance(Knight.instance.GetCenter(), this.transform.position) < deleteDistance)
+            if (Vector3.Distance(Knight.instance.GetCenter(), this.transform.position) < deleteDistance && delete == false)
             {
                 delete = true;
                 if (delete == true)
@@ -46,8 +46,8 @@ public class Bit : MonoBehaviour
     IEnumerator DestroyThis()
     {
         yield return new WaitForSeconds(0.06f);
-        tr.transform.SetParent(null);
         Knight.instance.stats.bitCount++;
+        tr.transform.SetParent(null);
         Destroy(this.gameObject);
     }
     public static float EaseIn(float t)

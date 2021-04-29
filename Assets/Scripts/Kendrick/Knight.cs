@@ -78,7 +78,6 @@ public class Knight : MonoBehaviour
         //Dashing
         if (Input.GetKeyDown(KeyCode.LeftShift) && !takingDamage && !stats.dead && !CooldownManager.instance.CheckOnCooldown("Dash") && stats.DashBars > 0) //!CheckIfActionCurrentlyTaken()
         {
-            stats.DashBars--;
             CombatManager.instance.InputDash();
         }
         if (Input.GetButtonDown("Fire1") && !CooldownManager.instance.CheckOnCooldown("BasicAttack") && !GameManager.instance.paused)

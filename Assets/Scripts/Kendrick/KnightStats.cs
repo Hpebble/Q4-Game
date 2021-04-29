@@ -10,6 +10,7 @@ public class KnightStats : MonoBehaviour
     public float bitCount;
     public float naturalManaRegenSpeed;
     public float UpSlashCost;
+    public float UpSlashCooldown;
     public float DashBarReplenishCooldown;
     private float DashBarCD;
     public Image[] dashBarImage;
