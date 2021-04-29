@@ -13,6 +13,10 @@ public class flyingEnemyAi : MonoBehaviour
     public Vector2 SwipePosition1;
     public Vector2 SwipePosition2;
     public float AttackSpeed;
+    public bool isCoolDown;
+    public float Attackcooldown;
+    public float AttackSpeed2;
+    public bool attackGoback;
 
 
     // Start is called before the first frame update
@@ -29,13 +33,10 @@ public class flyingEnemyAi : MonoBehaviour
 
         {
 
-            
+
             Vector2 playerPos = new Vector2(player.transform.position.x, player.transform.position.y) + offset;
             Vector2 smoothMove = Vector2.Lerp(transform.position, playerPos, batSpeed);
             //Debug.Log("tracking player");
-
-
-
 
             // Debug.Log("Player's x = " + Mathf.Round(playPosX));
             // Debug.Log("Enemy's x = " +  Mathf.Round(enemPosX));
@@ -44,31 +45,33 @@ public class flyingEnemyAi : MonoBehaviour
 
 
 
-
-            if (attackState == true) 
+            if (attackState == true && isCoolDown == false) 
             {
-                SwipePosition1 = transform.position;
-                SwipePosition2 = Knight.instance.transform.position;
 
-                Vector2 BatPos = new Vector2(transform.position.x, transform.position.y);
-                Vector2 BatPosLerp = Vector2.Lerp(BatPos, SwipePosition2, AttackSpeed);
+                StartCoroutine(AttackAnim());
+                Debug.Log("Test");
 
-                transform.position = BatPosLerp;
+            }
 
+            if (isCoolDown == true)
+            {
+                Attackcooldown += Time.deltaTime;
+            }
+            if (Attackcooldown >= 4)
+            {
+                isCoolDown = false;
+                Attackcooldown = 0;
+            }
 
-
-                Debug.Log("Enemy Attacking");
+            if (Mathf.Round(enemPosX) == Mathf.Round(playPosX))
+            {
+                Debug.Log("Dropping Knife.");
             }
 
         }
-
-        
-       
-
-        
-        
-
     }
+
+    
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -86,6 +89,38 @@ public class flyingEnemyAi : MonoBehaviour
             attackState = false;
             Debug.Log("Not in radius");
         }
+    }
+
+    IEnumerator AttackAnim()
+    {
+        Debug.Log("Enemy attack lol");
+        
+        SwipePosition1 = transform.position;
+        SwipePosition2 = Knight.instance.transform.position;
+
+       
+        Vector2 BatPos = new Vector2(transform.position.x, transform.position.y);
+        Vector2 BatPosLerp1 = Vector2.Lerp(SwipePosition1, SwipePosition2, AttackSpeed);
+
+        Debug.Log("Test2");
+        transform.position = BatPosLerp1;
+
+        yield return new WaitForSeconds(1f);
+
+        SwipePosition1 = transform.position;
+        Vector2 BatPosLerp2 = Vector2.Lerp(SwipePosition2, SwipePosition1, AttackSpeed2);
+        transform.position = BatPosLerp2;
+        Debug.Log("Test2(2)");
+        attackGoback = false;
+        
+       
+        
+
+        isCoolDown = true;
+
+
+
+
     }
 
 }

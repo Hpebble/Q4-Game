@@ -4273,7 +4273,7 @@ GameObject:
   - component: {fileID: 1098554762}
   - component: {fileID: 1098554764}
   - component: {fileID: 1098554765}
-  m_Layer: 11
+  m_Layer: 9
   m_Name: EnemyFlying
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4312,7 +4312,7 @@ MonoBehaviour:
   attackState: 0
   SwipePosition1: {x: 0, y: 0}
   SwipePosition2: {x: 0, y: 0}
-  AttackSpeed: 2
+  AttackSpeed: 0.06
 --- !u!212 &1098554763
 SpriteRenderer:
   m_ObjectHideFlags: 0
