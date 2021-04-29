@@ -17,6 +17,8 @@ public class flyingEnemyAi : MonoBehaviour
     public float Attackcooldown;
     public float AttackSpeed2;
     public bool attackGoback;
+    public bool isAttacking;
+    public float waitTime;
 
 
     // Start is called before the first frame update
@@ -33,15 +35,18 @@ public class flyingEnemyAi : MonoBehaviour
 
         {
 
+            if (isAttacking == false) 
+            {
+                Vector2 playerPos = new Vector2(player.transform.position.x, player.transform.position.y) + offset;
+                Vector2 smoothMove = Vector2.Lerp(transform.position, playerPos, batSpeed * Time.deltaTime);
+                //Debug.Log("tracking player");
 
-            Vector2 playerPos = new Vector2(player.transform.position.x, player.transform.position.y) + offset;
-            Vector2 smoothMove = Vector2.Lerp(transform.position, playerPos, batSpeed);
-            //Debug.Log("tracking player");
+                // Debug.Log("Player's x = " + Mathf.Round(playPosX));
+                // Debug.Log("Enemy's x = " +  Mathf.Round(enemPosX));
 
-            // Debug.Log("Player's x = " + Mathf.Round(playPosX));
-            // Debug.Log("Enemy's x = " +  Mathf.Round(enemPosX));
-
-            transform.position = smoothMove;
+                transform.position = smoothMove;
+            }
+            
 
 
 
@@ -57,7 +62,7 @@ public class flyingEnemyAi : MonoBehaviour
             {
                 Attackcooldown += Time.deltaTime;
             }
-            if (Attackcooldown >= 4)
+            if (Attackcooldown >= 1.5f)
             {
                 isCoolDown = false;
                 Attackcooldown = 0;
@@ -93,33 +98,31 @@ public class flyingEnemyAi : MonoBehaviour
 
     IEnumerator AttackAnim()
     {
-        Debug.Log("Enemy attack lol");
+        //Swipe Attack
+        Debug.Log("Enemy attack");
         
         SwipePosition1 = transform.position;
         SwipePosition2 = Knight.instance.transform.position;
 
-       
+        Vector2 DesiredPos = new Vector2(SwipePosition2.x, SwipePosition2.y);
         Vector2 BatPos = new Vector2(transform.position.x, transform.position.y);
-        Vector2 BatPosLerp1 = Vector2.Lerp(SwipePosition1, SwipePosition2, AttackSpeed);
+        Vector2 BatPosLerp1 = Vector2.Lerp(SwipePosition1, DesiredPos, AttackSpeed * Time.deltaTime);
 
         Debug.Log("Test2");
+        isAttacking = true;
         transform.position = BatPosLerp1;
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(waitTime);
 
-        SwipePosition1 = transform.position;
-        Vector2 BatPosLerp2 = Vector2.Lerp(SwipePosition2, SwipePosition1, AttackSpeed2);
-        transform.position = BatPosLerp2;
-        Debug.Log("Test2(2)");
-        attackGoback = false;
-        
-       
-        
 
+
+
+        isAttacking = false;
         isCoolDown = true;
+    }
 
-
-
+    public void DropKnife()
+    {
 
     }
 
