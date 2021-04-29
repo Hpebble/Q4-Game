@@ -76,7 +76,7 @@ public class Knight : MonoBehaviour
     {
         checkGround();
         //Dashing
-        if (Input.GetKeyDown(KeyCode.LeftShift) && !CheckIfActionCurrentlyTaken() && !CooldownManager.instance.CheckOnCooldown("Dash") && stats.DashBars > 0)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && !takingDamage && !stats.dead && !CooldownManager.instance.CheckOnCooldown("Dash") && stats.DashBars > 0) //!CheckIfActionCurrentlyTaken()
         {
             stats.DashBars--;
             CombatManager.instance.InputDash();

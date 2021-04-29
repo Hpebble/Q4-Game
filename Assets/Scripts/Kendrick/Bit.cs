@@ -7,6 +7,8 @@ public class Bit : MonoBehaviour
     bool collected;
     public float slerpSpeed;
     public float deleteDistance;
+    private bool delete;
+    private TrailRenderer tr;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player")
@@ -14,17 +16,39 @@ public class Bit : MonoBehaviour
             collected = true;
         }
     }
+    private void Start()
+    {
+        tr = this.GetComponentInChildren<TrailRenderer>();
+    }
     void Update()
     {
         if (collected)
         {
-            this.transform.position = Vector3.Lerp(this.transform.position, Knight.instance.GetCenter(), slerpSpeed * Time.deltaTime);
-            if(Vector3.Distance(Knight.instance.GetCenter(), this.transform.position) < deleteDistance)
+            if (Vector3.Distance(Knight.instance.GetCenter(), this.transform.position) < deleteDistance)
             {
-                Knight.instance.stats.bitCount++;
-                Destroy(this.gameObject);
+                delete = true;
+                if (delete == true)
+                {
+                    StartCoroutine(DestroyThis());
+                }
+                //Destroy(this.gameObject);
+            }
+            if (!delete)
+            {
+                this.transform.position = Vector3.Lerp(this.transform.position, Knight.instance.GetCenter(), slerpSpeed * Time.deltaTime);
+            }
+            else
+            {
+                this.transform.position = Vector3.Lerp(this.transform.position, Knight.instance.GetCenter(), slerpSpeed * 3 * Time.deltaTime);
             }
         }
+    }
+    IEnumerator DestroyThis()
+    {
+        yield return new WaitForSeconds(0.06f);
+        tr.transform.SetParent(null);
+        Knight.instance.stats.bitCount++;
+        Destroy(this.gameObject);
     }
     public static float EaseIn(float t)
     {

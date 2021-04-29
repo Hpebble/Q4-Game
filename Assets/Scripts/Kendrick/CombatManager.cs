@@ -39,6 +39,7 @@ public class CombatManager : MonoBehaviour
         if (canReceiveInput)
         {
             Knight.instance.anim.SetBool("IsDashing", true);
+            Knight.instance.anim.SetTrigger("Dash");
             inputReceived = true;
             canReceiveInput = false;
             StartCoroutine(Dash());
@@ -63,7 +64,7 @@ public class CombatManager : MonoBehaviour
     }
     public IEnumerator Dash()
     {
-        Knight.instance.isDashing = true;
+        yield return new WaitUntil(() => Knight.instance.isDashing);
         float direction;
         if (Input.GetAxisRaw("Horizontal") < 0.1f && Input.GetAxisRaw("Horizontal") > -0.1f)
         {

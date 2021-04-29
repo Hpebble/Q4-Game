@@ -8,6 +8,8 @@ public class DashBehaviour : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         CombatManager.instance.canReceiveInput = false;
+        animator.SetBool("IsDashing", true);
+        Knight.instance.isDashing = true;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

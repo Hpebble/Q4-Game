@@ -14,11 +14,11 @@ public class KnightStats : MonoBehaviour
     private float DashBarCD;
     public Image[] dashBarImage;
     public int DashBars;
+    private float DashLerp = 25.1f;
     public Stat maxHealth;
     public Stat maxMana;
     public Stat Defence;
     public Stat damage;
-    public float DashLerp;
 
     public Slider healthSlider;
     public Slider manaSlider;
