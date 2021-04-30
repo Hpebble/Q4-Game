@@ -62,6 +62,19 @@ public class CombatManager : MonoBehaviour
             return;
         }
     }
+    public void InputGroundPound()
+    {
+        if (canReceiveInput)
+        {
+            Knight.instance.anim.SetTrigger("GroundPound");
+            inputReceived = true;
+            canReceiveInput = false;
+        }
+        else
+        {
+            return;
+        }
+    }
     public IEnumerator Dash()
     {
         yield return new WaitUntil(() => Knight.instance.isDashing);

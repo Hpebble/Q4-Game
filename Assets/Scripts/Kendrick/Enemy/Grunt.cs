@@ -119,9 +119,17 @@ public class Grunt : Enemy
                 anim.SetTrigger("TakeDamage");
                 return;
             }
+            if (hurtbox.kbBasedOnPlayerPosition)
+            {
+                TakeDamageByPosition(collision.gameObject, hurtbox, true);
+                currentState = EnemyState.TakingDamage;
+                anim.SetTrigger("TakeDamage");
+                return;
+            }
             TakeDamage(collision.gameObject, hurtbox,true);
             currentState = EnemyState.TakingDamage;
             anim.SetTrigger("TakeDamage");
+            disableYTimeCD = 0f;
         }
     }
     void CheckPlayerInRange()

@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     public float maxHealth;
     public float playerDamage;
     public float bitsToDrop;
+    public bool takeKnockback;
 
     protected bool grounded;
     protected bool dead;
@@ -30,16 +31,34 @@ public class Enemy : MonoBehaviour
     }
     public virtual void ApplyKnockback(GameObject knockbackSource, float knockbackStrength, float upforce)
     {
+        if (knockbackStrength == 0 && upforce == 0 || takeKnockback) return;
         Vector2 kbDir;
-        kbDir = new Vector2(Knight.instance.directionFacing, 0);
+        kbDir = new Vector2(Knight.instance.directionFacing, 0).normalized;
         rb.velocity = Vector2.zero;
         rb.velocity = new Vector2((kbDir.x * knockbackStrength), (upforce));
+    }
+    public virtual void ApplyKnockbackByPosition(GameObject knockbackSource, float knockbackStrength, float upforce)
+    {
+        if (knockbackStrength == 0 && upforce == 0 || takeKnockback) return;
+        float kbDir;
+        kbDir = Mathf.Clamp((this.gameObject.transform.position.x - knockbackSource.transform.position.x), -1, 1);
+        Debug.Log(kbDir);
+        rb.velocity = Vector2.zero;
+        rb.velocity = new Vector2((kbDir * knockbackStrength), (upforce));
     }
     public void TakeDamage(GameObject kbSource, Hurtbox hurtbox, bool applyKnockback)
     {
         health -= hurtbox.damage;
         if(applyKnockback)
         ApplyKnockback(Knight.instance.gameObject, hurtbox.kbStrength, hurtbox.upForce);
+    }
+    public void TakeDamageByPosition(GameObject kbSource, Hurtbox hurtbox, bool applyKnockback)
+    {
+        health -= hurtbox.damage;
+        if (applyKnockback)
+        {
+            ApplyKnockbackByPosition(kbSource, hurtbox.kbStrength, hurtbox.upForce);
+        }
     }
     public IEnumerator Die()
     {

@@ -10,6 +10,7 @@ TagManager:
   - desk
   - Hurtbox
   - PlayerHurtbox
+  - Platform
   layers:
   - Default
   - TransparentFX
@@ -25,8 +26,8 @@ TagManager:
   - Enemy
   - PostProcessingVolume
   - EnemyCollision
-  - 
-  - 
+  - Platform
+  - EdgeCol
   - 
   - 
   - 

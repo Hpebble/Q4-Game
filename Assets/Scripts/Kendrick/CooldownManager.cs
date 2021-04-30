@@ -19,13 +19,16 @@ public class CooldownManager : MonoBehaviour
         {
             Destroy(this);
         }
-        DontDestroyOnLoad(this);
+        //DontDestroyOnLoad(this);
     }
     private void Start()
     {
+        //UpSlashRadial = GameObject.Find("UpslashRadial").GetComponent<Image>();
+        //UpSlashRadial = GameObject.Find("UpslashManaWarn").GetComponent<Image>();
         abilityOnCooldown.Add(new Cooldown("Dash", 0.5f));
         abilityOnCooldown.Add(new Cooldown("BasicAttack", 0.16f));
         abilityOnCooldown.Add(new Cooldown("UpSlash", Knight.instance.stats.UpSlashCooldown));
+        abilityOnCooldown.Add(new Cooldown("GroundPound", 1f));
     }
     private void Update()
     {
@@ -81,6 +84,6 @@ public class CooldownManager : MonoBehaviour
         }
         else UpSlashManaWarn.enabled = false;
         UpSlashRadial.fillAmount = abilityOnCooldown[2].timer / Knight.instance.stats.UpSlashCooldown;
-        Debug.Log(abilityOnCooldown[2].timer / Knight.instance.stats.UpSlashCooldown);
+        //Debug.Log(abilityOnCooldown[2].timer / Knight.instance.stats.UpSlashCooldown);
     }
 }

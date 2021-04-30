@@ -8,4 +8,5 @@ public class Hurtbox : MonoBehaviour
     public float kbStrength;
     public float upForce;
     public bool disableGravityOnHit;
+    public bool kbBasedOnPlayerPosition;
 }

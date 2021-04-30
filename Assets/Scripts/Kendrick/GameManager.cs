@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public string currentLevel;
     public bool paused;
+    private bool inKnightGame;
 
     public Animator anim;
     private void Awake()
@@ -61,4 +62,5 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneToLoad);
 
     }
+    public bool IsInKnightGame;
 }

@@ -19,6 +19,7 @@ public class Knight : MonoBehaviour
     public float lowJumpFallMultiplier = 5f;
     public float maxFallSpeed = -29f;
     private bool grounded;
+    private bool downPressed;
     #region defaultvals
     private float defaultJumpStrength = 22;
     private float defaultGroundSpeed = 430;
@@ -32,6 +33,7 @@ public class Knight : MonoBehaviour
     public float dashDist;
     public float dashTime;
     public bool isDashing;
+    public bool isGroundPounding;
     public bool attacking;
     public bool takingDamage;
     public bool disableMovement;
@@ -47,8 +49,10 @@ public class Knight : MonoBehaviour
     public Animator anim;
     SpriteRenderer sr;
     public Rigidbody2D rb;
-    BoxCollider2D boxCol;
-    LayerMask platformLayermask = (1 << 8) + 1;
+    public BoxCollider2D boxCol;
+    public EdgeCollider2D edgeCol;
+    public bool edgeColColliding;
+    public LayerMask platformLayermask;
 
     [Header("Animator Stuff")]
     public Animator RuneAnimator;
@@ -64,6 +68,9 @@ public class Knight : MonoBehaviour
     }
     private void Start()
     {
+        edgeCol = this.gameObject.GetComponentInChildren<EdgeCollider2D>();
+        Camera.main.transform.position = this.transform.position;
+        Camera.main.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, -12);
         GameObject gm = GameObject.Find("GameManager");
         if (gm == null)
         {
@@ -80,14 +87,28 @@ public class Knight : MonoBehaviour
         {
             CombatManager.instance.InputDash();
         }
+        //Basic Attack
         if (Input.GetButtonDown("Fire1") && !CooldownManager.instance.CheckOnCooldown("BasicAttack") && !GameManager.instance.paused)
         {
-            CombatManager.instance.InputAttack();
+            if (grounded)
+            {
+                CombatManager.instance.InputAttack();
+            }
+            if (!grounded && !downPressed)
+            {
+                CombatManager.instance.InputAttack();
+            }
         }
+        //Upslash
         if (!GameManager.instance.paused && Input.GetKeyDown(KeyCode.C) && stats.CheckEnoughMana(stats.UpSlashCost, true) && !CooldownManager.instance.CheckOnCooldown("UpSlash"))
         {
             CombatManager.instance.InputUpSlash();
             stats.UseMana(stats.UpSlashCost);
+        }      
+        //Groundpound
+        if (!GameManager.instance.paused && Input.GetButton("Fire1") && downPressed && !grounded && !CooldownManager.instance.CheckOnCooldown("GroundPound"))
+        {
+            CombatManager.instance.InputGroundPound();
         }
     }
     void FixedUpdate()
@@ -133,16 +154,19 @@ public class Knight : MonoBehaviour
         //Boxcast under player to detect ground
         float boxHeight = 0.1f;
 
-        grounded = Physics2D.BoxCast(new Vector2(boxCol.bounds.center.x, boxCol.bounds.center.y - boxCol.bounds.extents.y), new Vector2(boxCol.bounds.extents.x * 2, 0.02f), 0f, Vector2.down, boxHeight, platformLayermask);
-        /*bool downPressed;
+        grounded = Physics2D.BoxCast(new Vector2(boxCol.bounds.center.x, boxCol.bounds.center.y - boxCol.bounds.extents.y), new Vector2(boxCol.bounds.extents.x * 2, 0.01f), 0f, Vector2.down, boxHeight, platformLayermask);       
         if (Input.GetAxisRaw("Vertical") < 0)
         {
             downPressed = true;
         }
         else downPressed = false;
-        */
+        if (edgeColColliding) { grounded = true; }
         if (Input.GetButtonDown("Jump") && grounded && !CheckIfActionCurrentlyTaken())// && !downPressed)
         {
+            if(downPressed && edgeColColliding)
+            {
+                return;
+            }
             rb.velocity = new Vector3(rb.velocity.x, jumpStrength);
             grounded = false;
         }
@@ -207,7 +231,7 @@ public class Knight : MonoBehaviour
     }
     public bool CheckIfActionCurrentlyTaken()
     {
-        if(isDashing || attacking || takingDamage || stats.dead)
+        if(isDashing || attacking || takingDamage || isGroundPounding ||stats.dead)
         {
             return true;
         }
@@ -221,6 +245,10 @@ public class Knight : MonoBehaviour
     {
         return boxCol.bounds.center;
     }
+    public bool IsDownPressed()
+    {
+        return downPressed;
+    }
     public void FaceLeft()
     {
         directionFacing = -1;
@@ -229,4 +257,5 @@ public class Knight : MonoBehaviour
     {
         directionFacing = 1;
     }
+
 }
