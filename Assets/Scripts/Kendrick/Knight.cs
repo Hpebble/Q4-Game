@@ -38,6 +38,7 @@ public class Knight : MonoBehaviour
     public bool takingDamage;
     public bool disableMovement;
     public bool isInvulnerable;
+    public bool inDialogue;
 
     [Header("Other Stuff")]
     public bool inTransition;
@@ -229,7 +230,6 @@ public class Knight : MonoBehaviour
         rb.velocity = Vector2.zero;
         rb.AddForce(new Vector2((kbDir.x * knockbackStrength), (upforce)), ForceMode2D.Impulse);
     }
-
     private void SetDefaultMoveVals()
     {
         jumpStrength = defaultJumpStrength;

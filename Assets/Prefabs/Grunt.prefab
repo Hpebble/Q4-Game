@@ -374,10 +374,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  health: 120
+  health: 160
   maxHealth: 160
   playerDamage: 2
   bitsToDrop: 10
+  takeKnockback: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 257
@@ -388,7 +389,7 @@ MonoBehaviour:
   chaseSpeed: 3
   playerAttackRange: 0.96
   playerDetectRange: 9.03
-  attackCooldown: {x: 1, y: 3}
+  attackCooldown: {x: 0.5, y: 2.25}
   idleTime: {x: 0.7, y: 2}
   wanderTime: {x: 1.5, y: 4.5}
   initChaseTime: {x: 0.5, y: 1.5}
