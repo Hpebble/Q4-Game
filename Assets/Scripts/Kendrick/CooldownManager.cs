@@ -28,7 +28,7 @@ public class CooldownManager : MonoBehaviour
         abilityOnCooldown.Add(new Cooldown("Dash", 0.5f));
         abilityOnCooldown.Add(new Cooldown("BasicAttack", 0.16f));
         abilityOnCooldown.Add(new Cooldown("UpSlash", Knight.instance.stats.UpSlashCooldown));
-        abilityOnCooldown.Add(new Cooldown("GroundPound", 1f));
+        abilityOnCooldown.Add(new Cooldown("GroundPound", 0.75f));
     }
     private void Update()
     {

@@ -149,6 +149,22 @@ public class Knight : MonoBehaviour
             stats.TakeDamage(collision.gameObject, hurtbox);
         }
     }
+    #region MovingPlatform
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "MovingPlatform")
+        {
+            this.gameObject.transform.parent = collision.transform;
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "MovingPlatform")
+        {
+            this.gameObject.transform.parent = null;
+        }
+    }
+    #endregion
     void checkGround()
     {
         //Boxcast under player to detect ground
