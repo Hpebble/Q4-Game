@@ -19,7 +19,10 @@ public class CombatManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Knight.instance.anim.SetBool("InputRecieved",inputReceived);
+        if (GameManager.instance.inKnightGame)
+        {
+            Knight.instance.anim.SetBool("InputRecieved", inputReceived);
+        }
     }
     public void InputAttack()
     {

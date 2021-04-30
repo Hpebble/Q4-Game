@@ -38,7 +38,6 @@ public class Knight : MonoBehaviour
     public bool takingDamage;
     public bool disableMovement;
     public bool isInvulnerable;
-    public bool inDialogue;
 
     [Header("Other Stuff")]
     public bool inTransition;
@@ -82,40 +81,60 @@ public class Knight : MonoBehaviour
     }
     void Update()
     {
-        checkGround();
-        //Dashing
-        if (Input.GetKeyDown(KeyCode.LeftShift) && !takingDamage && !stats.dead && !CooldownManager.instance.CheckOnCooldown("Dash") && stats.DashBars > 0) //!CheckIfActionCurrentlyTaken()
+        if (GameManager.instance.inKnightGame)
         {
-            CombatManager.instance.InputDash();
-        }
-        //Basic Attack
-        if (Input.GetButtonDown("Fire1") && !CooldownManager.instance.CheckOnCooldown("BasicAttack") && !GameManager.instance.paused)
-        {
-            if (grounded)
+            checkGround();
+            //Dashing
+            if (!GameManager.instance.inDialogue)
             {
-                CombatManager.instance.InputAttack();
+                //Jump
+                if (Input.GetButtonDown("Jump") && grounded && !CheckIfActionCurrentlyTaken())// && !downPressed)
+                {
+                    if (downPressed && edgeColColliding)
+                    {
+                        return;
+                    }
+                    rb.velocity = new Vector3(rb.velocity.x, jumpStrength);
+                    grounded = false;
+                }
+                if (Input.GetKeyDown(KeyCode.LeftShift) && !takingDamage && !stats.dead && !CooldownManager.instance.CheckOnCooldown("Dash") && stats.DashBars > 0) //!CheckIfActionCurrentlyTaken()
+                {
+                    CombatManager.instance.InputDash();
+                }
+                //Basic Attack
+                if (Input.GetButtonDown("Fire1") && !CooldownManager.instance.CheckOnCooldown("BasicAttack") && !GameManager.instance.paused)
+                {
+                    if (grounded)
+                    {
+                        CombatManager.instance.InputAttack();
+                    }
+                    if (!grounded && !downPressed)
+                    {
+                        CombatManager.instance.InputAttack();
+                    }
+                }
+                //Upslash
+                if (!GameManager.instance.paused && Input.GetKeyDown(KeyCode.C) && stats.CheckEnoughMana(stats.UpSlashCost, true) && !CooldownManager.instance.CheckOnCooldown("UpSlash"))
+                {
+                    CombatManager.instance.InputUpSlash();
+                    stats.UseMana(stats.UpSlashCost);
+                }
+                //Groundpound
+                if (!GameManager.instance.paused && Input.GetButton("Fire1") && downPressed && !grounded && !CooldownManager.instance.CheckOnCooldown("GroundPound"))
+                {
+                    CombatManager.instance.InputGroundPound();
+                }
             }
-            if (!grounded && !downPressed)
-            {
-                CombatManager.instance.InputAttack();
-            }
-        }
-        //Upslash
-        if (!GameManager.instance.paused && Input.GetKeyDown(KeyCode.C) && stats.CheckEnoughMana(stats.UpSlashCost, true) && !CooldownManager.instance.CheckOnCooldown("UpSlash"))
-        {
-            CombatManager.instance.InputUpSlash();
-            stats.UseMana(stats.UpSlashCost);
-        }      
-        //Groundpound
-        if (!GameManager.instance.paused && Input.GetButton("Fire1") && downPressed && !grounded && !CooldownManager.instance.CheckOnCooldown("GroundPound"))
-        {
-            CombatManager.instance.InputGroundPound();
         }
     }
     void FixedUpdate()
     {
         //Animator Stuff
-        anim.SetFloat("xVelo", Input.GetAxisRaw("Horizontal"));
+        if (!GameManager.instance.inDialogue)
+        {
+            anim.SetFloat("xVelo", Input.GetAxisRaw("Horizontal"));
+        }
+        else { anim.SetFloat("xVelo", rb.velocity.x); }
         anim.SetBool("Attacking",attacking);
         anim.SetBool("IsDashing",isDashing);
         anim.SetBool("Grounded", grounded);
@@ -178,15 +197,6 @@ public class Knight : MonoBehaviour
         }
         else downPressed = false;
         if (edgeColColliding) { grounded = true; }
-        if (Input.GetButtonDown("Jump") && grounded && !CheckIfActionCurrentlyTaken())// && !downPressed)
-        {
-            if(downPressed && edgeColColliding)
-            {
-                return;
-            }
-            rb.velocity = new Vector3(rb.velocity.x, jumpStrength);
-            grounded = false;
-        }
     }
     void CalcMovement()
     {

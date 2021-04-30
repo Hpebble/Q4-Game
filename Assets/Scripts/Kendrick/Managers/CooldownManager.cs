@@ -32,14 +32,17 @@ public class CooldownManager : MonoBehaviour
     }
     private void Update()
     {
-        UpdateCooldownUI();
-        for (int i = 0; i < abilityOnCooldown.Count; i++)
+        if (GameManager.instance.inKnightGame)
         {
-            abilityOnCooldown[i].timer -= Time.deltaTime;
-
-            if (abilityOnCooldown[i].timer <= 0)
+            UpdateCooldownUI();
+            for (int i = 0; i < abilityOnCooldown.Count; i++)
             {
-                abilityOnCooldown[i].timer = 0;
+                abilityOnCooldown[i].timer -= Time.deltaTime;
+
+                if (abilityOnCooldown[i].timer <= 0)
+                {
+                    abilityOnCooldown[i].timer = 0;
+                }
             }
         }
     }

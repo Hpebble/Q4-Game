@@ -41,10 +41,13 @@ public class KnightStats : MonoBehaviour
     }
     void Update()
     {
-        currentMana += naturalManaRegenSpeed * Time.deltaTime;
-        CheckIfDead();
-        LimitStats();
-        UpdateUI();
+        if (GameManager.instance.inKnightGame)
+        {
+            currentMana += naturalManaRegenSpeed * Time.deltaTime;
+            CheckIfDead();
+            LimitStats();
+            UpdateUI();
+        }
     }
     public void TakeDamage(GameObject kbSource, Hurtbox hurtbox)
     {
