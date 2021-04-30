@@ -22,7 +22,7 @@ public class Bit : MonoBehaviour
         tr = this.GetComponentInChildren<TrailRenderer>();
         anim = this.GetComponentInChildren<Animation>();
     }
-    void Update()
+    void FixedUpdate()
     {
         if (collected)
         {
@@ -38,11 +38,11 @@ public class Bit : MonoBehaviour
             }
             if (!delete)
             {
-                this.transform.position = Vector3.Lerp(this.transform.position, Knight.instance.GetCenter(), slerpSpeed * Time.deltaTime);
+                this.transform.position = Vector3.Lerp(this.transform.position, Knight.instance.GetCenter(), slerpSpeed * Time.fixedDeltaTime);
             }
             else
             {
-                this.transform.position = Vector3.Lerp(this.transform.position, Knight.instance.GetCenter(), slerpSpeed * 3 * Time.deltaTime);
+                this.transform.position = Vector3.Lerp(this.transform.position, Knight.instance.GetCenter(), slerpSpeed * 3 * Time.fixedDeltaTime);
             }
         }
     }
