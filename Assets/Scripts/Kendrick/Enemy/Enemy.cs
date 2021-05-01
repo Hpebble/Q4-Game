@@ -8,8 +8,9 @@ public class Enemy : MonoBehaviour
     public float health;
     public float maxHealth;
     public float playerDamage;
-    public float bitsToDrop;
     public bool takeKnockback;
+    public Vector2 bitsToDropRange;
+    public GameObject bit;
 
     protected bool grounded;
     protected bool dead;
@@ -64,8 +65,17 @@ public class Enemy : MonoBehaviour
     {
         this.anim.SetBool("Dead", true);
         dead = true;
+        spawnBits();
         yield return new WaitForSeconds(1f);
         Destroy(this.gameObject);
+    }
+    protected void spawnBits()
+    {
+        float bitsToDrop = Random.Range(bitsToDropRange.x, bitsToDropRange.y);
+        for(int i = 0; i < bitsToDrop; i++)
+        {
+            Instantiate(bit,this.transform.position,Quaternion.identity);
+        }
     }
     protected void CheckIfDead()
     {
