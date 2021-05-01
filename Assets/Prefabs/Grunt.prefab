@@ -378,7 +378,7 @@ MonoBehaviour:
   maxHealth: 160
   playerDamage: 2
   takeKnockback: 0
-  bitsToDropRange: {x: 2, y: 5}
+  bitsToDropRange: {x: 2, y: 3}
   bit: {fileID: 4808604850458871178, guid: fcbf50b500c2cb14e8e6dcde5b3acbec, type: 3}
   groundLayer:
     serializedVersion: 2

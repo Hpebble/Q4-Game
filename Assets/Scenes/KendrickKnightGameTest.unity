@@ -68647,7 +68647,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.009857178, y: 0.004257202}
+  m_AnchoredPosition: {x: -0.009857178, y: -17}
   m_SizeDelta: {x: 0.008047104, y: -0.016121864}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1977015933
@@ -68699,7 +68699,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Try to chain attacks together for combos!
 
-'
+    And keep a good rhythm!'
 --- !u!222 &1977015935
 CanvasRenderer:
   m_ObjectHideFlags: 0
