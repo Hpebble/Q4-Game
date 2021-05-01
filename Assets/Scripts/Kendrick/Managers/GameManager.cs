@@ -12,7 +12,11 @@ public class GameManager : MonoBehaviour
     public bool paused;
     public bool inDialogue;
     public bool inKnightGame;
-
+    [Header("Cameras")]
+    public Camera knightCam;
+    public Camera OsCam;
+    public GameObject knightGameHolder;
+    public GameObject OSHolder;
     public Animator anim;
     private void Awake()
     {
@@ -32,13 +36,28 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
+        if (inKnightGame)
+        {
+            knightCam.gameObject.SetActive(true);
+            OsCam.gameObject.SetActive(false);
+            UpdateDialogue();
+            FreezeGameOnPause();
+        }
+        else
+        {
+            knightCam.gameObject.SetActive(false);
+            OsCam.gameObject.SetActive(true);
+        }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (Knight.instance != null && !Knight.instance.stats.dead && !Knight.instance.stats.UIanim.GetBool("Dead"))
             TogglePauseMenu();
         }
-        UpdateDialogue();
-        FreezeGameOnPause();
+        //DEBUG
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            StartCoroutine(ToggleKnightGame());
+        }
 
     }
     void UpdateDialogue()
@@ -63,6 +82,29 @@ public class GameManager : MonoBehaviour
             {
                 StartCoroutine(WaitTillDisable());
             }
+        }
+    }
+    IEnumerator ToggleKnightGame()
+    {
+        yield return new WaitForSeconds(0.5f);
+        if (inKnightGame)
+        {
+            inKnightGame = false;
+            knightGameHolder.SetActive(false);
+            OSHolder.SetActive(true);
+            CooldownManager.instance.enabled = false;
+            CombatManager.instance.enabled = false;
+            Knight.instance.gameObject.SetActive(false);
+
+        }
+        else if (!inKnightGame)
+        {
+            inKnightGame = true;
+            knightGameHolder.SetActive(true);
+            OSHolder.SetActive(false);
+            CooldownManager.instance.enabled = true;
+            CombatManager.instance.enabled = true;
+            Knight.instance.gameObject.SetActive(true);
         }
     }
     IEnumerator WaitTillDisable()

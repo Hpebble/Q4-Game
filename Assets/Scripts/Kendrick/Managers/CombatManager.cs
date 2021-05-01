@@ -14,7 +14,10 @@ public class CombatManager : MonoBehaviour
     }
     void Start()
     {
-        
+        if (!GameManager.instance.inKnightGame)
+        {
+            this.enabled = false;
+        }
     }
     // Update is called once per frame
     void Update()

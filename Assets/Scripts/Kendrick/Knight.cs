@@ -8,6 +8,7 @@ public class Knight : MonoBehaviour
     public static Knight instance;
     public KnightStats stats;
     public Vector2 respawnPoint;
+    public Camera knightCam;
 
     [Header("Movement")]//Player Variables
     public float jumpStrength = 10;
@@ -68,9 +69,13 @@ public class Knight : MonoBehaviour
     }
     private void Start()
     {
+        if (!GameManager.instance.inKnightGame)
+        {
+            this.gameObject.SetActive(false);
+        }
         edgeCol = this.gameObject.GetComponentInChildren<EdgeCollider2D>();
-        Camera.main.transform.position = this.transform.position;
-        Camera.main.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, -12);
+        knightCam.transform.position = this.transform.position;
+        knightCam.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, -12);
         GameObject gm = GameObject.Find("GameManager");
         if (gm == null)
         {
