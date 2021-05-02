@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public GameObject knightGameHolder;
     public GameObject OSHolder;
     public Animator anim;
+    public bool enteredOneTime;
     private void Awake()
     {
         instance = this;
@@ -40,7 +41,6 @@ public class GameManager : MonoBehaviour
         {
             knightCam.gameObject.SetActive(true);
             OsCam.gameObject.SetActive(false);
-            anim.gameObject.SetActive(true);
             UpdateDialogue();
             FreezeGameOnPause();
         }
@@ -48,7 +48,6 @@ public class GameManager : MonoBehaviour
         {
             knightCam.gameObject.SetActive(false);
             OsCam.gameObject.SetActive(true);
-            anim.gameObject.SetActive(false);
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -58,7 +57,8 @@ public class GameManager : MonoBehaviour
         //DEBUG
         if (Input.GetKeyDown(KeyCode.G))
         {
-            StartCoroutine(ToggleKnightGame());
+            //StartCoroutine(ToggleKnightGame());
+            GameManager.instance.ToggleKnightGame();
         }
 
     }
@@ -88,20 +88,34 @@ public class GameManager : MonoBehaviour
     }
     public void ToggleGame()
     {
-        anim.SetTrigger("AbruptPause");
-        //StartCoroutine(ToggleKnightGame());
+        if (inKnightGame)
+        {
+            anim.SetTrigger("AbruptPause");
+        }
+        else
+        {
+            anim.gameObject.SetActive(true);
+            if (!enteredOneTime)
+            {
+                enteredOneTime = true;
+                anim.SetTrigger("EnterOneTime");
+            }
+            else { anim.SetTrigger("Pause"); }
+      
+        }
     }
-    public IEnumerator ToggleKnightGame()
+    public void ToggleKnightGame()
     {
-        yield return new WaitForSeconds(0.01f);
+        //yield return new WaitForSeconds(0.01f);
         if (inKnightGame && !inDialogue)
         {
-            inKnightGame = false;
             knightGameHolder.SetActive(false);
             OSHolder.SetActive(true);
             CooldownManager.instance.enabled = false;
             CombatManager.instance.enabled = false;
+            anim.gameObject.SetActive(false);
             Knight.instance.gameObject.SetActive(false);
+            inKnightGame = false;
 
         }
         else if (!inKnightGame && !inDialogue)

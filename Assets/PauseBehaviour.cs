@@ -6,6 +6,7 @@ public class PauseBehaviour : StateMachineBehaviour
 {
     public bool pause;
     public bool abrupt;
+    public bool enteringGame;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -40,7 +41,13 @@ public class PauseBehaviour : StateMachineBehaviour
         if (abrupt)
         {
             GameManager.instance.paused = false;
-            GameManager.instance.StartCoroutine(GameManager.instance.ToggleKnightGame());
+            //GameManager.instance.StartCoroutine(GameManager.instance.ToggleKnightGame());
+            GameManager.instance.ToggleKnightGame();
+        }
+        else if (enteringGame)
+        {
+            //GameManager.instance.StartCoroutine(GameManager.instance.ToggleKnightGame());
+            GameManager.instance.ToggleKnightGame();
         }
     }
 
