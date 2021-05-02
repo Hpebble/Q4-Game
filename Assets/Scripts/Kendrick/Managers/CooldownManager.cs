@@ -26,7 +26,7 @@ public class CooldownManager : MonoBehaviour
         if (!GameManager.instance.inKnightGame)
         {
             this.enabled = false;
-        }
+        }   
             abilityOnCooldown.Add(new Cooldown("Dash", 0.5f));
             abilityOnCooldown.Add(new Cooldown("BasicAttack", 0.16f));
             abilityOnCooldown.Add(new Cooldown("UpSlash", Knight.instance.stats.UpSlashCooldown));

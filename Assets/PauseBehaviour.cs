@@ -5,24 +5,25 @@ using UnityEngine;
 public class PauseBehaviour : StateMachineBehaviour
 {
     public bool pause;
+    public bool abrupt;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if (pause)
         {
-
+            GameManager.instance.paused = true;
         }
         else
         {
-
+            GameManager.instance.paused = false;
         }
     }
 
     //nStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+  /*  override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (pause)
-        {
+        if ()
+        {pause
            // Time.timeScale = 0f;
             GameManager.instance.paused = true;
         }
@@ -32,17 +33,14 @@ public class PauseBehaviour : StateMachineBehaviour
             GameManager.instance.paused = false;
         }
     }
-
+    */
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (pause)
+        if (abrupt)
         {
-
-        }
-        else
-        {
-
+            GameManager.instance.paused = false;
+            GameManager.instance.StartCoroutine(GameManager.instance.ToggleKnightGame());
         }
     }
 

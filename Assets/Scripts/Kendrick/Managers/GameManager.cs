@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
         {
             knightCam.gameObject.SetActive(true);
             OsCam.gameObject.SetActive(false);
+            anim.gameObject.SetActive(true);
             UpdateDialogue();
             FreezeGameOnPause();
         }
@@ -47,10 +48,11 @@ public class GameManager : MonoBehaviour
         {
             knightCam.gameObject.SetActive(false);
             OsCam.gameObject.SetActive(true);
+            anim.gameObject.SetActive(false);
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (Knight.instance != null && !Knight.instance.stats.dead && !Knight.instance.stats.UIanim.GetBool("Dead"))
+            if (inKnightGame &&Knight.instance != null && !Knight.instance.stats.dead && !Knight.instance.stats.UIanim.GetBool("Dead"))
             TogglePauseMenu();
         }
         //DEBUG
@@ -84,10 +86,15 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-    IEnumerator ToggleKnightGame()
+    public void ToggleGame()
     {
-        yield return new WaitForSeconds(0.5f);
-        if (inKnightGame)
+        anim.SetTrigger("AbruptPause");
+        //StartCoroutine(ToggleKnightGame());
+    }
+    public IEnumerator ToggleKnightGame()
+    {
+        yield return new WaitForSeconds(0.01f);
+        if (inKnightGame && !inDialogue)
         {
             inKnightGame = false;
             knightGameHolder.SetActive(false);
@@ -97,7 +104,7 @@ public class GameManager : MonoBehaviour
             Knight.instance.gameObject.SetActive(false);
 
         }
-        else if (!inKnightGame)
+        else if (!inKnightGame && !inDialogue)
         {
             inKnightGame = true;
             knightGameHolder.SetActive(true);
@@ -134,7 +141,6 @@ public class GameManager : MonoBehaviour
     public void ChangeScene(string SceneToLoad)
     {
         SceneManager.LoadScene(SceneToLoad);
-
     }
 
 }
