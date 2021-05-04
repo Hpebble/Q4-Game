@@ -81,6 +81,19 @@ public class CombatManager : MonoBehaviour
             return;
         }
     }
+    public void InputWave()
+    {
+        if (canReceiveInput)
+        {
+            Knight.instance.anim.SetTrigger("Wave");
+            inputReceived = true;
+            canReceiveInput = false;
+        }
+        else
+        {
+            return;
+        }
+    }
     public IEnumerator Dash()
     {
         yield return new WaitUntil(() => Knight.instance.isDashing);

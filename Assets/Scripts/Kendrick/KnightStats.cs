@@ -11,6 +11,8 @@ public class KnightStats : MonoBehaviour
     public float naturalManaRegenSpeed;
     public float UpSlashCost;
     public float UpSlashCooldown;
+    public float WaveCost;
+    public float WaveCooldown;
     public float DashBarReplenishCooldown;
     public float groundpoundSpeed;
     private float DashBarCD;

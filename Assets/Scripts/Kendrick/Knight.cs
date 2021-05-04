@@ -124,6 +124,11 @@ public class Knight : MonoBehaviour
                     CombatManager.instance.InputUpSlash();
                     stats.UseMana(stats.UpSlashCost);
                 }
+                if (!GameManager.instance.paused && Input.GetKeyDown(KeyCode.A) && stats.CheckEnoughMana(stats.WaveCost, true) && !CooldownManager.instance.CheckOnCooldown("Wave"))
+                {
+                    CombatManager.instance.InputWave();
+                    stats.UseMana(stats.WaveCost);
+                }
                 //Groundpound
                 if (!GameManager.instance.paused && Input.GetButton("Fire1") && downPressed && !grounded && !CooldownManager.instance.CheckOnCooldown("GroundPound"))
                 {

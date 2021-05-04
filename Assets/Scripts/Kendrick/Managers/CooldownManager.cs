@@ -9,6 +9,8 @@ public class CooldownManager : MonoBehaviour
     public List<Cooldown> abilityOnCooldown = new List<Cooldown>();
     public Image UpSlashRadial;
     public Image UpSlashManaWarn;
+    public Image WaveRadial;
+    public Image WaveManaWarn;
     private void Awake()
     {
         if (instance == null)
@@ -30,6 +32,7 @@ public class CooldownManager : MonoBehaviour
             abilityOnCooldown.Add(new Cooldown("Dash", 0.5f));
             abilityOnCooldown.Add(new Cooldown("BasicAttack", 0.16f));
             abilityOnCooldown.Add(new Cooldown("UpSlash", Knight.instance.stats.UpSlashCooldown));
+            abilityOnCooldown.Add(new Cooldown("Wave", Knight.instance.stats.WaveCooldown));
             abilityOnCooldown.Add(new Cooldown("GroundPound", 0.75f));
     }
     private void Update()
@@ -83,12 +86,17 @@ public class CooldownManager : MonoBehaviour
     }
     void UpdateCooldownUI()
     {
-        if (!Knight.instance.stats.CheckEnoughMana(Knight.instance.stats.UpSlashCost,false))
-        {
-            UpSlashManaWarn.enabled = true;
-        }
-        else UpSlashManaWarn.enabled = false;
-        UpSlashRadial.fillAmount = abilityOnCooldown[2].timer / Knight.instance.stats.UpSlashCooldown;
+        UpdateCooldown(UpSlashRadial, UpSlashManaWarn, Knight.instance.stats.UpSlashCost, Knight.instance.stats.UpSlashCooldown, 2);
+        UpdateCooldown(WaveRadial, WaveManaWarn, Knight.instance.stats.WaveCost, Knight.instance.stats.WaveCooldown, 3);
         //Debug.Log(abilityOnCooldown[2].timer / Knight.instance.stats.UpSlashCooldown);
+    }
+    void UpdateCooldown(Image radial, Image manaWarn,float cost,float cooldown, int i)
+    {
+        if (!Knight.instance.stats.CheckEnoughMana(cost, false))
+        {
+            manaWarn.enabled = true;
+        }
+        else manaWarn.enabled = false;
+        radial.fillAmount = abilityOnCooldown[i].timer / cooldown;
     }
 }
