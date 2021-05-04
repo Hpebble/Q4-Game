@@ -39,7 +39,18 @@ public class animationlll : MonoBehaviour
             Pressed = true;
         }
     }
-
+    public void ToggleSpecificWindow(GameObject obj)
+    {
+        if(DraggingController.isDragging == false)
+        {
+            if (obj.activeInHierarchy)
+            {
+                obj.SetActive(false);
+            }
+            else
+            obj.SetActive(true);
+        }
+    }
     public void pictureFileButton()
     {
         if (DraggingController.isDragging == false)
