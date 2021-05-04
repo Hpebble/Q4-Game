@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/CustomOS 1.unity
-    guid: e1886a37c3846314fac9d3b0db48cf1b
+    path: Assets/Scenes/Intro.unity
+    guid: ac9bd2f22304ad94ea2fae5e0c285256
   - enabled: 1
     path: Assets/Scenes/KendrickKnightGameTest.unity
     guid: c90b8ea068008c54ea829b5b7e95ea22
