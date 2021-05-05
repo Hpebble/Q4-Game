@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public AudioClip hurtSound;
     public float speed;
     public float health;
     public float maxHealth;
@@ -17,9 +18,11 @@ public class Enemy : MonoBehaviour
     protected Animator anim;
     protected Rigidbody2D rb;
     protected Collider2D col;
+    protected AudioSource audioSource;
     public LayerMask groundLayer;
     protected virtual void Start()
     {
+        audioSource = this.GetComponent<AudioSource>();
         rb = this.GetComponent<Rigidbody2D>();
         anim = this.GetComponent<Animator>();
         col = this.GetComponent<Collider2D>();
@@ -52,6 +55,7 @@ public class Enemy : MonoBehaviour
         health -= hurtbox.damage;
         if(applyKnockback)
         ApplyKnockback(Knight.instance.gameObject, hurtbox.kbStrength, hurtbox.upForce);
+        AudioManager.instance.Play("Hit1", 0.85f, 1.15f);
     }
     public void TakeDamageByPosition(GameObject kbSource, Hurtbox hurtbox, bool applyKnockback)
     {
@@ -60,6 +64,7 @@ public class Enemy : MonoBehaviour
         {
             ApplyKnockbackByPosition(kbSource, hurtbox.kbStrength, hurtbox.upForce);
         }
+        AudioManager.instance.Play("Hit1", 0.85f, 1.15f);
     }
     public IEnumerator Die()
     {
@@ -87,6 +92,11 @@ public class Enemy : MonoBehaviour
                 StartCoroutine(Die());
             }
         }
+    }
+    void PlayHurtSound()
+    {
+        audioSource.pitch = Random.Range(0.9f, 1.1f);
+        audioSource.PlayOneShot(hurtSound, 0.5f);
     }
     void CheckGround()
     {

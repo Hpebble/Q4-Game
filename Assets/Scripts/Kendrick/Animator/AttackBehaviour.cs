@@ -6,6 +6,7 @@ public class AttackBehaviour : StateMachineBehaviour
 {
     public float forceForward;
     public float forceLength;
+    public string soundToPlay;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -17,6 +18,7 @@ public class AttackBehaviour : StateMachineBehaviour
         Knight.instance.attacking = true;
         Knight.instance.rb.gravityScale = 0;
         Knight.instance.StartCoroutine(ForcePush(animator));
+        AudioManager.instance.Play(soundToPlay, 0.9f, 1.1f);
         
     }
 

@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class EnemyTakingDamageBehaviour : StateMachineBehaviour
 {
+    
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        
+        //AudioManager.instance.Play("Hit1", 0.9f, 1.1f);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

@@ -57,6 +57,7 @@ public class Bit : MonoBehaviour
                 delete = true;
                 if (delete == true)
                 {
+                    AudioManager.instance.PlayOneshot("OrbPickup", 0.8f, 1f);
                     anim.Play();
                     StartCoroutine(DestroyThis());
                 }

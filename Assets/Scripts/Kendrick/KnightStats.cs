@@ -28,6 +28,7 @@ public class KnightStats : MonoBehaviour
     public Slider manaSlider;
     public Image DeathFade;
     public Text bitAmountText;
+    public Text bitAmountTextShop;
     public bool dead;
     //float t = 0;
     private bool startDeathFade;
@@ -150,6 +151,7 @@ public class KnightStats : MonoBehaviour
         healthSlider.value = Mathf.Lerp(healthSlider.value, curHealthPercent, 10 * Time.deltaTime);
         manaSlider.value = Mathf.Lerp(manaSlider.value, curManaPercent, 10 * Time.deltaTime);
         bitAmountText.text = bitCount.ToString();
+        bitAmountTextShop.text = bitCount.ToString();
         UpdateDashbar();
     }
 }

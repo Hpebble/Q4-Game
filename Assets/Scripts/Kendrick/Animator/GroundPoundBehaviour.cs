@@ -13,12 +13,14 @@ public class GroundPoundBehaviour : StateMachineBehaviour
     {
         if (landState)
         {
+            AudioManager.instance.Play("GPLand", 0.9f, 1.1f);
             Knight.instance.disableMovement = true;
             Knight.instance.isGroundPounding = true;
             animator.SetBool("GroundPounding", true);
         }
         else
         {
+            AudioManager.instance.Play("GPStart", 0.9f, 1.1f);
             fall = false;
             CombatManager.instance.canReceiveInput = false;
             Knight.instance.isGroundPounding = true;
