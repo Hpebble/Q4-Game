@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public bool paused;
     public bool inDialogue;
     public bool inKnightGame;
+    public float currentBits;
+    public Text shopBits;
     [Header("Cameras")]
     public Camera knightCam;
     public Camera OsCam;
@@ -48,6 +50,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            shopBits.text = currentBits.ToString();
             AudioManager.instance.FadeIn("PCHumm");
             knightCam.gameObject.SetActive(false);
             OsCam.gameObject.SetActive(true);

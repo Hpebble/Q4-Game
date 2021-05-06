@@ -50,6 +50,10 @@ public class KnightStats : MonoBehaviour
             CheckIfDead();
             LimitStats();
             UpdateUI();
+            GameManager.instance.currentBits = bitCount; ;
+        }
+        else
+        {
         }
     }
     public void TakeDamage(GameObject kbSource, Hurtbox hurtbox)
