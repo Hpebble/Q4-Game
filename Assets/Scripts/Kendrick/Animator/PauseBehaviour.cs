@@ -18,36 +18,39 @@ public class PauseBehaviour : StateMachineBehaviour
         {
             GameManager.instance.paused = false;
         }
-    }
-
-    //nStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-  /*  override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        if ()
-        {pause
-           // Time.timeScale = 0f;
-            GameManager.instance.paused = true;
-        }
-        else
+        if (abrupt)
         {
-           // Time.timeScale = 1f;
+           // GameManager.instance.paused = true;
+        }
+        if (enteringGame)
+        {
             GameManager.instance.paused = false;
         }
     }
-    */
+
+    //nStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
+    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        if (abrupt)
+        {
+            Time.timeScale = 0f;
+        }
+    }
+    
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if (abrupt)
         {
+            Time.timeScale = 1f;
             GameManager.instance.paused = false;
             //GameManager.instance.StartCoroutine(GameManager.instance.ToggleKnightGame());
-            GameManager.instance.ToggleKnightGame();
+            //GameManager.instance.ToggleKnightGame();
         }
         else if (enteringGame)
         {
             //GameManager.instance.StartCoroutine(GameManager.instance.ToggleKnightGame());
-            GameManager.instance.ToggleKnightGame();
+            //GameManager.instance.ToggleKnightGame();
         }
     }
 

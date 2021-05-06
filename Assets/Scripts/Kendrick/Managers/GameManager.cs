@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public GameObject knightGameHolder;
     public GameObject OSHolder;
     public Animator anim;
+    public Animator fadeInAnimOS;
     public bool enteredOneTime;
     private void Awake()
     {
@@ -39,6 +40,7 @@ public class GameManager : MonoBehaviour
     {
         if (inKnightGame)
         {
+            AudioManager.instance.FadeOut("PCHumm");
             knightCam.gameObject.SetActive(true);
             OsCam.gameObject.SetActive(false);
             UpdateDialogue();
@@ -46,6 +48,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            AudioManager.instance.FadeIn("PCHumm");
             knightCam.gameObject.SetActive(false);
             OsCam.gameObject.SetActive(true);
         }
@@ -88,8 +91,9 @@ public class GameManager : MonoBehaviour
     }
     public void ToggleGame()
     {
-        if (inKnightGame)
+        if (inKnightGame && !inDialogue)
         {
+            anim.SetTrigger("FadeIn");
             anim.SetTrigger("AbruptPause");
         }
         else
@@ -97,10 +101,14 @@ public class GameManager : MonoBehaviour
             anim.gameObject.SetActive(true);
             if (!enteredOneTime)
             {
+                anim.SetTrigger("FadeIn");
                 enteredOneTime = true;
                 anim.SetTrigger("EnterOneTime");
             }
-            else { anim.SetTrigger("Pause"); }
+            else
+            {
+                anim.SetTrigger("FadeIn");
+            }
       
         }
     }
@@ -113,10 +121,11 @@ public class GameManager : MonoBehaviour
             OSHolder.SetActive(true);
             CooldownManager.instance.enabled = false;
             CombatManager.instance.enabled = false;
-            anim.gameObject.SetActive(false);
+            //anim.gameObject.SetActive(false);
             Knight.instance.gameObject.SetActive(false);
             inKnightGame = false;
-
+            anim.SetTrigger("FadeOut");
+            anim.SetTrigger("LeaveGame");
         }
         else if (!inKnightGame && !inDialogue)
         {
@@ -126,6 +135,9 @@ public class GameManager : MonoBehaviour
             CooldownManager.instance.enabled = true;
             CombatManager.instance.enabled = true;
             Knight.instance.gameObject.SetActive(true);
+            anim.SetTrigger("FadeOut");
+            if(enteredOneTime)
+            anim.SetTrigger("Pause");
         }
     }
     IEnumerator WaitTillDisable()
