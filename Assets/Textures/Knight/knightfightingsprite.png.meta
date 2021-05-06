@@ -1,0 +1,392 @@
+fileFormatVersion: 2
+guid: dfd30064e22bc0d469ccbe2ae6a6da3f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2361125027173626405
+    second: knightfightingsprite_0
+  - first:
+      213: 993982518318931127
+    second: knightfightingsprite_1
+  - first:
+      213: 893499168272422770
+    second: knightfightingsprite_2
+  - first:
+      213: -1406227957425835024
+    second: knightfightingsprite_3
+  - first:
+      213: -5700285087784487525
+    second: knightfightingsprite_4
+  - first:
+      213: -9086819220282400460
+    second: knightfightingsprite_5
+  - first:
+      213: -8396185936185009908
+    second: knightfightingsprite_6
+  - first:
+      213: -264142593976734364
+    second: knightfightingsprite_7
+  - first:
+      213: -6421414938683627952
+    second: knightfightingsprite_8
+  - first:
+      213: 7933288952629590291
+    second: knightfightingsprite_9
+  - first:
+      213: -7638250540814503861
+    second: knightfightingsprite_10
+  - first:
+      213: -134191452178208011
+    second: knightfightingsprite_11
+  - first:
+      213: -3975402538622073651
+    second: knightfightingsprite_12
+  - first:
+      213: 6871912489075358690
+    second: knightfightingsprite_13
+  - first:
+      213: -8418105064335515259
+    second: knightfightingsprite_14
+  - first:
+      213: -655041291050356880
+    second: knightfightingsprite_15
+  - first:
+      213: 5061157387488142343
+    second: knightfightingsprite_16
+  - first:
+      213: 773428984016157867
+    second: knightfightingsprite_17
+  - first:
+      213: -6418014154506872645
+    second: knightfightingsprite_18
+  - first:
+      213: 5985398312061900339
+    second: knightfightingsprite_19
+  - first:
+      213: 1547766551821785056
+    second: knightfightingsprite_20
+  - first:
+      213: -1786195563843493389
+    second: knightfightingsprite_21
+  - first:
+      213: -7122924438816118697
+    second: knightfightingsprite_22
+  - first:
+      213: 957249601694575033
+    second: knightfightingsprite_23
+  - first:
+      213: -2048021491238396029
+    second: knightfightingsprite_24
+  - first:
+      213: -8074337414130551184
+    second: knightfightingsprite_25
+  - first:
+      213: -344965722288292290
+    second: knightfightingsprite_26
+  - first:
+      213: 6871388209384790976
+    second: knightfightingsprite_27
+  - first:
+      213: -5193665726616649712
+    second: knightfightingsprite_28
+  - first:
+      213: -7845528107234513247
+    second: knightfightingsprite_29
+  - first:
+      213: 5322743297829920659
+    second: knightfightingsprite_30
+  - first:
+      213: -5653703456114674889
+    second: knightfightingsprite_31
+  - first:
+      213: 8577011849307674397
+    second: knightfightingsprite_32
+  - first:
+      213: -2685028007109190655
+    second: knightfightingsprite_33
+  - first:
+      213: -585204400635000779
+    second: knightfightingsprite_34
+  - first:
+      213: 5076019175943390721
+    second: knightfightingsprite_35
+  - first:
+      213: -1249094809416841265
+    second: knightfightingsprite_36
+  - first:
+      213: 8387480527355289829
+    second: knightfightingsprite_37
+  - first:
+      213: -6583409193418890589
+    second: knightfightingsprite_38
+  - first:
+      213: -4605342537720162337
+    second: knightfightingsprite_39
+  - first:
+      213: -6778855639746406594
+    second: knightfightingsprite_40
+  - first:
+      213: 1230179132094656261
+    second: knightfightingsprite_41
+  - first:
+      213: -781090791201343322
+    second: knightfightingsprite_42
+  - first:
+      213: -4657250110739213012
+    second: knightfightingsprite_43
+  - first:
+      213: 125758640772436150
+    second: knightfightingsprite_44
+  - first:
+      213: -2135583835470783589
+    second: knightfightingsprite_45
+  - first:
+      213: -6107420557416683646
+    second: knightfightingsprite_46
+  - first:
+      213: 883826045135488830
+    second: knightfightingsprite_47
+  - first:
+      213: 1037099067902298333
+    second: knightfightingsprite_48
+  - first:
+      213: 4020355967073619307
+    second: knightfightingsprite_49
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 48
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: knightfightingsprite_0
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 0
+        width: 224
+        height: 321
+      alignment: 9
+      pivot: {x: 0.45381847, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 522f7f2d3b664c020800000000000000
+      internalID: 2361125027173626405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: knightfightingsprite_1
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 0
+        width: 224
+        height: 322
+      alignment: 9
+      pivot: {x: 0.47081852, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bc195585d55bcd00800000000000000
+      internalID: 993982518318931127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: knightfightingsprite_2
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 0
+        width: 260
+        height: 269
+      alignment: 9
+      pivot: {x: 0.5028771, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2771cf372c8566c00800000000000000
+      internalID: 893499168272422770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: knightfightingsprite_3
+      rect:
+        serializedVersion: 2
+        x: 734
+        y: 0
+        width: 425
+        height: 474
+      alignment: 9
+      pivot: {x: 0.26406163, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f3f86c8f131c7ce0800000000000000
+      internalID: -1406227957425835024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: knightfightingsprite_4
+      rect:
+        serializedVersion: 2
+        x: 1227
+        y: 0
+        width: 370
+        height: 474
+      alignment: 9
+      pivot: {x: 0.28463796, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9536200ae484e0b0800000000000000
+      internalID: -5700285087784487525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: knightfightingsprite_5
+      rect:
+        serializedVersion: 2
+        x: 1662
+        y: 0
+        width: 414
+        height: 474
+      alignment: 9
+      pivot: {x: 0.25516412, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43120ec201225e180800000000000000
+      internalID: -9086819220282400460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 7db30ba5617582d43bad86860142939f
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
