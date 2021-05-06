@@ -151,7 +151,10 @@ public class KnightStats : MonoBehaviour
         healthSlider.value = Mathf.Lerp(healthSlider.value, curHealthPercent, 10 * Time.deltaTime);
         manaSlider.value = Mathf.Lerp(manaSlider.value, curManaPercent, 10 * Time.deltaTime);
         bitAmountText.text = bitCount.ToString();
-        bitAmountTextShop.text = bitCount.ToString();
+        if (!GameManager.instance.inKnightGame)
+        {
+            bitAmountTextShop.text = bitCount.ToString();
+        }
         UpdateDashbar();
     }
 }

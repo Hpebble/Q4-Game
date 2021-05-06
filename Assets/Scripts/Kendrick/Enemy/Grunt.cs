@@ -50,10 +50,12 @@ public class Grunt : Enemy
     protected override void Update()
     {
         base.Update();
+        anim.SetFloat("XVelo", rb.velocity.x);
         attackCD -= Time.deltaTime;
         switch (currentState)
         {
             case EnemyState.Idle:
+                anim.SetBool("walking", false);
                 CheckPlayerInRange();
                 break;
 
@@ -71,12 +73,14 @@ public class Grunt : Enemy
                 //if walking, then count down walkingtimeCD and move
                 if(walkingTimeCD > 0 && grounded)
                 {
+                    anim.SetBool("walking", true);
                     walkingTimeCD -= Time.deltaTime;
                     rb.velocity = new Vector2(wanderSpeed * wanderDirection, 0);
                     CheckIfRunningIntoWall();
                 }
                 else if(idleTimeCD > 0) //if idling, then lower idle time
                 {
+                    anim.SetBool("walking", false);
                     idleTimeCD -= Time.deltaTime;
                 }
                 break;
@@ -162,6 +166,7 @@ public class Grunt : Enemy
             if (Physics2D.CircleCast(this.transform.position, playerDetectRange, Vector2.zero, 999, playerLayer) && !Physics2D.CircleCast(this.transform.position, playerAttackRange, Vector2.zero, 999, playerLayer) && !anim.GetBool("Attacking"))
             {
                 {
+                    anim.SetBool("walking", true);
                     currentState = EnemyState.ChasePlayer;
                 }
                 //currentState = EnemyState.ChasePlayer;

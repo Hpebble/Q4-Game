@@ -9,7 +9,6 @@ public class EnemySpawner : MonoBehaviour
     public BoxCollider2D AreaToSpawn;
     public int maxEnemiesAlive;
     public float spawnSpeed;
-    [SerializeField]
     private float spawnCD;
     public int spawnBatchSize;
     public bool emitting;

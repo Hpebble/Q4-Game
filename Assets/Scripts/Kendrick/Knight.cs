@@ -7,7 +7,7 @@ public class Knight : MonoBehaviour
 {
     public static Knight instance;
     public KnightStats stats;
-    public Vector2 respawnPoint;
+    public GameObject respawnPoint;
     public Camera knightCam;
 
     [Header("Movement")]//Player Variables
@@ -82,7 +82,7 @@ public class Knight : MonoBehaviour
             SceneManager.LoadScene("Managers", LoadSceneMode.Additive);
             SceneManager.SetActiveScene(SceneManager.GetSceneAt(0));
         }
-        this.gameObject.transform.position = respawnPoint;
+        this.gameObject.transform.position = respawnPoint.transform.position;
     }
     void Update()
     {
