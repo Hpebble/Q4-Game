@@ -29,14 +29,9 @@ public class dragscript : MonoBehaviour, IDragHandler, IPointerDownHandler, IEnd
         {
             if (timeLeft <= 3)
             {
-                MouseCursor.SetActive(false);
                 timeLeft = 0;
             }
             timeLeft -= Time.deltaTime;
-        }
-        else if (DraggingController.isDragging == false)
-        {
-            MouseCursor.SetActive(true);
         }
 
         if (Input.GetKeyDown(KeyCode.E))

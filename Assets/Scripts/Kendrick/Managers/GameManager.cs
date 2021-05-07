@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour
             AudioManager.instance.FadeIn("PCHumm");
             knightCam.gameObject.SetActive(false);
             OsCam.gameObject.SetActive(true);
+            UpdateDialogue();
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -99,7 +100,7 @@ public class GameManager : MonoBehaviour
             anim.SetTrigger("FadeIn");
             anim.SetTrigger("AbruptPause");
         }
-        else
+        else if (!inDialogue)
         {
             anim.gameObject.SetActive(true);
             if (!enteredOneTime)

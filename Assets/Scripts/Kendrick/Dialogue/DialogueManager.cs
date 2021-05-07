@@ -11,8 +11,8 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     public Animator animator;
     public bool DialogueEnded;
-    public Camera Oscam;
     public KnightCamController knightCam;
+    public KnightCamController OsCam;
     private float typingSpeed;
 
     private Queue<string> sentences;
@@ -33,9 +33,19 @@ public class DialogueManager : MonoBehaviour
         DialogueEnded = false;
         GameManager.instance.inDialogue = true;
         typingSpeed = dialogue.typingSpeed;
-        knightCam.followTarget = dialogue.camLocation;
-        knightCam.camZoom = dialogue.camZoom;
-
+        if (dialogue.camLocation != null)
+        {
+            if (dialogue.camType == Dialogue.CameraType.Knight)
+            {
+                knightCam.followTarget = dialogue.camLocation;
+                knightCam.camZoom = dialogue.camZoom;
+            }
+            else
+            {
+                OsCam.followTarget = dialogue.camLocation;
+                OsCam.camZoom = dialogue.camZoom;
+            }
+        }
         Debug.Log("Starting Conversation with " + dialogue.name);
 
         nameText.text = dialogue.name;
@@ -56,6 +66,11 @@ public class DialogueManager : MonoBehaviour
         {
             if(currentDialogue.nextDialogue != null)
             {
+                //Run button code when dialogue ends
+                if(currentDialogue.button != null)
+                {
+                    currentDialogue.button.onClick.Invoke();
+                }
                 StartDialogue(currentDialogue.nextDialogue.dialogue);
                 return;
             }
@@ -96,8 +111,24 @@ public class DialogueManager : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         if (DialogueEnded == false)
         {
-            knightCam.camZoom = knightCam.defaultZoom;
-            knightCam.followTarget = null;
+            //Run button code when dialogue ends
+            if (currentDialogue.button != null)
+            {
+                currentDialogue.button.onClick.Invoke();
+            }
+            if (currentDialogue.camLocation != null)
+            {
+                if (currentDialogue.camType == Dialogue.CameraType.Knight)
+                {
+                    knightCam.camZoom = knightCam.defaultZoom;
+                    knightCam.followTarget = null;
+                }
+                else
+                {
+                    OsCam.camZoom = OsCam.defaultZoom;
+                    OsCam.followTarget = null;
+                }
+            }
             DialogueEnded = true;
             GameManager.instance.inDialogue = false;
         }

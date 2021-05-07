@@ -11,6 +11,7 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (startOnAwake)
         {
+            Debug.Log("Started Dialogue");
             TriggerDialogue();
         }
     }
