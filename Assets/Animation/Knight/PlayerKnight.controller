@@ -311,7 +311,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceForward: 300
   forceLength: 0.2
-  soundToPlay: 
+  soundToPlay: swish1
 --- !u!1101 &-6890864063939475943
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -754,7 +754,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceForward: 300
   forceLength: 0.2
-  soundToPlay: 
+  soundToPlay: swish2
 --- !u!1102 &-2179804273441133657
 AnimatorState:
   serializedVersion: 5

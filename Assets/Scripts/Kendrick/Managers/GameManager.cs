@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (inKnightGame &&Knight.instance != null && !Knight.instance.stats.dead && !Knight.instance.stats.UIanim.GetBool("Dead"))
+            if (inKnightGame &&Knight.instance != null && !Knight.instance.stats.dead && !Knight.instance.stats.UIanim.GetBool("Dead") && !Knight.instance.CheckIfActionCurrentlyTaken())
             TogglePauseMenu();
         }
         //DEBUG
@@ -105,7 +105,6 @@ public class GameManager : MonoBehaviour
             if (!enteredOneTime)
             {
                 anim.SetTrigger("FadeIn");
-                enteredOneTime = true;
                 anim.SetTrigger("EnterOneTime");
             }
             else
@@ -139,8 +138,15 @@ public class GameManager : MonoBehaviour
             CombatManager.instance.enabled = true;
             Knight.instance.gameObject.SetActive(true);
             anim.SetTrigger("FadeOut");
-            if(enteredOneTime)
-            anim.SetTrigger("Pause");
+            if (!enteredOneTime)
+            {
+                enteredOneTime = true;
+            }
+            else
+            {
+                anim.SetTrigger("Pause");
+            }
+            
         }
     }
     IEnumerator WaitTillDisable()

@@ -5,8 +5,18 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
     bool Enter = false;
-
+    public bool startOnAwake;
     public Dialogue dialogue;
+    private void Start()
+    {
+        if (startOnAwake)
+        {
+            TriggerDialogue();
+        }
+    }
+    private void OnEnable()
+    {
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player" && Enter == false)
@@ -17,9 +27,8 @@ public class DialogueTrigger : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-
     public void TriggerDialogue()
     {
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        DialogueManager.instance.StartDialogue(dialogue);
     }
 }

@@ -11,24 +11,30 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     public Animator animator;
     public bool DialogueEnded;
+    public Camera Oscam;
+    public KnightCamController knightCam;
     private float typingSpeed;
 
     private Queue<string> sentences;
     private string currentSentence;
+    private Dialogue currentDialogue;
     private void Awake()
     {
         instance = this;
+        sentences = new Queue<string>();
     }
     void Start()
     {
-        sentences = new Queue<string>();
     }
 
     public void StartDialogue(Dialogue dialogue)
     {
+        currentDialogue = dialogue;
         DialogueEnded = false;
         GameManager.instance.inDialogue = true;
         typingSpeed = dialogue.typingSpeed;
+        knightCam.followTarget = dialogue.camLocation;
+        knightCam.camZoom = dialogue.camZoom;
 
         Debug.Log("Starting Conversation with " + dialogue.name);
 
@@ -48,6 +54,11 @@ public class DialogueManager : MonoBehaviour
 
         if (sentences.Count == 0)
         {
+            if(currentDialogue.nextDialogue != null)
+            {
+                StartDialogue(currentDialogue.nextDialogue.dialogue);
+                return;
+            }
             StartCoroutine(EndDialogue());
             return;
         }
@@ -85,6 +96,8 @@ public class DialogueManager : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         if (DialogueEnded == false)
         {
+            knightCam.camZoom = knightCam.defaultZoom;
+            knightCam.followTarget = null;
             DialogueEnded = true;
             GameManager.instance.inDialogue = false;
         }

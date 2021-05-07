@@ -49,12 +49,20 @@ public class dragscript : MonoBehaviour, IDragHandler, IPointerDownHandler, IEnd
         {
             AudioManager.instance.FadeIn("LobbyTime");
         }
+        if (this.gameObject.name == "BitKnightGameFolder")
+        {
+            AudioManager.instance.FadeIn("WhiteNoise");
+        }
     }
     private void OnDisable()
     {
         if (this.gameObject.name == "BitfenderWindow")
         {
             AudioManager.instance.FadeOut("LobbyTime");
+        }
+        if (this.gameObject.name == "BitKnightGameFolder")
+        {
+            AudioManager.instance.FadeOut("WhiteNoise");
         }
     }
     public void OnDrag(PointerEventData eventData)
