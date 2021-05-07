@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -4528,6 +4528,7 @@ MonoBehaviour:
     camZoom: 0
     camLocation: {fileID: 0}
     nextDialogue: {fileID: 0}
+    enterButton: {fileID: 0}
     button: {fileID: 0}
     camType: 0
     sentences:
@@ -8213,6 +8214,7 @@ MonoBehaviour:
     camZoom: 3
     camLocation: {fileID: 1351395195}
     nextDialogue: {fileID: 0}
+    enterButton: {fileID: 0}
     button: {fileID: 0}
     camType: 1
     sentences:
@@ -10289,7 +10291,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &632443952
 GameObject:
@@ -10873,7 +10875,7 @@ Transform:
   - {fileID: 1831708270}
   - {fileID: 1148333375}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &675044960 stripped
 Transform:
@@ -10910,7 +10912,7 @@ Transform:
   m_Children:
   - {fileID: 1068675171}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &692681005
 PrefabInstance:
@@ -14927,6 +14929,7 @@ MonoBehaviour:
     camZoom: 6.3
     camLocation: {fileID: 891049394}
     nextDialogue: {fileID: 0}
+    enterButton: {fileID: 0}
     button: {fileID: 0}
     camType: 0
     sentences:
@@ -19096,7 +19099,7 @@ Transform:
   - {fileID: 309926971}
   - {fileID: 2006345724}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &998110229
 GameObject:
@@ -20468,6 +20471,7 @@ MonoBehaviour:
     camZoom: 0
     camLocation: {fileID: 0}
     nextDialogue: {fileID: 0}
+    enterButton: {fileID: 0}
     button: {fileID: 1068675172}
     camType: 0
     sentences:
@@ -23190,6 +23194,7 @@ MonoBehaviour:
     camZoom: 6
     camLocation: {fileID: 1258710427}
     nextDialogue: {fileID: 891049396}
+    enterButton: {fileID: 0}
     button: {fileID: 1258710431}
     camType: 0
     sentences:
@@ -82788,7 +82793,7 @@ Transform:
   - {fileID: 888365102}
   - {fileID: 1947622158}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2141191105 stripped
 Transform:
@@ -83355,7 +83360,7 @@ PrefabInstance:
     - target: {fileID: 534140188211440110, guid: e5cbd269f9397be4f89c9909c64e9eb6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 534140188211440110, guid: e5cbd269f9397be4f89c9909c64e9eb6,
         type: 3}

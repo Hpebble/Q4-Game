@@ -11,6 +11,7 @@ public class Dialogue
     public float camZoom;
     public GameObject camLocation;
     public DialogueTrigger nextDialogue;
+    public Button enterButton;
     public Button button;
     public enum CameraType { Knight, OS};
     public CameraType camType;
