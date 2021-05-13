@@ -97,8 +97,12 @@ public class GameManager : MonoBehaviour
     {
         if (inKnightGame && !inDialogue)
         {
-            anim.SetTrigger("FadeIn");
-            anim.SetTrigger("AbruptPause");
+            if (!anim.GetBool("Fading"))
+            {
+                anim.SetBool("Fading",true);
+                anim.SetTrigger("FadeIn");
+                anim.SetTrigger("AbruptPause");
+            }
         }
         else if (!inDialogue)
         {

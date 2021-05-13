@@ -4522,6 +4522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startOnAwake: 0
+  destroyOnTrigger: 0
   dialogue:
     name: Devs
     typingSpeed: 0.5
@@ -8208,6 +8209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startOnAwake: 0
+  destroyOnTrigger: 0
   dialogue:
     name: You
     typingSpeed: 0.6
@@ -9623,7 +9625,7 @@ GameObject:
   - component: {fileID: 553000110}
   - component: {fileID: 553000109}
   - component: {fileID: 553000108}
-  m_Layer: 17
+  m_Layer: 5
   m_Name: FadeIn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12293,7 +12295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16ee13f71d924344c9a0fdd926434534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followSpeed: 9
+  followSpeed: 10
   followTarget: {fileID: 804985053}
   camZoom: 6.9
   camZoomSpeed: 1.5
@@ -14923,6 +14925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startOnAwake: 0
+  destroyOnTrigger: 0
   dialogue:
     name: Dev2
     typingSpeed: 0.9
@@ -20465,6 +20468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startOnAwake: 1
+  destroyOnTrigger: 0
   dialogue:
     name: You
     typingSpeed: 0.6
@@ -23188,6 +23192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startOnAwake: 1
+  destroyOnTrigger: 0
   dialogue:
     name: Devs
     typingSpeed: 0.9
@@ -79102,7 +79107,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1961258355}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -79795,8 +79800,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2094805077}
   - {fileID: 1913172805}
+  - {fileID: 2094805077}
   - {fileID: 805931471}
   - {fileID: 383122930}
   m_Father: {fileID: 985734797}
@@ -81975,7 +81980,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1961258355}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -82031,7 +82036,7 @@ GameObject:
   - component: {fileID: 2104384028}
   - component: {fileID: 2104384027}
   - component: {fileID: 2104384026}
-  m_Layer: 17
+  m_Layer: 5
   m_Name: FadeOut
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82076,7 +82081,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!114 &2104384027
 MonoBehaviour:
@@ -83314,6 +83319,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 569811629, guid: e5cbd269f9397be4f89c9909c64e9eb6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 1538019094, guid: e5cbd269f9397be4f89c9909c64e9eb6, type: 3}
       propertyPath: respawnPoint
       value: 

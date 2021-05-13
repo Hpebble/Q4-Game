@@ -6,6 +6,7 @@ public class DialogueTrigger : MonoBehaviour
 {
     bool Enter = false;
     public bool startOnAwake;
+    public bool destroyOnTrigger;
     public Dialogue dialogue;
     private void Start()
     {
@@ -31,5 +32,9 @@ public class DialogueTrigger : MonoBehaviour
     public void TriggerDialogue()
     {
         DialogueManager.instance.StartDialogue(dialogue);
+        if (destroyOnTrigger)
+        {
+            Destroy(this);
+        }
     }
 }
