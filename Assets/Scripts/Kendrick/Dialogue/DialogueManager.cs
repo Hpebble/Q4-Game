@@ -67,9 +67,9 @@ public class DialogueManager : MonoBehaviour
             if(currentDialogue.nextDialogue != null)
             {
                 //Run button code when dialogue ends
-                if(currentDialogue.button != null)
+                if(currentDialogue.endButton != null)
                 {
-                    currentDialogue.button.onClick.Invoke();
+                    currentDialogue.endButton.onClick.Invoke();
                 }
                 StartDialogue(currentDialogue.nextDialogue.dialogue);
                 return;
@@ -112,9 +112,9 @@ public class DialogueManager : MonoBehaviour
         if (DialogueEnded == false)
         {
             //Run button code when dialogue ends
-            if (currentDialogue.button != null)
+            if (currentDialogue.endButton != null)
             {
-                currentDialogue.button.onClick.Invoke();
+                currentDialogue.endButton.onClick.Invoke();
             }
             if (currentDialogue.camLocation != null)
             {

@@ -12,7 +12,7 @@ public class Dialogue
     public GameObject camLocation;
     public DialogueTrigger nextDialogue;
     public Button enterButton;
-    public Button button;
+    public Button endButton;
     public enum CameraType { Knight, OS};
     public CameraType camType;
     [TextArea(3, 10)]
