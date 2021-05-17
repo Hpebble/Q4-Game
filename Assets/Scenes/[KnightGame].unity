@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -5412,7 +5412,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &252402307
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9874,7 +9874,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 999
   m_TargetDisplay: 0
 --- !u!114 &553000109
 MonoBehaviour:
@@ -11104,7 +11104,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &690671932
 Transform:
   m_ObjectHideFlags: 0
@@ -14925,6 +14925,14 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 3251d1865ab41a64080b468c7b87d696, type: 3}
     volume: 0.238
     pitch: 1
+    fadeSpeed: 0
+    loop: 0
+    fadeIn: 0
+    source: {fileID: 0}
+  - name: DiaBlip
+    clip: {fileID: 8300000, guid: 3f033c7944ce5364d857c283da08fc74, type: 3}
+    volume: 0.013
+    pitch: 0.73
     fadeSpeed: 0
     loop: 0
     fadeIn: 0
@@ -19180,7 +19188,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 69, y: 188}
+  m_AnchoredPosition: {x: -45, y: 85}
   m_SizeDelta: {x: 803.176, y: 487.872}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!111 &985734798
@@ -20627,7 +20635,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1068675171
 Transform:
   m_ObjectHideFlags: 0
@@ -77667,7 +77675,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1780624892
 Transform:
   m_ObjectHideFlags: 0
@@ -77696,7 +77704,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startOnAwake: 1
-  destroyOnTrigger: 0
+  destroyOnTrigger: 1
   dialogue:
     name: You
     typingSpeed: 0.6
@@ -82456,7 +82464,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 100
+  m_SortingOrder: 999
   m_TargetDisplay: 0
 --- !u!114 &2104384027
 MonoBehaviour:

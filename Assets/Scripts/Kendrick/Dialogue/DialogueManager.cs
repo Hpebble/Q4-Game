@@ -102,6 +102,7 @@ public class DialogueManager : MonoBehaviour
         foreach (char letter in sentence.ToCharArray())
         {
             yield return new WaitForSeconds(typingSpeed * Time.deltaTime);
+            AudioManager.instance.PlayOneshot("DiaBlip",0.65f,0.65f);
             dialogueText.text += letter;
             yield return null;
         }

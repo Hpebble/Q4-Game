@@ -131,6 +131,7 @@ public class GameManager : MonoBehaviour
             //anim.gameObject.SetActive(false);
             Knight.instance.gameObject.SetActive(false);
             inKnightGame = false;
+            anim.SetBool("Fading",false);
             anim.SetTrigger("FadeOut");
             anim.SetTrigger("LeaveGame");
         }
