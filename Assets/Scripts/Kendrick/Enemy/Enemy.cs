@@ -20,6 +20,8 @@ public class Enemy : MonoBehaviour
     protected Collider2D col;
     protected AudioSource audioSource;
     public LayerMask groundLayer;
+
+    public GameObject deathParticle;
     protected virtual void Start()
     {
         audioSource = this.GetComponent<AudioSource>();
@@ -88,6 +90,7 @@ public class Enemy : MonoBehaviour
         {
             if (!dead)
             {
+                Instantiate(deathParticle, this.transform.position, Quaternion.identity);
                 dead = true;
                 StartCoroutine(Die());
             }

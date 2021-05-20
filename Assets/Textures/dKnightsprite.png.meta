@@ -1,0 +1,752 @@
+fileFormatVersion: 2
+guid: e5a3a9e04d5ab9f4993a2bb48119c82f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8965712158304494187
+    second: dKnightsprite_0
+  - first:
+      213: -4492766924579518608
+    second: dKnightsprite_1
+  - first:
+      213: -6123008643305397617
+    second: dKnightsprite_2
+  - first:
+      213: -2341930162820851151
+    second: dKnightsprite_3
+  - first:
+      213: -7740504638485030642
+    second: dKnightsprite_4
+  - first:
+      213: 2129434389256825644
+    second: dKnightsprite_5
+  - first:
+      213: -8758492492469041110
+    second: dKnightsprite_6
+  - first:
+      213: 5308999014806235037
+    second: dKnightsprite_7
+  - first:
+      213: 4295254867667030079
+    second: dKnightsprite_8
+  - first:
+      213: 2860485218972151791
+    second: dKnightsprite_9
+  - first:
+      213: -131728688500681567
+    second: dKnightsprite_10
+  - first:
+      213: -3333429445352709595
+    second: dKnightsprite_11
+  - first:
+      213: -985142692418008607
+    second: dKnightsprite_12
+  - first:
+      213: 9134841389517337908
+    second: dKnightsprite_13
+  - first:
+      213: 1334588833973180896
+    second: dKnightsprite_14
+  - first:
+      213: -1858357505066869667
+    second: dKnightsprite_15
+  - first:
+      213: -963827969446434968
+    second: dKnightsprite_16
+  - first:
+      213: -1870312412342257233
+    second: dKnightsprite_17
+  - first:
+      213: -91058719295227866
+    second: dKnightsprite_18
+  - first:
+      213: -3205190977848139354
+    second: dKnightsprite_19
+  - first:
+      213: -1478909386596880456
+    second: dKnightsprite_20
+  - first:
+      213: -8134013082239379508
+    second: dKnightsprite_21
+  - first:
+      213: 2904839123718099574
+    second: dKnightsprite_22
+  - first:
+      213: 5877099792795906689
+    second: dKnightsprite_23
+  - first:
+      213: -5284231191379304137
+    second: dKnightsprite_24
+  - first:
+      213: -3582446277321994876
+    second: dKnightsprite_25
+  - first:
+      213: 6611872578486904768
+    second: dKnightsprite_26
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: dKnightsprite_0
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 1062
+        width: 260
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b62e322a4bb9c6c70800000000000000
+      internalID: 8965712158304494187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dKnightsprite_1
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 1049
+        width: 229
+        height: 284
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07740d9294c76a1c0800000000000000
+      internalID: -4492766924579518608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dKnightsprite_2
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 1049
+        width: 414
+        height: 284
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f82a22b7414b60ba0800000000000000
+      internalID: -6123008643305397617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dKnightsprite_3
+      rect:
+        serializedVersion: 2
+        x: 1268
+        y: 1049
+        width: 540
+        height: 284
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13a5a4ccceacf7fd0800000000000000
+      internalID: -2341930162820851151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dKnightsprite_4
+      rect:
+        serializedVersion: 2
+        x: 1804
+        y: 1161
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0916d0da04349490800000000000000
+      internalID: -7740504638485030642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dKnightsprite_5
+      rect:
+        serializedVersion: 2
+        x: 1881
+        y: 1048
+        width: 553
+        height: 285
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2b67287b454d8d10800000000000000
+      internalID: 2129434389256825644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dKnightsprite_6
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 541
+        width: 284
+        height: 372
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a28057a8b75937680800000000000000
+      internalID: -8758492492469041110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dKnightsprite_7
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 541
+        width: 268
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d97ac66c97a5da940800000000000000
+      internalID: 5308999014806235037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dKnightsprite_8
+      rect:
+        serializedVersion: 2
+        x: 687
+        y: 535
+        width: 268
+        height: 407
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f309f0f7b8fcb9b30800000000000000
+      internalID: 4295254867667030079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dKnightsprite_9
+      rect:
+        serializedVersion: 2
+        x: 1025
+        y: 534
+        width: 249
+        height: 432
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fef2712b62c72b720800000000000000
+      internalID: 2860485218972151791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dKnightsprite_10
+      rect:
+        serializedVersion: 2
+        x: 1416
+        y: 549
+        width: 245
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a4503ba4710c2ef0800000000000000
+      internalID: -131728688500681567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dKnightsprite_11
+      rect:
+        serializedVersion: 2
+        x: 2296
+        y: 757
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 522ace9a4974db1d0800000000000000
+      internalID: -3333429445352709595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dKnightsprite_12
+      rect:
+        serializedVersion: 2
+        x: 2335
+        y: 725
+        width: 146
+        height: 175
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e94a55d0f11452f0800000000000000
+      internalID: -985142692418008607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dKnightsprite_13
+      rect:
+        serializedVersion: 2
+        x: 761
+        y: 88
+        width: 334
+        height: 392
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43577b568d975ce70800000000000000
+      internalID: 9134841389517337908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dKnightsprite_14
+      rect:
+        serializedVersion: 2
+        x: 1305
+        y: 87
+        width: 415
+        height: 401
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e99c2a3979658210800000000000000
+      internalID: 1334588833973180896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dKnightsprite_15
+      rect:
+        serializedVersion: 2
+        x: 1330
+        y: 474
+        width: 34
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5cdec4f1b9c536e0800000000000000
+      internalID: -1858357505066869667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dKnightsprite_16
+      rect:
+        serializedVersion: 2
+        x: 1851
+        y: 49
+        width: 456
+        height: 499
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8672f80819bcf92f0800000000000000
+      internalID: -963827969446434968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dKnightsprite_17
+      rect:
+        serializedVersion: 2
+        x: 2309
+        y: 462
+        width: 28
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa9f55335c05b06e0800000000000000
+      internalID: -1870312412342257233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dKnightsprite_18
+      rect:
+        serializedVersion: 2
+        x: 2430
+        y: 63
+        width: 372
+        height: 425
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 628b4b6c39e7cbef0800000000000000
+      internalID: -91058719295227866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dKnightsprite_19
+      rect:
+        serializedVersion: 2
+        x: 2288
+        y: 416
+        width: 46
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a1231899cfd483d0800000000000000
+      internalID: -3205190977848139354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dKnightsprite_20
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 80
+        width: 425
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bfe6ec9fbbd97be0800000000000000
+      internalID: -1478909386596880456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dKnightsprite_21
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 175
+        width: 41
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc7ddb2923e2e1f80800000000000000
+      internalID: -8134013082239379508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dKnightsprite_22
+      rect:
+        serializedVersion: 2
+        x: 1624
+        y: 254
+        width: 118
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 672dfd2eacf005820800000000000000
+      internalID: 2904839123718099574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dKnightsprite_23
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 171
+        width: 22
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1823f139f17af8150800000000000000
+      internalID: 5877099792795906689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dKnightsprite_24
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 125
+        width: 27
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7312cce7ab3aaa6b0800000000000000
+      internalID: -5284231191379304137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dKnightsprite_25
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 100
+        width: 71
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48d4d456718984ec0800000000000000
+      internalID: -3582446277321994876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dKnightsprite_26
+      rect:
+        serializedVersion: 2
+        x: 1480
+        y: 81
+        width: 58
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c7abd4341712cb50800000000000000
+      internalID: 6611872578486904768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 75023b169808a444badb55f8ac61c0eb
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

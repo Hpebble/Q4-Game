@@ -386,6 +386,8 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 257
+  deathParticle: {fileID: 2183627638673521381, guid: 603adaff27042f94586ce23a3f27efb7,
+    type: 3}
   currentState: 0
   staggerCD: 0
   inturruptWhendamaged: 0
