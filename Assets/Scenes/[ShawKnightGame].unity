@@ -5237,6 +5237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startOnAwake: 1
+  destroyOnTrigger: 0
   dialogue:
     name: You
     typingSpeed: 0.6
@@ -5244,7 +5245,7 @@ MonoBehaviour:
     camLocation: {fileID: 0}
     nextDialogue: {fileID: 0}
     enterButton: {fileID: 0}
-    button: {fileID: 355374217}
+    endButton: {fileID: 0}
     camType: 0
     sentences:
     - ...
@@ -6075,6 +6076,81 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 1
   m_TargetDisplay: 0
+--- !u!1001 &423736419
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 788005541}
+    m_Modifications:
+    - target: {fileID: 4410394883416077544, guid: bd1a8b73d2e25fb4494947c76835aac5,
+        type: 3}
+      propertyPath: m_Name
+      value: EnemyFlying
+      objectReference: {fileID: 0}
+    - target: {fileID: 4410394883416077545, guid: bd1a8b73d2e25fb4494947c76835aac5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -174.56999
+      objectReference: {fileID: 0}
+    - target: {fileID: 4410394883416077545, guid: bd1a8b73d2e25fb4494947c76835aac5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -23.289999
+      objectReference: {fileID: 0}
+    - target: {fileID: 4410394883416077545, guid: bd1a8b73d2e25fb4494947c76835aac5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4410394883416077545, guid: bd1a8b73d2e25fb4494947c76835aac5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4410394883416077545, guid: bd1a8b73d2e25fb4494947c76835aac5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4410394883416077545, guid: bd1a8b73d2e25fb4494947c76835aac5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4410394883416077545, guid: bd1a8b73d2e25fb4494947c76835aac5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4410394883416077545, guid: bd1a8b73d2e25fb4494947c76835aac5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4410394883416077545, guid: bd1a8b73d2e25fb4494947c76835aac5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4410394883416077545, guid: bd1a8b73d2e25fb4494947c76835aac5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4410394883416077545, guid: bd1a8b73d2e25fb4494947c76835aac5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4410394883416077546, guid: bd1a8b73d2e25fb4494947c76835aac5,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 5797024392090748408, guid: e5cbd269f9397be4f89c9909c64e9eb6,
+        type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bd1a8b73d2e25fb4494947c76835aac5, type: 3}
 --- !u!4 &425977478 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4902735243112228030, guid: 590bd32593f400348a94bc1bb241a4c2,
@@ -12382,6 +12458,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 999542232}
+  - {fileID: 1887404198}
   - {fileID: 364433179}
   - {fileID: 1283772382}
   m_Father: {fileID: 1448616107}
@@ -13604,6 +13681,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startOnAwake: 0
+  destroyOnTrigger: 0
   dialogue:
     name: Devs
     typingSpeed: 0.5
@@ -13611,7 +13689,7 @@ MonoBehaviour:
     camLocation: {fileID: 0}
     nextDialogue: {fileID: 0}
     enterButton: {fileID: 0}
-    button: {fileID: 0}
+    endButton: {fileID: 0}
     camType: 0
     sentences:
     - xd
@@ -13871,6 +13949,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startOnAwake: 0
+  destroyOnTrigger: 0
   dialogue:
     name: You
     typingSpeed: 0.6
@@ -13878,7 +13957,7 @@ MonoBehaviour:
     camLocation: {fileID: 1904315885}
     nextDialogue: {fileID: 0}
     enterButton: {fileID: 0}
-    button: {fileID: 0}
+    endButton: {fileID: 0}
     camType: 1
     sentences:
     - What the?
@@ -18206,6 +18285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startOnAwake: 0
+  destroyOnTrigger: 0
   dialogue:
     name: Dev2
     typingSpeed: 0.9
@@ -18213,7 +18293,7 @@ MonoBehaviour:
     camLocation: {fileID: 972200707}
     nextDialogue: {fileID: 0}
     enterButton: {fileID: 0}
-    button: {fileID: 0}
+    endButton: {fileID: 0}
     camType: 0
     sentences:
     - See these enemies?
@@ -69779,7 +69859,7 @@ Transform:
   - {fileID: 705728713}
   - {fileID: 2114313336}
   m_Father: {fileID: 788005541}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1283772383
 MonoBehaviour:
@@ -69804,6 +69884,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 257
+  deathParticle: {fileID: 0}
   currentState: 0
   staggerCD: 0
   inturruptWhendamaged: 0
@@ -75205,7 +75286,7 @@ PrefabInstance:
     - target: {fileID: 5296200181541846592, guid: ccbe2894b1d33024fab9d36c286b779b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5296200181541846592, guid: ccbe2894b1d33024fab9d36c286b779b,
         type: 3}
@@ -77533,6 +77614,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startOnAwake: 1
+  destroyOnTrigger: 0
   dialogue:
     name: Devs
     typingSpeed: 0.9
@@ -77540,7 +77622,7 @@ MonoBehaviour:
     camLocation: {fileID: 1725895860}
     nextDialogue: {fileID: 972200709}
     enterButton: {fileID: 0}
-    button: {fileID: 1725895862}
+    endButton: {fileID: 0}
     camType: 0
     sentences:
     - 'Welcome to the test demo of Bitknight!
@@ -79079,6 +79161,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1870710188}
   m_CullTransparentMesh: 1
+--- !u!4 &1887404198 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4410394883416077545, guid: bd1a8b73d2e25fb4494947c76835aac5,
+    type: 3}
+  m_PrefabInstance: {fileID: 423736419}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1888801983 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4902735243112228030, guid: 590bd32593f400348a94bc1bb241a4c2,
