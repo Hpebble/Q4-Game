@@ -12,6 +12,7 @@ TagManager:
   - PlayerHurtbox
   - Platform
   - MovingPlatform
+  - frontTREE
   layers:
   - Default
   - TransparentFX
@@ -24,6 +25,7 @@ TagManager:
   - Ground
   - Player
   - Hurtbox
+  - FrontTree
   - Enemy
   - PostProcessingVolume
   - EnemyCollision
@@ -31,7 +33,6 @@ TagManager:
   - EdgeCol
   - OSUI
   - Fade
-  - 
   - 
   - 
   - 

@@ -16,6 +16,6 @@ public class followPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bg.transform.position = Knight.position + offset;
+        bg.transform.position = new Vector3 (Knight.position.x, bg.position.y, Knight.position.z);
     }
 }

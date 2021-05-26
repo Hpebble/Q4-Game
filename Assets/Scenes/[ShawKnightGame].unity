@@ -6088,6 +6088,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyFlying
       objectReference: {fileID: 0}
+    - target: {fileID: 4410394883416077544, guid: bd1a8b73d2e25fb4494947c76835aac5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4410394883416077545, guid: bd1a8b73d2e25fb4494947c76835aac5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6147,7 +6152,17 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 5797024392090748408, guid: e5cbd269f9397be4f89c9909c64e9eb6,
+      objectReference: {fileID: 1941201722}
+    - target: {fileID: 4410394883416077546, guid: bd1a8b73d2e25fb4494947c76835aac5,
+        type: 3}
+      propertyPath: AttackSpeed
+      value: 1.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 4410394883416077547, guid: bd1a8b73d2e25fb4494947c76835aac5,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6978ebb249adb5346a1f555495fef27b,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd1a8b73d2e25fb4494947c76835aac5, type: 3}
@@ -8648,7 +8663,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -0.1038208, y: 0.115436554}
   m_SizeDelta: {x: 0, y: 41}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -21074,7 +21089,149 @@ CompositeCollider2D:
   m_GeometryType: 1
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths: []
+  m_ColliderPaths:
+  - m_Collider: {fileID: 1204568249}
+    m_ColliderPaths:
+    - - X: -560000000
+        Y: -230000000
+      - X: -470000000
+        Y: -230000000
+      - X: -470000000
+        Y: 0
+      - X: -1090000000
+        Y: 0
+      - X: -1090000000
+        Y: 20000000
+      - X: -1310000000
+        Y: 20000000
+      - X: -1310000000
+        Y: 170000000
+      - X: -1450000000
+        Y: 170000000
+      - X: -1450000000
+        Y: 190000000
+      - X: -1780000000
+        Y: 190000000
+      - X: -1780000000
+        Y: -30000000
+      - X: -2020000000
+        Y: -30000000
+      - X: -2020000000
+        Y: -60000000
+      - X: -2100000000
+        Y: -60000000
+      - X: -2100000000
+        Y: -310000000
+      - X: -1940000000
+        Y: -310000000
+      - X: -1940000000
+        Y: -410000000
+      - X: -1390000000
+        Y: -410000000
+      - X: -1390000000
+        Y: -420000000
+      - X: -560000000
+        Y: -420000000
+    - - X: -1760000000
+        Y: -270000000
+      - X: -1760000000
+        Y: -220000000
+      - X: -2000000000
+        Y: -220000000
+      - X: -2000000000
+        Y: -150000000
+      - X: -1790000000
+        Y: -150000000
+      - X: -1790000000
+        Y: -120000000
+      - X: -1690000000
+        Y: -120000000
+      - X: -1690000000
+        Y: -130000000
+      - X: -1680000000
+        Y: -130000000
+      - X: -1680000000
+        Y: -70000000
+      - X: -1600000000
+        Y: -70000000
+      - X: -1600000000
+        Y: -130000000
+      - X: -1590000000
+        Y: -130000000
+      - X: -1590000000
+        Y: -120000000
+      - X: -1530000000
+        Y: -120000000
+      - X: -1530000000
+        Y: 20000000
+      - X: -1540000000
+        Y: 20000000
+      - X: -1540000000
+        Y: 70000000
+      - X: -1470000000
+        Y: 70000000
+      - X: -1470000000
+        Y: 20000000
+      - X: -1480000000
+        Y: 20000000
+      - X: -1480000000
+        Y: -190000000
+      - X: -1380000000
+        Y: -190000000
+      - X: -1380000000
+        Y: -180000000
+      - X: -1400000000
+        Y: -180000000
+      - X: -1400000000
+        Y: -80000000
+      - X: -640000000
+        Y: -80000000
+      - X: -640000000
+        Y: -170000000
+      - X: -830000000
+        Y: -170000000
+      - X: -830000000
+        Y: -270000000
+      - X: -1280000000
+        Y: -270000000
+      - X: -1280000000
+        Y: -170000000
+      - X: -1320000000
+        Y: -170000000
+      - X: -1320000000
+        Y: -220000000
+      - X: -1350000000
+        Y: -220000000
+      - X: -1350000000
+        Y: -230000000
+      - X: -1320000000
+        Y: -230000000
+      - X: -1320000000
+        Y: -270000000
+      - X: -1400000000
+        Y: -270000000
+      - X: -1400000000
+        Y: -250000000
+      - X: -1480000000
+        Y: -250000000
+      - X: -1480000000
+        Y: -270000000
+      - X: -1630000000
+        Y: -270000000
+      - X: -1630000000
+        Y: -250000000
+      - X: -1650000000
+        Y: -250000000
+      - X: -1650000000
+        Y: -270000000
+    - - X: -1630000000
+        Y: -200000000
+      - X: -1650000000
+        Y: -200000000
+      - X: -1650000000
+        Y: -210000000
+      - X: -1630000000
+        Y: -210000000
   m_CompositePaths:
     m_Paths:
     - - {x: -56.000034, y: -42}
@@ -72878,7 +73035,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -0.1038208, y: 0.115436554}
   m_SizeDelta: {x: 0, y: 41}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -77987,6 +78144,31 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1747298545 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4410394883416077544, guid: bd1a8b73d2e25fb4494947c76835aac5,
+    type: 3}
+  m_PrefabInstance: {fileID: 423736419}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1747298550
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1747298545}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c1850e5609115364db85142f00191df4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1751526152
 GameObject:
   m_ObjectHideFlags: 0
@@ -79765,6 +79947,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1935174514}
   m_CullTransparentMesh: 0
+--- !u!1 &1941201722 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5797024392090748408, guid: e5cbd269f9397be4f89c9909c64e9eb6,
+    type: 3}
+  m_PrefabInstance: {fileID: 2017040261}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1944236270
 GameObject:
   m_ObjectHideFlags: 0
@@ -79858,7 +80046,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1944330019
 Transform:
   m_ObjectHideFlags: 0
