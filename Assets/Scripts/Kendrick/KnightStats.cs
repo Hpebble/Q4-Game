@@ -50,7 +50,8 @@ public class KnightStats : MonoBehaviour
             CheckIfDead();
             LimitStats();
             UpdateUI();
-            GameManager.instance.currentBits = bitCount; ;
+            bitCount = GameManager.instance.currentBits;
+            //GameManager.instance.currentBits = bitCount; ;
         }
         else
         {

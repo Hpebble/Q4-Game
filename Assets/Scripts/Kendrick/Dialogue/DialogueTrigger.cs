@@ -16,9 +16,6 @@ public class DialogueTrigger : MonoBehaviour
             TriggerDialogue();
         }
     }
-    private void OnEnable()
-    {
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player" && Enter == false)

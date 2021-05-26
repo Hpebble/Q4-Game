@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Intro.unity
     guid: ac9bd2f22304ad94ea2fae5e0c285256
   - enabled: 1
-    path: Assets/Scenes/[KnightGame].unity
-    guid: 60c16e0c6b4b7f349a1301b78e1c56cc
+    path: Assets/Scenes/GAME/[KnightGame].unity
+    guid: ee01241b1b2a36741a249448460bf961
   - enabled: 1
     path: Assets/Scenes/Managers.unity
     guid: 22bfd8804bdc7154a87daf2c99bf765d

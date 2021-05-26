@@ -86,6 +86,7 @@ public class DialogueManager : MonoBehaviour
     public void SkipTyping()
     {
         StopAllCoroutines();
+        AudioManager.instance.PlayOneshot("DiaBlip", 0.65f, 0.65f);
         dialogueText.text = currentSentence;
     }
     public bool CheckIfDoneTyping()
@@ -118,7 +119,7 @@ public class DialogueManager : MonoBehaviour
                 currentDialogue.endButton.onClick.Invoke();
             }
             if (currentDialogue.camLocation != null)
-            {
+            {//
                 if (currentDialogue.camType == Dialogue.CameraType.Knight)
                 {
                     knightCam.camZoom = knightCam.defaultZoom;

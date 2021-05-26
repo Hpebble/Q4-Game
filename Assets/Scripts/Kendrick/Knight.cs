@@ -74,8 +74,8 @@ public class Knight : MonoBehaviour
             this.gameObject.SetActive(false);
         }
         edgeCol = this.gameObject.GetComponentInChildren<EdgeCollider2D>();
-        knightCam.transform.position = this.transform.position;
-        knightCam.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, -12);
+        //knightCam.transform.position = this.transform.position;
+        //knightCam.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, -12);
         GameObject gm = GameObject.Find("GameManager");
         if (gm == null)
         {

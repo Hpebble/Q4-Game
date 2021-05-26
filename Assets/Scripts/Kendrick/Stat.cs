@@ -12,4 +12,8 @@ public class Stat
     {
         return baseValue;
     }
+    public void IncreaseValue(float value)
+    {
+        baseValue += value;
+    }
 }

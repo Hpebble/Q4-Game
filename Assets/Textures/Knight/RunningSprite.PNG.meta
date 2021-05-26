@@ -1,0 +1,557 @@
+fileFormatVersion: 2
+guid: 212a2cfa295052743810321d266bdddf
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8948697089992886035
+    second: RunningSprite_0
+  - first:
+      213: 8452187544840594816
+    second: RunningSprite_1
+  - first:
+      213: 5373873933684608488
+    second: RunningSprite_2
+  - first:
+      213: 5029221807865266864
+    second: RunningSprite_3
+  - first:
+      213: 8997007262434519480
+    second: RunningSprite_4
+  - first:
+      213: 4671025860418309161
+    second: RunningSprite_5
+  - first:
+      213: 2117946135991678662
+    second: RunningSprite_6
+  - first:
+      213: -7532014228633511831
+    second: RunningSprite_7
+  - first:
+      213: 8477012998285723979
+    second: RunningSprite_8
+  - first:
+      213: -5197379918401299422
+    second: RunningSprite_9
+  - first:
+      213: -8333996543863059569
+    second: RunningSprite_10
+  - first:
+      213: -3244068845905096930
+    second: RunningSprite_11
+  - first:
+      213: -1811978118046391706
+    second: RunningSprite_12
+  - first:
+      213: -4731621027755486005
+    second: RunningSprite_13
+  - first:
+      213: -3598311739779163370
+    second: RunningSprite_14
+  - first:
+      213: 8921237107774060693
+    second: RunningSprite_15
+  - first:
+      213: 2779836735344756022
+    second: RunningSprite_16
+  - first:
+      213: -2077086611851337376
+    second: RunningSprite_17
+  - first:
+      213: -142747684614356075
+    second: RunningSprite_0
+  - first:
+      213: 4087976130503570602
+    second: RunningSprite_1
+  - first:
+      213: -1983604330940294460
+    second: RunningSprite_2
+  - first:
+      213: -7691422969589486228
+    second: RunningSprite_3
+  - first:
+      213: -3559201618313494256
+    second: RunningSprite_4
+  - first:
+      213: 5658226379142573568
+    second: RunningSprite_5
+  - first:
+      213: 8746435376333229427
+    second: RunningSprite_6
+  - first:
+      213: -1581097619710440815
+    second: RunningSprite_7
+  - first:
+      213: 8547328789402083337
+    second: RunningSprite_8
+  - first:
+      213: 1299297654085564311
+    second: RunningSprite_9
+  - first:
+      213: -1452977399731511959
+    second: RunningSprite_10
+  - first:
+      213: -3630515589197795460
+    second: RunningSprite_11
+  - first:
+      213: 3337606863636818997
+    second: RunningSprite_12
+  - first:
+      213: 7647083041239213278
+    second: RunningSprite_13
+  - first:
+      213: -7021265784461901298
+    second: RunningSprite_14
+  - first:
+      213: -4885235227548957385
+    second: RunningSprite_15
+  - first:
+      213: -2637452675495398001
+    second: RunningSprite_16
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 50
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: RunningSprite_0
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 0
+        width: 283
+        height: 388
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5934d06bcbbd40ef0800000000000000
+      internalID: -142747684614356075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RunningSprite_1
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 0
+        width: 263
+        height: 392
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa4f0f4b1a86bb830800000000000000
+      internalID: 4087976130503570602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RunningSprite_2
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 0
+        width: 263
+        height: 409
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ca906fde52d874e0800000000000000
+      internalID: -1983604330940294460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RunningSprite_3
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 0
+        width: 264
+        height: 418
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6da6506f83924590800000000000000
+      internalID: -7691422969589486228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RunningSprite_4
+      rect:
+        serializedVersion: 2
+        x: 1112
+        y: 0
+        width: 265
+        height: 423
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 011cd605cfc2b9ec0800000000000000
+      internalID: -3559201618313494256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RunningSprite_5
+      rect:
+        serializedVersion: 2
+        x: 1379
+        y: 0
+        width: 257
+        height: 435
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00ea98bc9ee068e40800000000000000
+      internalID: 5658226379142573568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RunningSprite_6
+      rect:
+        serializedVersion: 2
+        x: 1634
+        y: 0
+        width: 249
+        height: 447
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37d804952a4916970800000000000000
+      internalID: 8746435376333229427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RunningSprite_7
+      rect:
+        serializedVersion: 2
+        x: 1880
+        y: 0
+        width: 249
+        height: 435
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19a81f58710de0ae0800000000000000
+      internalID: -1581097619710440815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RunningSprite_8
+      rect:
+        serializedVersion: 2
+        x: 2127
+        y: 0
+        width: 245
+        height: 415
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 900e7ce8f363e9670800000000000000
+      internalID: 8547328789402083337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RunningSprite_9
+      rect:
+        serializedVersion: 2
+        x: 2370
+        y: 0
+        width: 245
+        height: 425
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 797b4491558080210800000000000000
+      internalID: 1299297654085564311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RunningSprite_10
+      rect:
+        serializedVersion: 2
+        x: 2613
+        y: 0
+        width: 255
+        height: 419
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96d155ec0ccf5dbe0800000000000000
+      internalID: -1452977399731511959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RunningSprite_11
+      rect:
+        serializedVersion: 2
+        x: 2868
+        y: 0
+        width: 255
+        height: 405
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7fe8529e41dd9dc0800000000000000
+      internalID: -3630515589197795460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RunningSprite_12
+      rect:
+        serializedVersion: 2
+        x: 3123
+        y: 0
+        width: 254
+        height: 405
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53c6af252cf815e20800000000000000
+      internalID: 3337606863636818997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RunningSprite_13
+      rect:
+        serializedVersion: 2
+        x: 3377
+        y: 0
+        width: 255
+        height: 392
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed42af09285ef1a60800000000000000
+      internalID: 7647083041239213278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RunningSprite_14
+      rect:
+        serializedVersion: 2
+        x: 3632
+        y: 0
+        width: 255
+        height: 386
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e024b8328f37f8e90800000000000000
+      internalID: -7021265784461901298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RunningSprite_15
+      rect:
+        serializedVersion: 2
+        x: 3887
+        y: 0
+        width: 261
+        height: 386
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73548b19178243cb0800000000000000
+      internalID: -4885235227548957385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

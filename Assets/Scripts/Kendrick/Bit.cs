@@ -76,7 +76,7 @@ public class Bit : MonoBehaviour
     IEnumerator DestroyThis()
     {
         yield return new WaitForSeconds(0.06f);
-        Knight.instance.stats.bitCount++;
+        GameManager.instance.currentBits++;
         tr.transform.SetParent(null);
         Destroy(this.gameObject);
     }
